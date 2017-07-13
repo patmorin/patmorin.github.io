@@ -23,8 +23,9 @@ div.proof:before {
     font-style: italic;
 }
 
-div.proof.after {
-  content: "akjdflkdjafk∎";
+div.proof:after {
+  content: "∎";
+  align: right;
 }
 
 div.proof {

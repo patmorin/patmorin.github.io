@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Problems</h1>
+
+  <ul class="post-list">
+    {% for page in site.pages %}
+      <li>
+        <span class="post-meta">{{ page.date | date: "%b %-d, %Y" }}</span>
+          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+
+      </li>
+    {% endfor %}
+  </ul>
+  {% for tag in site.tags %}
+    <span>1{{ tag }}</span>
+  {% endfor %}
+
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+
+</div>

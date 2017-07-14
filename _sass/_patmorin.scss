@@ -1,3 +1,11 @@
+html, body {  /* for full-height background */
+    font: 14pt/22pt "Vollkorn";
+    height: 100%;
+    margin: 0;
+    margin-bottom: 3em;
+    padding: 0;
+}
+
 div.problem:before {
     content: "Problem:";
     font-weight: bold;
@@ -30,4 +38,8 @@ div.proof.after {
 div.proof {
    margin-top: 1ex;
    margin-bottom: 1ex;
+}
+
+div.post-content {
+  text-align: justify;
 }

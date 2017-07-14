@@ -21,11 +21,15 @@
           tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
                     displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
                     processEscapes: true },
-          "HTML-CSS": {availableFonts: ["TeX"]}
-
-          /*"HTML-CSS": { prererredFont: "STIX-Web",
-                        linebreaks: { automatic: true } */
-
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
       });
     </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
 </head>

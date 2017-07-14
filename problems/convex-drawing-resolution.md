@@ -5,7 +5,7 @@ date:   2017-07-13 09:32:53 -0400
 permalink: convex-drawing-resolution.html
 categories: openproblem
 ---
-$\DeclareMathOperator{\deg}{deg}$(Tutte's Theorem states that every internally 3-connected planar graph has a convex drawing and that we can even pick the outer face and the convex polygon that it maps to.
+$\DeclareMathOperator{\deg}{deg}$Tutte's Theorem states that every internally 3-connected planar graph has a convex drawing and that we can even pick the outer face and the convex polygon that it maps to.
 
 <div class="problem">
   What is the smallest value of $N$ such that every $n$-vertex internally 3-connected planar graph has a convex drawing with its vertices on the $N\times N$ grid?

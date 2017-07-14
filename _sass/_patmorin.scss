@@ -1,0 +1,33 @@
+div.problem:before {
+    content: "Problem:";
+    font-weight: bold;
+}
+
+div.problem {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+div.lemma:before {
+    content: "Lemma:";
+    font-weight: bold;
+}
+
+div.lemma {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+div.proof:before {
+    content: "Proof:";
+    font-style: italic;
+}
+
+div.proof.after {
+  content: "akjdflkdjafk∎";
+}
+
+div.proof {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}

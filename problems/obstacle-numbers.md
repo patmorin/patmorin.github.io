@@ -1,14 +1,24 @@
 ---
 layout: post
-title:  "Obstacle Numbers of Planar Graphs"
+title:  "Obstacle Numbers"
 date:   2017-07-13 09:32:53 -0400
 permalink: obstacle-numbers.html
 categories: openproblem
 ---
 $\DeclareMathOperator{\obs}{obs}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\cupdotop}{\dot{\cup}}$For a set $P\subset \R^2$ of points and a set $R$ of connected subsets of $\R^2$, the visibility graph $V_R(P)$ of $P$ with respect to $R$ is the graph $G=(P,E)$ in which an edge $uw$ is in $E$ if and only the segment with endpoints $u$ and $w$ is disjoint from every element in $R$.  We say that $(P,R)$ is an *obstacle representation* of $G$.  The *obstacle number*, $\obs(G)$ of a graph $G$ is the minimum number of obstacles in any obstacle representation of a graph isomorphic to $G$.
 
-It is known that there are $n$-vertex graphs with obstacle number $\Omega(n/(\log\log n)^2)$ (see [Dujmović and Morin][dujmovic-morin]) and that every $n$-vertex graph has obstacle number $O(n\log n)$ (see [Balko, Cibulka, and Valtr][balko-cibulka-valtr]).
+<div class="problem">
+  What is the maximum obstacle number of an $n$-vertex graph?
+</div>
 
+It is known that there are $n$-vertex graphs with obstacle number $\Omega(n/(\log\log n)^2)$ (see [Dujmović and Morin][dujmovic-morin]) and that every $n$-vertex graph has obstacle number $O(n\log n)$ (see [Balko, Cibulka, and Valtr][balko-cibulka-valtr]).
+The lower bound is non-constructive; it shows that a random graph has high obstacle number with high probability.
+
+<div class="problem">
+  Give an explicit construction of a graph with large obstacle number.
+</div>
+
+## Planar Graphs
 Less is known about obstacle numbers of planar graphs:
 
 <div class="problem">
@@ -19,7 +29,8 @@ A lower bound of 2 was recently shown by [Berman et al][berman-etal], who showed
 
 An *outside obstacle* in an obstacle representation $(P,R)$ is an obstacle that is not bounded by visibility edges, i.e, there is a path from the obstacle to infinity that does not intersect any edge of $V_R(P)$. An *outside obstacle representation* of $G$ is an obstacle representation of $G$ that has an outside obstacle.  The *outside obstacle number* of $G$ is the minimum number of obstacles in any outside obstacle representation of $G$.
 
-Here's a lemma that might help (it's an easy generalization of Lemma 4.1
+## A Lemma
+Here's a lemma that might help that might be helpful for solving these kinds of problems. (It's an easy generalization of Lemma 4.1
 in [Berman etal's paper][berman-etal]).
 
 <div class="lemma">

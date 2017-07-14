@@ -6,21 +6,20 @@ html, body {  /* for full-height background */
     padding: 0;
 }
 
-h1 {
+h1.post-title {
   font-family: "Montserrat", serif;
   font-size: 16pt;
 }
 
-h2 {
-  padding-top: 1ex;
-  padding-bottom: .5ex;
-  font-family: "Montserrat", serif;
+.post-content h2 {
   font-size: 14pt;
+  padding-top: 1.5ex;
+  font-family: "Montserrat", serif;
 }
 
 h3 {
   font-family: "Montserrat", serif;
-  font-size: 12pt;
+  font-size: 10pt;
 }
 
 div.problem:before {

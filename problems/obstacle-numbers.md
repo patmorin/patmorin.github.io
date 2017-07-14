@@ -20,6 +20,9 @@ The lower bound is non-constructive; it shows that a random graph has high obsta
 
 ## Obstacle Numbers of Product Graphs
 
+The product graph $G_1\times G_2$ of two graphs $G_1$ and $G_2$ is the graph with vertex set $V(G_1)\times V(G_2)$ and that contains an edge joing $(u_1,u_2)$ to $(w_1,w_2)$ if
+$u_1w_1\in E(G_1)$ or $u_2w_2\in E(G_2)$.
+
 <div class="problem">
   If $G_1$ has obstacle number $k$ and $G_2$ has obstacle number $k$, then what can we say about $\obs(G_1\times G_2)$?
 </div>
@@ -33,7 +36,7 @@ Less is known about obstacle numbers of planar graphs:
 
 A lower bound of 2 was recently shown by [Berman et al][berman-etal], who showed that the icosahedron (as well as another planar graph with 10 vertices) has obstacle number 2.  An upper bound of $O(n)$ comes from the fact that a planar drawing of an $n$-vertex planar graph has at most $2n-4$ faces and placing an obstacle inside each face gives an obstacle representation of this graph.  Actually, this bound has been reduced to $n-3$ by [Gimble etal][gimble-etal].  The bound of $n-3$ is tight for planar representations of planar graphs.
 
-[Gimble etal][gimble-etal] also show that if $G$ is bipartite and planar, then $\obs(G)\le 1$.  This makes it plausible that all bipartite
+[Gimble etal][gimble-etal] also show that if $G$ is bipartite and planar, then $\obs(G)\le 1$.  This makes it plausible that planar graphs have bounded obstacle number.
 
 ## Sparse graphs
 

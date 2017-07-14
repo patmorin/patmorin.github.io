@@ -1,9 +1,26 @@
 html, body {  /* for full-height background */
-    font: 14pt/22pt "Vollkorn";
+    font: 14pt/22pt "Vollkorn", serif;
     height: 100%;
     margin: 0;
     margin-bottom: 3em;
     padding: 0;
+}
+
+h1 {
+  font-family: "Montserrat", serif;
+  font-size: 16pt;
+}
+
+h2 {
+  padding-top: 1ex;
+  padding-bottom: .5ex;
+  font-family: "Montserrat", serif;
+  font-size: 14pt;
+}
+
+h3 {
+  font-family: "Montserrat", serif;
+  font-size: 12pt;
 }
 
 div.problem:before {
@@ -31,8 +48,8 @@ div.proof:before {
     font-style: italic;
 }
 
-div.proof.after {
-  content: "akjdflkdjafk∎";
+div.proof:after {
+  content: "∎";
 }
 
 div.proof {

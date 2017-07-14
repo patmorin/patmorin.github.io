@@ -32,6 +32,16 @@ div.problem {
    margin-bottom: 1ex;
 }
 
+div.conjecture:before {
+    content: "Conjecture:";
+    font-weight: bold;
+}
+
+div.conjecture {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
 div.lemma:before {
     content: "Lemma:";
     font-weight: bold;

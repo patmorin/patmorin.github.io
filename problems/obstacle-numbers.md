@@ -24,7 +24,7 @@ The product graph $G_1\times G_2$ of two graphs $G_1$ and $G_2$ is the graph wit
 $u_1w_1\in E(G_1)$ or $u_2w_2\in E(G_2)$.
 
 <div class="problem">
-  If $G_1$ has obstacle number $k$ and $G_2$ has obstacle number $k$, then what can we say about $\obs(G_1\times G_2)$?
+  What can we say about $\obs(G_1\times G_2)$ in terms of $\obs(G_1)$ and $\obs(G_2)$?
 </div>
 
 ## Planar Graphs

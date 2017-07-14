@@ -15,5 +15,7 @@ url: "http://patmorin.github.io" # the base hostname & protocol for your site
 #twitter_username: devnull
 github_username:  patmorin
 
+exclude: [Hyphenate]
+
 # Build settings
 markdown: kramdown

@@ -18,7 +18,7 @@ A *triangle* is an arrangement of circles is a face bouned by three circes. A *d
 For the original problem (about pseudocircles), [Felsner and Scheucher][felsner-scheucher] give examples of simple intersecting digon-free arrangements of $n$ circles having only $16n/11 + o(n)$ triangles.  A lower bound of $4n/3$ due to Hershberger and Snoeyink is probably the right answer:
 
 <div class="problem">
-  Do there exist simple intersecting digon-free arrangments of $n$ pseudocircles with only $\lceil 4n/3\rceil$ triangles for infinitely many values of $n$?
+  Do there exist simple intersecting digon-free arrangments of $n$ pseudocircles with only $4n/3+o(n)$ triangles for infinitely many values of $n$?
 </div>
 
 

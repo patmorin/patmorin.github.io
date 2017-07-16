@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "General Position Subsets"
+date:   2017-07-14
+permalink: no-three-four-on-a-line.html
+categories: openproblem erdos hard
+---
+$\newcommand{\N}{\mathbb{N}}\newcommand{\R}{\mathbb{R}}\newcommand{\S}{\mathcal{S}}$This is a famous open problem, due to Erdős and certainly very hard.
+
+For each $r\in\N$, let $\S\_r$ denote the class of point sets in $\R^2$ with no $r$ points on a line and let
+\\[
+   f(n) = \min_{S\in\S_4}\max_{R\in\S_3}|R\cap S| \enspace .
+\\]
+<div class="problem">
+  Determine the asymptotic behaviour of $f(n)$.
+</div>
+There are several easy proofs that $f(n)\in\Omega(\sqrt{n})$, that is, every $n$ point set with no four points collinear contains a subset of size $\Omega(\sqrt{n})$ in general position.  [Füredi][furedi] upped this bound to $\omega(\sqrt{n\log n})$ and showed a lower bound of $o(n)$.  The best upper bound currently is $O(n/\sqrt{\log^* n})$, which is also in the same paper of Füredi combined with the best version of the Hales-Jewett Theorem.
+
+[furedi]:http://www.math.uiuc.edu/~z-furedi/PUBS/furedi_3-indep-sets-on-plane.pdf

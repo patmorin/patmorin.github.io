@@ -16,4 +16,8 @@ For each $r\in\N$, let $\S\_r$ denote the class of point sets in $\R^2$ with no 
 </div>
 There are several easy proofs that $f(n)\in\Omega(\sqrt{n})$, that is, every $n$ point set with no four points collinear contains a subset of size $\Omega(\sqrt{n})$ in general position.  [Füredi][furedi] upped this bound to $\omega(\sqrt{n\log n})$ and showed a lower bound of $o(n)$.  The best upper bound currently is $O(n/\sqrt{\log^* n})$, which is also in the same paper of Füredi combined with the best version of the Hales-Jewett Theorem.
 
+[Pór and Wood][por-wood]'s expository paper contains many generalizations and open problems.  The recent paper by [Cardinal, Toth, and Wood][cardinal-etal] has some extensions to higher dimensiona.
+
 [furedi]:http://www.math.uiuc.edu/~z-furedi/PUBS/furedi_3-indep-sets-on-plane.pdf
+[cardinal-etal]:https://dx.doi.org/10.1007/s00022-016-0323-5
+[por-wood]:http://dx.doi.org/10.20382/jocg.v1i1a3

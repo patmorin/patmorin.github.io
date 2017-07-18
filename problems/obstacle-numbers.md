@@ -18,6 +18,14 @@ The lower bound is non-constructive; it shows that a random graph has high obsta
   Give an explicit construction of a graph with large obstacle number.
 </div>
 
+## Counting $h$-Obstacle Graphs
+
+<div class="problem">
+  What is the number of graphs with obstacle number $h$?
+<div>
+
+Theorem 1 of [Mukkamala et al][mukkamala-etal] gives an upper bound of $2^O(hn\log^2 n)$.  Theorem 4 in [Balko, Cibulka, and Valtr][balko-cibulka-valtr] gives a lower bound of $2^{\Omega(hn)}$.
+
 ## Obstacle Numbers of Product Graphs
 
 The product graph $G_1\times G_2$ of two graphs $G_1$ and $G_2$ is the graph with vertex set $V(G_1)\times V(G_2)$ and that contains an edge joing $(u_1,u_2)$ to $(w_1,w_2)$ if
@@ -70,3 +78,4 @@ Since the disjoint union of planar graphs is also planar, the preceding lemma re
 [balko-cibulka-valtr]: https://arxiv.org/abs/1610.04741
 [berman-etal]: https://arxiv.org/abs/1606.03782
 [gimble-etal]: https://arxiv.org/abs/1706.06992
+[mukkamala-etal]: http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p32

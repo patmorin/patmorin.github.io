@@ -21,8 +21,8 @@ The lower bound is non-constructive; it shows that a random graph has high obsta
 ## Counting $h$-Obstacle Graphs
 
 <div class="problem">
-  What is the number of graphs with obstacle number $h$?
-<div>
+  What is the number of graphs with obstacle number h??
+</div>
 
 Theorem 1 of [Mukkamala et al][mukkamala-etal] gives an upper bound of $2^O(hn\log^2 n)$.  Theorem 4 in [Balko, Cibulka, and Valtr][balko-cibulka-valtr] gives a lower bound of $2^{\Omega(hn)}$.
 
@@ -36,6 +36,7 @@ $u_1w_1\in E(G_1)$ or $u_2w_2\in E(G_2)$.
 </div>
 
 ## Planar Graphs
+
 Less is known about obstacle numbers of planar graphs:
 
 <div class="problem">
@@ -56,6 +57,7 @@ The known graphs with large obstacle number (namely $G_{n,1/2}$) are dense. If w
 
 
 ## A Lemma
+
 An *outside obstacle* in an obstacle representation $(P,R)$ is an obstacle that is not bounded by visibility edges, i.e, there is a path from the obstacle to infinity that does not intersect any edge of $V_R(P)$. An *outside obstacle representation* of $G$ is an obstacle representation of $G$ that has an outside obstacle.  The *outside obstacle number* of $G$ is the minimum number of obstacles in any outside obstacle representation of $G$.
 
 Here's a lemma that might help that might be helpful for solving these kinds of problems. (It's an easy generalization of Lemma 4.1

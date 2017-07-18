@@ -1,0 +1,71 @@
+html, body {  /* for full-height background */
+    font: 14pt/22pt "Vollkorn", serif;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 3em;
+    padding: 0;
+}
+
+h1.post-title {
+  font-family: "Montserrat", serif;
+  font-size: 16pt;
+}
+
+.post-content h2 {
+  font-size: 14pt;
+  padding-top: 1.5ex;
+  font-family: "Montserrat", serif;
+}
+
+h3 {
+  font-family: "Montserrat", serif;
+  font-size: 10pt;
+}
+
+div.problem:before {
+    content: "Problem:";
+    font-weight: bold;
+}
+
+div.problem {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+div.conjecture:before {
+    content: "Conjecture:";
+    font-weight: bold;
+}
+
+div.conjecture {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+div.lemma:before {
+    content: "Lemma:";
+    font-weight: bold;
+}
+
+div.lemma {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+div.proof:before {
+    content: "Proof:";
+    font-style: italic;
+}
+
+div.proof:after {
+  content: "∎";
+}
+
+div.proof {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+div.post-content {
+  text-align: justify;
+}

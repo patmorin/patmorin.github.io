@@ -21,10 +21,10 @@ The lower bound is non-constructive; it shows that a random graph has high obsta
 ## Counting $h$-Obstacle Graphs
 
 <div class="problem">
-  What is the number of graphs with obstacle number h??
+  What is the number of graphs with obstacle number $h$?
 </div>
 
-Theorem 1 of [Mukkamala et al][mukkamala-etal] gives an upper bound of $2^O(hn\log^2 n)$.  Theorem 4 in [Balko, Cibulka, and Valtr][balko-cibulka-valtr] gives a lower bound of $2^{\Omega(hn)}$.
+Theorem 1 of [Mukkamala et al][mukkamala-etal] gives an upper bound of $2^{O(hn\log^2 n)}$.  Theorem 4 in [Balko, Cibulka, and Valtr][balko-cibulka-valtr] gives a lower bound of $2^{\Omega(hn)}$.
 
 ## Obstacle Numbers of Product Graphs
 

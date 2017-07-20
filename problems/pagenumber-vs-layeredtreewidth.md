@@ -13,4 +13,4 @@ categories: openproblem
 
 The simplest case is graphs of layered treewidth 1, which can be visualized as follows: Take the product of a tree $T$ and a path of length $k$.  The resulting graph naturally has some *tree edges* ($k$ copies of each edge in $T$) and *non-tree* edges.  Next perform arbitrary edge contractions on the tree edges to obtain a graph $G$.  Every graph of layered treewidth 1 is a subgraph of a graph that can be obtained this way, so it suffices to bound the page number of $G$.
 
-The general case is probably far from trivial.  We know that planar graphs have layered treewidth 2 and page number 4.  We also know that every class of graphs that excludes a fixed apex graph as a minor has bounded layered treewidth, so a positive answer to this problem would extend the results on planar graphs to graph classes that exclude a fixed apex graph as a minor.
+The general case is probably far from trivial.  It would imply, for example, that $k$-planar graphs have bounded page number.

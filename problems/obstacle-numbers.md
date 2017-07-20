@@ -18,6 +18,18 @@ The lower bound is non-constructive; it shows that a random graph has high obsta
   Give an explicit construction of a graph with large obstacle number.
 </div>
 
+The upper bound of $O(n\log n)$ starts by placing the vertices of $G$ in general position, but in such a way that there is a set $B$ of $O(n\log n)$ points that *block* every pair of vertices. (A point $x$ blocks $u$ and $w$ if $x$ is in the interior of the line segment joining $u$ and $w$.)  Then, a careful perturbation of the vertices is used so that each set of edges that passes through a point $x\in B$ becomes (in the neibourhood of $B$) an arrangement of lines in which all lines are incident to one face.  In this way, a single obstacle near $x$ is sufficient to block any subset of the edges that passes through $x$.  If we want to improve this upper bound, then a natural place to start is to find a set of $n$ points that can be blocked by $o(n\log n)$ edges.  This is already an open problem (see Conjecture 3 of [Pór and Wood][por-wood]).
+
+<div class="problem">
+  What is the fewest number of blockers required to block an $n$-point set in general position?
+</div>
+
+Pinchasi conjectured that the answer is $\Omega(n\log n)$.  An upper bound of $n2^{O(\sqrt{n})}$ is due to Pach [Midpoints of segments induced by a point set. Geombinatorics 13(2), 98–105 (2003)] who actually shows gives an example of an $n$-point set in general position that has only $n2^{O(\sqrt{n})}$ midpoints.
+
+
+
+(A modification of) the construction by [Balko, Cibulka, and Valtr][balko-cibulka-valtr] gives an $O(n\log n)$ upper bound.
+
 ## Counting $h$-Obstacle Graphs
 
 <div class="problem">
@@ -81,3 +93,4 @@ Since the disjoint union of planar graphs is also planar, the preceding lemma re
 [berman-etal]: https://arxiv.org/abs/1606.03782
 [gimble-etal]: https://arxiv.org/abs/1706.06992
 [mukkamala-etal]: http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p32
+[por-wood]: http://dx.doi.org/10.20382/jocg.v1i1a3

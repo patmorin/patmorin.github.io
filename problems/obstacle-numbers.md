@@ -29,11 +29,13 @@ a point set that can be blocked by $O(n\log n)$ points. If we want to improve th
 
 Pinchasi conjectured that the answer is $\Omega(n\log n)$.  An upper bound of $n2^{O(\sqrt{n})}$ is due to [Pach][pach], who actually shows gives an example of an $n$-point set in general position that has only $n2^{O(\sqrt{n})}$ midpoints.
 
-The construction of Balko, Cibulka, and Valtr doesn't given an $O(n\log n)$ upper bound because, in the limit, the point set stops being in general position.  This leads to another variant of the blocking question.  
+The construction of Balko, Cibulka, and Valtr doesn't given an $O(n\log n)$ upper bound because, in the limit $\epsilon=0$, the point set stops being in general position (it lives on two vertical lines).  This leads to another variant of the blocking question.  
 
 <div class="problem">
   Let $S:(0,1]\to(\R^2)^n$ be a continuous family of $n$ point sets with the property that, for all $\epsilon\in(0,1]$, $S(\epsilon)$ is in general position and can be blocked by a set of $f(n)$ $\epsilon$-disks.  What is the minimum value of $f(n)$?.
 </div>
+
+A solution to the preceding problem would not necessarily help with the obstacle number question, unless it has some special structure.
 
 
 ## Counting $h$-Obstacle Graphs

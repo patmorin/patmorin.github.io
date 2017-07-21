@@ -18,17 +18,23 @@ The lower bound is non-constructive; it shows that a random graph has high obsta
   Give an explicit construction of a graph with large obstacle number.
 </div>
 
-The upper bound of $O(n\log n)$ starts by placing the vertices of $G$ in general position, but in such a way that there is a set $B$ of $O(n\log n)$ points that *block* every pair of vertices. (A point $x$ blocks $u$ and $w$ if $x$ is in the interior of the line segment joining $u$ and $w$.)  Then, a careful perturbation of the vertices is used so that each set of edges that passes through a point $x\in B$ becomes (in the neibourhood of $B$) an arrangement of lines in which all lines are incident to one face.  In this way, a single obstacle near $x$ is sufficient to block any subset of the edges that passes through $x$.  If we want to improve this upper bound, then a natural place to start is to find a set of $n$ points that can be blocked by $o(n\log n)$ edges.  This is already an open problem (see Conjecture 3 of [Pór and Wood][por-wood]).
+The upper bound of $O(n\log n)$ starts by placing the vertices of $G$ in general position, but in such a way that there is a set $B$ of $O(n\log n)$ $\epsilon$-disk points that *block* every pair of vertices. (A disk $D$ blocks $u$ and $w$ if $x$ is in the interior of the line segment joining $u$ and $w$.)  Then, a careful perturbation of the vertices is used so that each set of edges that passes through a disk $D\in B$ becomes (in the neighbourhood of $D$) an arrangement of lines in which all lines are incident to one face.  In this way, a single obstacle near $D$ is sufficient to block any subset of the edges that passes through $D$.
+
+If we take the limit as $\epsilon\rightarrow 0$, then we obtain
+a point set that can be blocked by $O(n\log n)$ points. If we want to improve this upper bound, then a natural place to start is to find a set of $n$ points that can be blocked by $o(n\log n)$ points.  This is already an open problem (see Conjecture 3 of [Pór and Wood][por-wood]).
 
 <div class="problem">
   What is the fewest number of blockers required to block an $n$-point set in general position?
 </div>
 
-Pinchasi conjectured that the answer is $\Omega(n\log n)$.  An upper bound of $n2^{O(\sqrt{n})}$ is due to Pach [Midpoints of segments induced by a point set. Geombinatorics 13(2), 98–105 (2003)] who actually shows gives an example of an $n$-point set in general position that has only $n2^{O(\sqrt{n})}$ midpoints.
+Pinchasi conjectured that the answer is $\Omega(n\log n)$.  An upper bound of $n2^{O(\sqrt{n})}$ is due to [Pach][pach], who actually shows gives an example of an $n$-point set in general position that has only $n2^{O(\sqrt{n})}$ midpoints.
 
+The construction of Balko, Cibulka, and Valtr doesn't given an $O(n\log n)$ upper bound because, in the limit, the point set stops being in general position.  This leads to another variant of the blocking question.  
 
+<div class="problem">
+  Let $S:(0,1]\to(\R^2)^n$ be a continuous family of $n$ point sets with the property that, for all $\epsilon\in(0,1]$, $S(\epsilon)$ is in general position and can be blocked by a set of $f(n)$ $\epsilon$-disks.  What is the minimum value of $f(n)$?.
+</div>
 
-(A modification of) the construction by [Balko, Cibulka, and Valtr][balko-cibulka-valtr] gives an $O(n\log n)$ upper bound.
 
 ## Counting $h$-Obstacle Graphs
 
@@ -94,3 +100,4 @@ Since the disjoint union of planar graphs is also planar, the preceding lemma re
 [gimble-etal]: https://arxiv.org/abs/1706.06992
 [mukkamala-etal]: http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p32
 [por-wood]: http://dx.doi.org/10.20382/jocg.v1i1a3
+[pach]: https://www.math.nyu.edu/~pach/publications/midpoint.ps

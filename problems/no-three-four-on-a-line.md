@@ -5,7 +5,7 @@ date:   2017-07-14
 permalink: no-three-four-on-a-line.html
 categories: openproblem erdos hard
 ---
-$\newcommand{\N}{\mathbb{N}}\newcommand{\R}{\mathbb{R}}\newcommand{\S}{\mathcal{S}}$This is a famous open problem, due to Erdős and certainly very hard.  I've played around with some probabilistic arguments but gotten nowhere further than the simple lower bounds.
+$\newcommand{\S}{\mathcal{S}}$This is a famous open problem, due to Erdős and certainly very hard.  I've played around with some probabilistic arguments but gotten nowhere further than the simple lower bounds.
 
 For each $r\in\N$, let $\S\_r$ denote the class of point sets in $\R^2$ with no $r$ points on a line and let
 \\[

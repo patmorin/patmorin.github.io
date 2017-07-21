@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Obstacle Numbers"
-date:   2017-07-13 09:32:53 -0400
+date:   2017-07-21 09:32:53 -0400
 permalink: obstacle-numbers.html
 categories: openproblem
 ---
-$\DeclareMathOperator{\obs}{obs}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\cupdotop}{\dot{\cup}}$For a set $P\subset \R^2$ of points and a set $R$ of connected subsets of $\R^2$, the visibility graph $V_R(P)$ of $P$ with respect to $R$ is the graph $G=(P,E)$ in which an edge $uw$ is in $E$ if and only the segment with endpoints $u$ and $w$ is disjoint from every element in $R$.  We say that $(P,R)$ is an *obstacle representation* of $G$.  The *obstacle number*, $\obs(G)$ of a graph $G$ is the minimum number of obstacles in any obstacle representation of a graph isomorphic to $G$.
+$\DeclareMathOperator{\obs}{obs}\DeclareMathOperator{\cupdotop}{\dot{\cup}}$For a set $P\subset \R^2$ of points and a set $R$ of connected subsets of $\R^2$, the visibility graph $V_R(P)$ of $P$ with respect to $R$ is the graph $G=(P,E)$ in which an edge $uw$ is in $E$ if and only the segment with endpoints $u$ and $w$ is disjoint from every element in $R$.  We say that $(P,R)$ is an *obstacle representation* of $G$.  The *obstacle number*, $\obs(G)$ of a graph $G$ is the minimum number of obstacles in any obstacle representation of a graph isomorphic to $G$.
 
 <div class="problem">
   What is the maximum obstacle number of an $n$-vertex graph?
@@ -28,8 +28,9 @@ a point set that can be blocked by $O(n\log n)$ points. If we want to improve th
 </div>
 
 Pinchasi conjectured that the answer is $\Omega(n\log n)$.  An upper bound of $n2^{O(\sqrt{n})}$ is due to [Pach][pach], who actually shows gives an example of an $n$-point set in general position that has only $n2^{O(\sqrt{n})}$ midpoints.
+(See my [open problems on blockers and midpoints](blockers-and-midpoints.html).)
 
-The construction of Balko, Cibulka, and Valtr doesn't given an $O(n\log n)$ upper bound because, in the limit $\epsilon=0$, the point set stops being in general position (it lives on two vertical lines).  This leads to another variant of the blocking question.  
+The construction of Balko, Cibulka, and Valtr doesn't given an $O(n\log n)$ upper bound because, in the limit $\epsilon=0$, the point set stops being in general position (it lives on two vertical lines).  This leads to another variant of the blocking question.
 
 <div class="problem">
   Let $S:(0,1]\to(\R^2)^n$ be a continuous family of $n$ point sets with the property that, for all $\epsilon\in(0,1]$, $S(\epsilon)$ is in general position and can be blocked by a set of $f(n)$ $\epsilon$-disks.  What is the minimum value of $f(n)$?.

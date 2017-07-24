@@ -34,23 +34,6 @@ The *midpoint* of two points $p$ and $q$ is the point $(p+q)/2$. Let $\mu(n)$ de
 </div>
 As mentioned above, Pach shows that $\mu(n)\le n2^{O(\sqrt{\log n})}$ and also that $\lim_{n\rightarrow\infty} \mu(n)/n = \infty$. This proof is repeated by [Matousek][matousek].  [Stanchescu][stanchescu] gives a more concrete lower bound $\mu(n)\in\Omega(n(\log n)^{\delta})$ for any $\delta < 1/8$.
 
-# $\epsilon$-Disk Version
-
-A recent construction of [Balko, Cibulka, and Valtr][balko-cibulka-valtr] (see my page [Problems on Obstacle Numbers](obstacle-numbers.md)) motivates the following question:
-
-<div class="problem">
-  Let $S:(0,1]\to(\R^2)^n$ define a continuous family of $n$ point sets with the property that, for all $\epsilon\in(0,1]$, $S(\epsilon)$ is in general position and can be blocked by a set of $b'(n)$ $\epsilon$-disks, each disjoint from $S(\epsilon)$.  What is the minimum value of $b'(n)$?.
-</div>
-
-Note that $f(n)$ is different from $b(n)$ because at the limit $\epsilon=0$, the point set $S(0)$ may not be in general position. Indeed, the construction of Balko, Cibulka, and Valtr shows that $f(n)\in O(n\log n)$.  Actually, in their construction the blocking disks are placed at the midpoints of the segments they block, so we can also as a midpoint version of this problem:
-
-<div class="problem">
-  Let $S:(0,1]\to(\R^2)^n$ define a continuous family of $n$ point sets with the property that, for all $\epsilon\in(0,1]$, $S(\epsilon)$ is in general position and the midpoints of $S(\epsilon)$ are contained in a set of $\mu'(n)$ $\epsilon$-disks, each disjoint from $S(\epsilon)$.  What is the minimum value of $\mu'(n)$?.
-</div>
-
-
-We know $\mu'(n)\in O(n\log n)$.
-
 [por-wood]: http://dx.doi.org/10.20382/jocg.v1i1a3
 [pach]: https://www.math.nyu.edu/~pach/publications/midpoint.ps
 [dumitrescu-pach-toth]: http://www.cs.uwm.edu/faculty/ad/blocking.pdf

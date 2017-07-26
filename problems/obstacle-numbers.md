@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Obstacle Numbers"
 date:   2017-07-21 09:32:53 -0400
 permalink: obstacle-numbers.html

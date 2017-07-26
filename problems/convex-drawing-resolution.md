@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Resolution of Convex Drawings"
 date:   2017-07-13 09:32:53 -0400
 permalink: convex-drawing-resolution.html

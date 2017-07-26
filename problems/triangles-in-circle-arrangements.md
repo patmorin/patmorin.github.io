@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Triangles in Arrangements of (Pseudo)Circles"
 date:   2017-07-14
 permalink: triangles-in-circle-arrangements.html

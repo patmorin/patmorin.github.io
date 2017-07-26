@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "General Position Subsets"
 date:   2017-07-14
 permalink: no-three-four-on-a-line.html

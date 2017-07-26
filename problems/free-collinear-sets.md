@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Free Collinear Sets"
 date:   2017-07-14
 permalink: free-collinear-sets.html

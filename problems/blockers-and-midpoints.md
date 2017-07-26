@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Blockers and Midpoints"
 date:   2017-07-14
 permalink: blockers-and-midpoints.html

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Packing Trees"
 date:   2017-07-15
 permalink: packing-trees.html

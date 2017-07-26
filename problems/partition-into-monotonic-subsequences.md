@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Partitioning a Sequence in Monotonic Subsequences"
 date:   2017-07-15
 permalink: monotonic-subsequences.html

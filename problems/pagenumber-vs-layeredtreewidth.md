@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Page Number Versus Layered Treewidth"
 date:   2017-07-14
 permalink: page-number-versus-layered-treewidth.html

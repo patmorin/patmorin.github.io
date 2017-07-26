@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Biplanar Crossing Number"
 date:   2017-07-14
 permalink: biplanar-crossing-number.html

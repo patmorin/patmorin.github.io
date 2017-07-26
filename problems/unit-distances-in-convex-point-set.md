@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: problem
 title:  "Unit Distances in Convex Point Sets"
 date:   2017-07-14
 permalink: unit-distances-in-convex-point-sets.html

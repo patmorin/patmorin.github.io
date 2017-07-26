@@ -21,6 +21,8 @@ has a unique solution, after fixing the coordinates of $C$ to be the vertices of
   Can we improve the preceding argument to show $N\le n^{O(n)}$
 </div>
 
+$\DeclareMathOperator{\deg}{deg}$Luís Fernando Schultz Xavier da Silveira has answered the preceding problem in the affirmative, by doing a more careful analysis (similar to Bareiss') of the specific linear system that arises from Tutte's embedding algorithm.  (In there, he uses planarity, in particular that $\sum_{v\in V(G)}\deg^2(v) \in O(n)$.)
+
 The difficulty in this problem comes from graphs that are internally 3-connected, but not 3-connected:
 It is known that, if the triconnected component decomposition tree of $G$ has at $\ell\le 4$ leaves, then $G$ has a convex drawing on an $O(n)\times O(n)$ grid.  See [Chrobak][chrobak] (for the three connected case), [Kamada, Miura, and Nishizeki][kamada-miura-nishizeki] (for $\ell\in\\{1,2,3\\}$), and [Zhou and Nishizeki][zhou-nishizeki] (for $\ell = 4$).
 The problem seems to be completely open for $\ell \ge 5$.  It's not even known if this can be done on a polynomial grid.

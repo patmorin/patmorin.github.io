@@ -9,27 +9,25 @@ $\newcommand{\Q}{\mathcal{Q}}\newcommand{\X}{\mathcal{X}}\newcommand{\D}{\mathca
 
 # The Big Picture
 
-Wang defines a recursive embedding of a planar graph onto layers called a *composite-layerlike* embedding.  Such embeddings have three parameters $(\Q,\X,\D)$.  The trick is to show that, for planar graphs, one can find a composite-layerlike embedding in which $\Q,\X,\D\in O(1)$.
+$\DeclareMathOperator{\tn}{tn}$A *track assignment* of a graph $G$ is a proper $t$-colouring $c:V(G)\to\\{1,\ldots,t\\}$ of $G$'s vertices, along with a total ordering $<_i$ of the vertices in each colour class $i\in\\{1,\ldots,t\\}$.  An *X-crossing* in a track assignment is a pair of edges $vw$ and $xy$ with $c(v)=c(x)=i$, $c(w)=c(y)=j$, $v<_i x$, and $w<_j y$.  The *span* of a track assignment $c$ is the maximum value $\|c(u)-c(w)\|$ where $uw$ is an edge of $G$.
 
-How is this related to track layouts?  In a (improper) track layout $\Q=1$ (there are no pairs of nested edges within a layer), $\X=0$, (there are no X-crossings), and $\D$ is the edge *gap* (what [Dujmovic, Morin, and Wood][dmw-sicomp] call *span*), i.e., the largest $\|i-j\|$ such that an edge joins a track-$i$ vertex to a track-$j$ vertex.
+A $(k,t)$-track layout of $G$ is a $t$-track assignment along with a $k$-colouring $s:E(G)\to\\{1,\ldots,k\\}$ of $G$'s edges in which the edges of each X-crossing are assigned two different colours.  A $(1,t)$-track layout is called a $t$-track layout.  The minimum $t$ for which $G$ has a $t$-track layout is called the *track number* of $G$, and is denoted by $\tn(G)$
 
-**Note:** The other properties of improper track layouts, namely that intra-track edges are between consecutive vertices seem to follow from the fact that the composite-layerlike embedding is plane.
+It follows from gluing together results by [Dujmovic and Wood][dw-dmtcs] and [Dujmovic, Por, and Wood][dpw-dmtcs] that if $G$ has a track assignment $c$ for which
 
-Recall that track layouts with edge gap $\D$ can be wrapped onto $2\D+1$ tracks \[[1, Lemma 3.4][dmw-sicomp]\]. It turns out that the same is true for composite-layerlike embeddings.  A composite-layerlike embedding can be wrapped into $O(\D)$ tracks, without increasing $\Q$ or $\X$.
+1. the queue number of the subgraph induced by each colour class of $c$ is at most $\Q$;
+2. the largest set of pairwise X-crossing edges is at most $\X$; and
+3. the span of $c$ is at most $\D$,
 
-Now, this is still not a track layout because it doesn't have $\Q=1$ or $\X=0$.  Somehow, Wang ignores this, though somewhere in the paper, there is a discussion about removing edges to eliminate X-crossings and arguing that this doesn't increase track number by much.  
+then $\tn(G) \le f(\Q,\X,\D)$ for some function $f:\N^3\to \N$.  
 
-Here's my understanding of the steps in the proof:
+Therefore, it suffices to find a track assignment for which $\Q,\X,\D\in O(1)$.  From now on, we'll call this a $(\Q,\X,\D)$-layout. (Wang calls it a $(\Q,\X,\D)$-well-placed layout in a ladder $\mathcal{H}$.)
 
 * Input: Plane graph $G$
 * Let $G^1$ be a 1-subdivision of $G$.
 * Get a composite-layerlike embedding, $E$, of $G^1$ (Theorem 4 in Section 4)
-* Convert $E$ into a $(\Q,\X,\D)$-well-placed layout $E'$ (Theorem 10, last page)
-* Convert $E'$ into a $(\Q,\X,O(\D))$-well-placed layout $E''$ on a constant number of tracks/layers (Theorem 2 in Section 2)
-* Convert $E''$ into a track-layout $T$ of $G^1$ (Theorem 6). The proof of Theorem 6 says that Theorem 10 gives a track layout with $O(1)$ tracks, therefore the track number of $G^1$ is $O(1)$. A result of [Dujmovic and Wood][dw-dmtcs] therefore implies that $G$ has track number $O(1)$.
-
-The problem I have is with the proof of Theorem 6, since Theorem 10 guarantees only a $(\Q,\X,\D)$-well-placed layout for $\Q,\X,\D\in O(1)$.  For this to be a track layout, it would have to have $\Q=1$ and $\X=0$. This leap, which occurs in the proof of Theorem 6, is unjustified.
-
+* Convert $E$ into a $(\Q,\X,\D)$-layout $c$ of $G^1$ (Theorem 10, last page)
+* By the results discussed above, $\tn(G^1) \in O(1)$ and, therefore, by a result of Dujmovic and Wood \[[1, Lemma 7][dw-dmtcs]\] $\tn(G)\in O(1)$.
 
 # Key Definitions
 
@@ -37,33 +35,32 @@ These are my interpretations of some key definitions:
 
 * A *layer* is a horizontal line.  Layers proceed downward, with higher numbered layers below lower numbered layers.
 * A *layerlike graph* is a plane graph where the vertices are assigned to layers $1,\ldots,k$, and there is an ordering of the vertices on each layer with the restriction that edges always join two vertices on the same layer or on consecutive layers.
+
+> A layerlike graph Π is a graph whose vertices are partitioned and placed on contiguous layers such that no edge is placed between any two non-contiguous layers and no edges are crossing.
+
 * A *downpointing triangle* in a layerlike graph is a cycle with all but one vertex on layer $i$ and the remaining vertex on layer $i+1$.
+
+> Given a layerlike graph Π, a down-pointing triangle ▽ is a a cycle (l, · · · , r, m) that vertices on the cycle (l, · · · , r, m) are on the two contiguous layers where the path from l to r are on the upper layer and the vertex m is on the lower layer
+
 * A *bowl* in a layerlike graph is a cycle with all vertices on the same layer.
+
+> A bowl ♥ is a cycle (l, · · · , r) that the cycle are on the same layer where each vertex of the cycle is on the same layer.
+
 * A *composite-layerlike graph* is a plane graph that has a *backbone* $K$ that is a layerlike graph.  Each bowl $\heartsuit$ of $K$ can contain a composite-layerlike graph whose first layer is $\heartsuit$.  Each downpointing triangle $\triangledown$ of $K$ can contain a composite-layerlike graph whose first layer is the top layer of $\triangledown$.
+
+> A composite-layerlike graph G can be recursively defined as follows: G consists of a layerlike graph Π such that each bowl ♥ of G has a smaller composite-layerlike graph G1 where G1’s first layer is the bowl ♥, and each down-pointing triangle ▽ has a composite-layerlike graph G2 where the first layer of G2 is the upper layer of ▽.
+
 This object should really be called a composite-layerlike embedding of a plane graph.
 
-A *ladderlike graph* is an assignment of vertices to layers along with an ordering on the vertices within each layer. (Note: The term ladderlike graph is deprecated, it disappeared in v2 of the arxiv paper.) It doesn't have to be compatible with a plane embedding and edges may cross multiple layers.  There are two important structures in a ladderlike graph:
+# Theorem 2
 
-* A *nest* is a set of edges all of whose endpoints are on the same layer, and which are nested.
-* An *X-cross* is a set of edges where each edge contains a vertex on layer-$i$ and a vertex on layer-$j$ and the ordered so that every pair of edges crosses.
+This theorem says that, if $G$ is a $(\Q,\X,\D)$-layout, then $G$ can also be drawn as a $(\Q,\X,O(\D))$-well-placed graph with only $O(\D)$ layers.
 
-A ladderlike graph has three parameters:
-
-* $\mathcal{Q}$ is the size of the largest nest.
-* $\mathcal{X}$ is the size of the largest X-cross
-* $\mathcal{D}$ is the largest value $\|i-j\|$ such that there is an edge from that joins a layer-$i$ vertex and a layer-$j$ vertex.  This is called the *gap* of the edge.
-
-We call such a graph (actually, embedding of a graph) *$(\Q,\X,\D)$-well-placed*.
-
-# Theorem 2 (Should be called Lemma 1)
-
-This theorem says that, if $G$ is $(\Q,\X,\D)$-well-placed, then $G$ can also be drawn as a $(\Q,\X,O(\D))$-well-placed graph with only $O(\D)$ layers.
-
-The proof of this (Which I haven't checked carefully, but isn't hard) is to wrap the graph onto $2\D$ layers.  The fact that the edge span is $\D$ ensures that this wrapping doesn't create any larger nests or X-crosses. This is basically the original wrapping argument from \[[1][dmw-sicomp]\].
+The proof of this is to wrap the graph onto $O(\D)$ layers.  The fact that the edge span is $\D$ ensures that this wrapping doesn't increase $\Q$ or $\X$. This is basically the original wrapping argument from \[[1][dmw-sicomp]\]. But actually, I don't think this is needed since it we can use one of the results in one the \{Dujmovic, Por, Morin, Wood\} papers.
 
 # Section 3
 
-This section discusses how to take a composite-layerlike (embedding of a planar) graph and turn it into a $(\Q,\X,\D)$-well-placed embedding with $\Q,\X,\D\in O(1)$.  Part of this Section includes Conjecture 1, which is later proved in Section 7.
+This section discusses how to take a composite-layerlike (embedding of a planar) graph $G$ and turn it into a $(\Q,\X,\D)$-layout with $\Q,\X,\D\in O(1)$.  Part of this Section includes Conjecture 1, which is later proved in Section 7.
 
 # Section 4
 
@@ -78,6 +75,10 @@ A *near-triangulation* is a connected embedded planar graph in which every inter
 The proof is by induction on the number of vertices of $G$.  Place $m,u_1,\ldots,u_k$ on the first layer in that order.  If the outer face $C$ contains a chord joining $m$ to $u_i$, $i\not\in\{1,k\}$ then apply induction on the near triangulation $G_1$ in the interior of the cycle $m,u_1,\ldots,u_i$ and on the near-triangulation $G_2$ contained in the interior of the cycle $m,u_i,\ldots,u_k$.
 
 Therefore, assume $C$ is chord-free. Then consider the graph $G'$ obtained by removing $C$ from $G$.  This graph is connected but not necessarily a near-triangulation; it's outer face may have cut vertices.
+
+
+
+
 Consider the triangulations
 
 
@@ -116,3 +117,4 @@ In this section, they show how to find a skeleton in a region so that the skelet
 [wang]: https://arxiv.org/abs/1708.02114
 [dmw-sicomp]: http://cglab.ca/~morin/publications/gd/treewidth-sicomp.pdf
 [dw-dmtcs]: https://www.emis.de/journals/DMTCS/pdfpapers/dm070111.pdf
+[dpw-dmtcs]: https://arxiv.org/abs/cs/0407033

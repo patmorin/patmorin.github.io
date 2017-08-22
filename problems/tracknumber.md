@@ -9,11 +9,15 @@ $\newcommand{\Q}{\mathcal{Q}}\newcommand{\X}{\mathcal{X}}\newcommand{\D}{\mathca
 
 # The Big Picture
 
-$\DeclareMathOperator{\tn}{tn}$A *track assignment* of a graph $G$ is a proper $t$-colouring $c:V(G)\to\\{1,\ldots,t\\}$ of $G$'s vertices, along with a total ordering $<_i$ of the vertices in each colour class $i\in\\{1,\ldots,t\\}$.  An *X-crossing* in a track assignment is a pair of edges $vw$ and $xy$ with $c(v)=c(x)=i$, $c(w)=c(y)=j$, $v<_i x$, and $w<_j y$.  The *span* of a track assignment $c$ is the maximum value $\|c(u)-c(w)\|$ where $uw$ is an edge of $G$.
+$\DeclareMathOperator{\tn}{tn}$A $t$-*track assignment* of a graph $G$ is a (not necessarily proper) $t$-colouring $c:V(G)\to\\{1,\ldots,t\\}$ of $G$'s vertices, along with a total ordering $<_i$ of the vertices in each colour class $i\in\\{1,\ldots,t\\}$.  An *X-crossing* in a track assignment is a pair of edges $vw$ and $xy$ with $c(v)=c(x)=i$, $c(w)=c(y)=j$, $v<_i x$, and $w<_j y$.  The *span* of a track assignment $(c,<\_{1},\ldots,<\_t)$ is the maximum value $\|c(u)-c(w)\|$ where $uw$ is an edge of $G$.
 
+The *track number* $\tn(G)$ of $G$ is the minimum value of $t$ for which $G$ has a $t$-track assignment $(c,<\_{1},\ldots,<\_t)$ such that $c$ is a proper colouring and that has no X-crossings.
+
+{::comment}
 A $(k,t)$-track layout of $G$ is a $t$-track assignment along with a $k$-colouring $s:E(G)\to\\{1,\ldots,k\\}$ of $G$'s edges in which the edges of each X-crossing are assigned two different colours.  A $(1,t)$-track layout is called a $t$-track layout.  The minimum $t$ for which $G$ has a $t$-track layout is called the *track number* of $G$, and is denoted by $\tn(G)$
+{:/comment}
 
-It follows from gluing together results by [Dujmovic and Wood][dw-dmtcs] and [Dujmovic, Por, and Wood][dpw-dmtcs] that if $G$ has a track assignment $c$ for which
+It follows from gluing together results by [Dujmovic and Wood][dw-dmtcs] and [Dujmovic, Por, and Wood][dpw-dmtcs] that if $G$ has a track assignment $(c,<\_{1},\ldots,<\_t)$ for which
 
 1. the queue number of the subgraph induced by each colour class of $c$ is at most $\Q$;
 2. the largest set of pairwise X-crossing edges is at most $\X$; and
@@ -66,42 +70,22 @@ This section discusses how to take a composite-layerlike (embedding of a planar)
 
 This section shows how to find a composite-layerlike embedding of a plane graph.  More specificially, it shows (in Theorem 4) that a 1-subdivision of any planar graph $G$ has a composite-layerlike embedding.
 
-I found this proof (which is supposedly the easy part of the paper) almost impossible to follow.  I think we can do this more easily.
+I found this proof (which is supposedly the easy part of the paper) almost impossible to follow.  In fact, I think there's a counterexample.  Let me quote the paper:$\newcommand{\OO}{\mathcal{O}}\newcommand{\GG}{\mathcal{G}}$
 
-A *near-triangulation* is a connected embedded planar graph in which every internal face is bounded by three edges and the outer face is bounded by a simple cycle.
+> In this section,
+we show how to reform a plane graph $G$ to a composite-layerlike graph $\GG$.
+Let $G$ be a plane graph and $\OO(G)$ be its outer boundary. Each layer in a composite-layerlike graph $\GG$ can be recursively defined as follows:
+the first layer is $\OO(G)$ and $\OO_{G}$ is placed as clockwise order $(m, u_1,u_2, \cdots)$. Then $(\OO_1, \OO_2, \cdots, \OO_p)$ are the sequential maximal inner cycles inside $\OO$ such that for each maximal inner cycle $\OO_i, 1\leq i\leq p$, there are some vertices on $\OO_i$ connecting to the vertex $m$.
+Now for each maximal inner cycle $\OO_i, 1\leq i\leq p$, we can walk around the cycle $\OO_i$ by clockwise order to get two contiguous vertices $(L^U(\OO_i)=(v^i_1=u^i_y, v^i_2, \cdots, v^i_x=u^i_1), L^B(\OO_i)=(u^i_1=v^i_x, u^i_2, \cdots, u^i_y=v^i_1) )$ where each vertex of $L^U(\OO_i)$ don't connect to the vertex $m$ except the first and last vertices $\{v^i_1, v^i_y\}$ of $L^U(\OO_i)$ and each vertex of $L^B(\OO_i)$ connects to the vertex $m$.
+All maximal inner cycles $(\OO_1, \OO_2, \cdots, \OO_p)$ can be placed on the second layer as the order: $(\OO_1, \OO_2, \cdots, \OO_p)$. Moreover,
+for each maximal inner cycle $\OO_i$, $\OO_i$ is placed on the second layer from the vertex $u^i_1$ by clockwise order as: $(v^i_1=u^i_y, v^i_2, \cdots, v^i_x=u^i_y, u^i_{y-1}, \cdots, u^i_2)$.
 
-**Lemma:** Let $G$ be a near-triangulation with outer face $C$ whose vertices, in clockwise order are $m,u_1,\ldots,u_k$.  Then $G$ has a composite-layerlike embedding $E$ and the first layer of $E$'s backbone is $m,u_1,\ldots,u_k$.
+The following picture illustrates the problem:
 
-The proof is by induction on the number of vertices of $G$.  Place $m,u_1,\ldots,u_k$ on the first layer in that order.  If the outer face $C$ contains a chord joining $m$ to $u_i$, $i\not\in\{1,k\}$ then apply induction on the near triangulation $G_1$ in the interior of the cycle $m,u_1,\ldots,u_i$ and on the near-triangulation $G_2$ contained in the interior of the cycle $m,u_i,\ldots,u_k$.
+{: .center}
+![tracknumber-example](images/tracknumber-example.svg)
 
-Therefore, assume $C$ is chord-free. Then consider the graph $G'$ obtained by removing $C$ from $G$.  This graph is connected but not necessarily a near-triangulation; it's outer face may have cut vertices.
-
-
-
-
-Consider the triangulations
-
-
-
-Let $r>1$ be the smallest index such that $u_r$ is adjacent to $m$.
-
-
-
-
-I think we can do this more easily.  Let
-
-
-
-Here's what I think is happening. Let $G$ be a plane near-triangulation whose outer face vertices, in counterclockwise order are $m,u_1,\ldots,u_k$, where $m$ is some prescribed vertex.
-The vertices $m,u_1,\ldots,u_k$ will be in the first layer of the backbone layed out in the order $m,u_1,\ldots,u_k$.
-
-If we remove $m,u_1,\ldots,u_k$ from $G$, then we are left with a possibly-disconnected graph. Some of the components of this graph contain vertices incident to $m$.  Let these components be labelled $C_1,\ldots,C_p$ in the counterclockwise order they appear around $m$, and let $O_i$ be the outer face of C_i$.  The vertices of $O_1,\ldots,O_i$ are also in the backbone, layed out in the second layer, in this order, with the vertices of each $O_i$ ordered so that all vertices incident to $m$ appear before all the vertices not incident to $m$.
-
-
- say $C_1,\ldots,C_p$ contain one or more vertices incident to $m$.  Let $O_i$
-
-
-
+The second figure represents my understanding of the preceding paragraph, which could be incorrect.  However, if the goal is that $\OO_1$, $\OO_2$, and $\OO_3$ should all be bowls on the same layer, then I don't see any way to resolve the fact that $\OO_2$ shares two non-adjacent vertices with $\OO_1$ and $\OO_3$.
 
 # Section 5
 

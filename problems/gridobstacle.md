@@ -21,9 +21,13 @@ The main difficulty comes from an implicit transitivity in these representations
 
 This implies a necessary condition.  Let $\overrightarrow{E}(G)$ denote the directed edges of $G$ so that, if $uw\in E(G)$ then $uw$ and $wu$ are both in $\overrightarrow{E}(G)$.  Then it must be possible to find a coloring $c:\overrightarrow{E}(G)\to\\{-2,-1,1,2\\}$ such that
 
-1. $c(uw) = -c(wu)$ for all $uw\in E(G)$ and
-2. If $c(uv) = c(vw)$, then $uw\in E(G)$.
+1. $c(uw) = -c(wu)$ for all $uw\in E(G)$;
+2. If $c(uv) = c(vw)$, then $uw\in E(G)$; and
+3. In an embedding of $G$, the colours around vertex every $v$ must occur in the order $-1^*-2^*1^*2^*$.
 
 Is this possible to do for every planar graph $G$?
+
+One observation is that, if $v$ is not part of a separating triangle, then the colours of its outgoing edges must be some rotation of $-1,1,2,2,2,\ldots,2$.  This feels a bit like Schnyder's tree decomposition might help.
+
 
 [biedl-mehrabi]: https://arxiv.org/abs/1708.01903

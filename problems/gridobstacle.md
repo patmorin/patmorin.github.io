@@ -36,7 +36,7 @@ Is this possible to do for every planar graph $G$?  We suspect the answer is no.
 </div>
 
 
-One observation is that, if $v$ is not part of a separating triangle, then the colours of its outgoing edges must be some rotation of $-1,1,2,2,2,\ldots,2$.  This feels a bit like Schnyder's tree decomposition might help.
+One observation is that, if $v$ is not part of a separating triangle, then the colours of its outgoing edges must be some rotation of $-1,1,2,2,2,\ldots,2$.  This feels a bit like Schnyder's 3-tree partition  might help.
 
 
 [biedl-mehrabi]: https://arxiv.org/abs/1708.01903

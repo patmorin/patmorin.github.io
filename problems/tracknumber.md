@@ -87,6 +87,14 @@ The following picture illustrates the problem:
 
 The second figure represents my understanding of the preceding paragraph, which could be incorrect.  However, if the goal is that $\OO_1$, $\OO_2$, and $\OO_3$ should all be bowls on the same layer, then I don't see any way to resolve the fact that $\OO_2$ shares two non-adjacent vertices with $\OO_1$ and $\OO_3$.
 
+There is another problem still:  If the graph $G$ is the *stellated triangulation*.  In this graph, the outer face $\OO(G)$ is a cycle of length three $v_1,v_2,v_3$, which becomes a bowl $\heartsuit$ of length three on layer 0.  Now, the three vertices of $\heartsuit$ are each connected to the same vertex $v$.  Though the above description doesn't say what to do in this case, the only reasonable interpretation is to place $v$ onto the layer 1, inside $\heartsuit$.  In this case, each of the down-pointing triangles $v_1,v_2,v$, $v_2,v_3,v$ and $v_1,v_3,v$ has something inside of it,  The problem is that $v_1,v_3,v_3$ is not really a downpointing triangle, at least not in the way that every other triangle is downpointing.
+
+
+ obtained by starting with a triangle and splitting it into three triangles, and splitting each of these into three triangles.
+
+
+ $K_3$ trianguluation,
+
 # Section 5
 
 This is where they prove Theorem 6, which is that every plane graph has $O(1)$ track number.  This is where I have a problem.

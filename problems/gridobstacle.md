@@ -40,6 +40,38 @@ Here is an observation of Paz:
 
 # A Combinatorial View
 
+Let $G$ be a grid-obstacle representation of a 4-connected triangulation.  Thus $G$ is a planar drawing whose vertices are identified with points in $\R^2$ and whose edges are x-y-monotone curves.  For a vertex $u$ of $G$, let $Q_i(u)$ denote the $i$th quadrant centered at $u$, where quadrants are labelled $0,\ldots,3$ in clockwise order.  Here and throughout the subscript $i$ in $Q_i(u)$ is implicitly taken modulo 4.
+
+<div class="lemma">
+  For every internal vertex $u$ of $G$, there is an $i\in\{0,\ldots,3\}$ such that $u$ has exactly one neighbour in $Q_{i-1}(u)$, exactly one neighbour in $Q_{i+1}(u)$, and all remaining neighbours in $Q_i(u)$.
+</div>
+
+<div class="proof">
+  If this were not the case then, since $G$ is 4-connected, $u$ would have two non-adjacent neighbours $x$ and $y$ with $x\in Q_j(u)$ and $y\in Q_{j+2}(u)$.  But this is a contradiction, since then the path $xuy$ is x-y-monotone but $x$ and $y$ are not adjacent.
+</div>
+
+The preceding lemma classifies the internal vertices of $u$ into four types $0,1,2,3$.  We therefore, define $c(u)$ as the type of the vertex $u$.  For an internal vertex $u$ with $c(u)=i$, it is helpful to think of $u$ has having most of its neighbours in $Q_i(u)$ and as having none of its neighbours in $Q_{i+2}(u)$.
+
+<div class="observation">
+
+</div>
+
+<div class="lemma">
+  The partial function $c:V\to\\{0,1,2,3\\}$ is a proper colouring of the internal vertices of $G$.
+</div>
+
+<div class="proof">
+  Let $u$ be an internal vertex of $G$ with $c(u)=i$.  Then $u$'s neighbour in $Q_{i-1}(u)$ is either an outer vertex
+</div>
+
+
+Now consider the graph $H$ shown here, and let the letters
+
+
+
+
+$\overrightarrow{E}(G)$ denote the directed edges of $G$ so that, if $uw\in E(G)$ then $uw$ and $wu$ are both in $\overrightarrow{E}(G)$.
+
 
 Let $G$ be an embedded triangulation without separating triangles.
 Let $\overrightarrow{E}(G)$ denote the directed edges of $G$ so that, if $uw\in E(G)$ then $uw$ and $wu$ are both in $\overrightarrow{E}(G)$.  A *good colouring* of $\overrightarrow{E}(G)$ is a map $c:\overrightarrow{E}(G)\to\\{0,1,2,3\\}$ such that

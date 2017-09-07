@@ -37,8 +37,27 @@ Here is an observation of Paz:
   Give a planar graph $G$, place Steiner vertices into each of its non-triangular faces and triangulate so that every newly introduced edge is incident to at least one Steiner vertex.  If we can find a non-blocking grid obstacle representation of this triangulation, then removing the Steiner vertices gives a non-blocking grid obstacle representation of $G$.
 </div>
 
+# 2-Trees
 
-# A Combinatorial View
+Vida and David have a lemma that says every 2-tree $T$ has a non-empty independent set $S$ such that (i) $T\setminus S$ is a triangle or (ii) $T\setminus S$ has a degree-2 vertex $v$ with neighbours $x$ and $y$ such that every element of $S$ is adjacent to $vx$ or to $vy$.  Using lemma we can prove:
+
+<div class="theorem">
+   Every 2-tree has a non-blocking grid-obstacle representation.
+</div>
+
+<div class="proof" markdown="1">
+{:.center}
+![2-tree proof](images/2-trees.jpg)
+</div>
+
+Can we extend this to partial 2-trees?  Paz and Saeed claim to have a proof that they can prove:
+
+<div class="theorem">
+   Every outerplanar graph has a non-blocking grid-obstacle representation.
+</div>
+
+
+# A Negative Result for Triangulations
 
 Let $G$ be a grid-obstacle representation of a 4-connected triangulation.  Thus $G$ is a planar drawing whose vertices are identified with points in $\R^2$ and whose edges are x-y-monotone curves.  For a vertex $u$ of $G$, let $Q_i(u)$ denote the $i$th quadrant centered at $u$, where quadrants are labelled $0,\ldots,3$ in clockwise order.  Here and throughout the subscript $i$ in $Q_i(u)$ is implicitly taken modulo 4.
 
@@ -50,28 +69,58 @@ Let $G$ be a grid-obstacle representation of a 4-connected triangulation.  Thus 
   If this were not the case then, since $G$ is 4-connected, $u$ would have two non-adjacent neighbours $x$ and $y$ with $x\in Q_j(u)$ and $y\in Q_{j+2}(u)$.  But this is a contradiction, since then the path $xuy$ is x-y-monotone but $x$ and $y$ are not adjacent.
 </div>
 
-The preceding lemma classifies the internal vertices of $u$ into four types $0,1,2,3$.  We therefore, define $c(u)$ as the type of the vertex $u$.  For an internal vertex $u$ with $c(u)=i$, it is helpful to think of $u$ has having most of its neighbours in $Q_i(u)$ and as having none of its neighbours in $Q_{i+2}(u)$.
+The preceding lemma classifies the internal vertices of $u$ into four types $0$, $1$, $2$, and $3$.  We therefore, define $c(u)$ as the type of the vertex $u$.  For an internal vertex $u$ with $c(u)=i$, it is helpful to think of $u$ has having most of its neighbours in $Q_i(u)$ and as having none of its neighbours in $Q_{i+2}(u)$.
 
-<div class="observation">
-
-</div>
 
 <div class="lemma">
-  The partial function $c:V\to\\{0,1,2,3\\}$ is a proper colouring of the internal vertices of $G$.
+  For an internal vertex $u$ of $G$ with $c(u)=i$, the neighbour $x$ of $u$ in $Q_{i-1}(u)$ is either an outer vertex or $c(x) = i+1$.  Similarly, the neighbour $y$ of $u$ in $Q_{i+i}(u)$ has $c(y)=i-1$.
 </div>
 
 <div class="proof">
-  Let $u$ be an internal vertex of $G$ with $c(u)=i$.  Then $u$'s neighbour in $Q_{i-1}(u)$ is either an outer vertex
+  The vertex $x$ has two neighbours, namely $y$ and $u$ in $Q_{i+1}(z)$ so $c(z)=i+1$. The same argument applies to $y$.
+</div>
+
+<div class="lemma">
+  The partial function $c\colon V\to\{0,1,2,3\}$ is a proper colouring of the internal vertices of $G$.
+</div>
+
+<div class="proof">
+  Let $u$ be an internal vertex of $G$ with $c(u)=i$.  Then $u$'s neighbours $x$ and $y$ in $Q_{i-1}(u)$ and $Q_{i+1}(u)$ are each either outer vertices or have $c(x)=i+1$ and $c(y)=i-1$. Similarly, $u$'s neighbor $y$ in $Q_{i+1}(u)$ is either an outer vertex or $c(y)=i-1$.  Any vertex $z\in Q_i(u)$ has at least one neighbour (namely $u$) in $Q_{i+2}(z)$ so $z$ is either an outer vertex or $c(z)\neq i$.
+</div>
+
+Now consider the graph $H$ shown here, and let the letters attached to vertices denote the colour of these vertices:
+
+{:.center}
+![2-tree proof](images/h.svg)
+
+<div class="lemma">
+   If $G$ is a non-blocking grid obstacle representation and $G$ contains $H$ and all its vertices are interior, then $\{c(e),c(f),c(g),c(g)\} = \{0,1,2,3\}$.
+</div>
+
+<div class="proof">
+   The proof is a lengthy, but not difficult case analysis starting with the assumptions that $a=0$ and $c=2$ or that $a=0$ and $c=1$ and using the last two lemmas above.
+</div>
+
+<div class="theorem">
+   There exists a triangulation $G$ that does not have a non-blocking grid obstacle representation.
+</div>
+
+<div class="proof">
+  Create a triangulation $G$ that contains two copies of $H$ in which each of the vertices labelled $e$, $f$, $g$, and $h$ is adjacent to a common vertex $z_1$ and $z_2$ and such no vertex of the first copy is on the same face as any vertex of the second copy.  Then in any planar drawing of $G$, one of these copies of $H$ along with its corresponding vertex $z_i$ has only interior vertices.  By the previous lemma means that $z_i$ has neighbours of colours $0$, $1$, $2$, and $3$.  Therefore, $z_i$ has the same colour as one of its neighbours, contradicting the proper colouring lemma above.
 </div>
 
 
-Now consider the graph $H$ shown here, and let the letters
 
 
 
 
-$\overrightarrow{E}(G)$ denote the directed edges of $G$ so that, if $uw\in E(G)$ then $uw$ and $wu$ are both in $\overrightarrow{E}(G)$.
 
+
+
+
+# Ramblings
+
+Stop reading here.
 
 Let $G$ be an embedded triangulation without separating triangles.
 Let $\overrightarrow{E}(G)$ denote the directed edges of $G$ so that, if $uw\in E(G)$ then $uw$ and $wu$ are both in $\overrightarrow{E}(G)$.  A *good colouring* of $\overrightarrow{E}(G)$ is a map $c:\overrightarrow{E}(G)\to\\{0,1,2,3\\}$ such that

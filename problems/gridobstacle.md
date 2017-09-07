@@ -117,9 +117,7 @@ Now consider the graph $H$ shown here, and let the letters attached to vertices 
 
 
 
-
-# Ramblings
-
+{::comment}
 Stop reading here.
 
 Let $G$ be an embedded triangulation without separating triangles.
@@ -180,7 +178,7 @@ Finally, we note that we can recover the edge-colouring $c$ from the vertex colo
 </div>
 
 So this means that what we're really trying to prove is a strengthening of the Four-Colour Theorem that not only gives a proper four-colouring of $V(G)$, but gives one that is defined by some good colouring of $\overrightarrow{E}(G)$
-
+{:/comment}
 
 
 [biedl-mehrabi]: https://arxiv.org/abs/1708.01903

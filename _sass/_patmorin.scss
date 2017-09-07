@@ -52,6 +52,18 @@ div.lemma {
    margin-bottom: 1ex;
 }
 
+div.theorem:before {
+    content: "Theorem:";
+    font-weight: bold;
+}
+
+div.theorem {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
+
+
+
 div.proof:before {
     content: "Proof:";
     font-style: italic;

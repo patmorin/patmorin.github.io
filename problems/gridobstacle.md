@@ -112,7 +112,7 @@ Initially, we thought that there might be no non-blocking grid-obstacle represen
 There's an easy argument that shows that not all triangulations have non-blocking grid obstacle representations.
 
 <div class="lemma">
-  Any triangle $xyz$ can be labelled so that $y,z\in Q_i(x)$ for some $i\in\\{0,\ldots,3\\}$.
+  Any triangle $xyz$ can be labelled so that $y,z\in Q_i(x)$ for some $i\in\{0,\ldots,3\}$.
 </div>
 
 A *subdivision* of a triangle $xyz$ is obtained by adding a vertex $w$ in the interior of $xyz$ and adding the edges $wx$, $wy$, $wz$.  A $d$-level subdivision of $xyz$ is obtained by repeating this process recursively to a depth of $d$.
@@ -186,7 +186,7 @@ Now consider the graph $H$ shown here, and let the letters attached to vertices 
 </div>
 
 <div class="theorem">
-   There exists a triangulation $G$ that does not have a non-blocking grid obstacle representation.
+   There exists a 4-connected triangulation $G$ that does not have a non-blocking grid obstacle representation.
 </div>
 
 <div class="proof">

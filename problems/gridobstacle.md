@@ -34,7 +34,7 @@ Here is an observation of Paz:
 </div>
 
 <div class="proof" markdown="1">
-  Give a planar graph $G$, place Steiner vertices into each of its non-triangular faces and triangulate so that every newly introduced edge is incident to at least one Steiner vertex.  If we can find a non-blocking grid obstacle representation of this triangulation, then removing the Steiner vertices gives a non-blocking grid obstacle representation of $G$.
+  Given a planar graph $G$, place Steiner vertices into each of its non-triangular faces and triangulate so that every newly introduced edge is incident to at least one Steiner vertex.  If we can find a non-blocking grid obstacle representation of this triangulation, then removing the Steiner vertices gives a non-blocking grid obstacle representation of $G$.
 </div>
 
 # 2-Trees
@@ -50,14 +50,24 @@ Vida and David have a lemma that says every 2-tree $T$ has a non-empty independe
 ![2-tree proof](images/2-trees.jpg)
 </div>
 
-Can we extend this to partial 2-trees?  Paz and Saeed claim to have a proof that they can prove:
+Can we extend this to partial 2-trees?  Paz and Saeed claim to have a proof of the following:
 
 <div class="theorem">
    Every outerplanar graph has a non-blocking grid-obstacle representation.
 </div>
 
 
-# A Negative Result for Triangulations
+# Negative Result for Triangulations
+
+## 3-Connected Triangulations
+
+There's an easy argument that shows that not all triangulations have non-blocking grid obstacle representations.
+
+<div class="lemma">
+  Let $G$ be the subgraph of the (infinite) triangular grid obtained by taking the graph induced by all vertices within distance 5 of a particular vertex $v$.  Then any x-y-monotone embedding of $G$ contains some monotone triangle, i.e., a cycle $x,y,z$ such that the slopes of $xy$, $yz$, and $xz$ all have the same sign.
+</div>
+
+## 4-Connected Triangulations
 
 Let $G$ be a grid-obstacle representation of a 4-connected triangulation.  Thus $G$ is a planar drawing whose vertices are identified with points in $\R^2$ and whose edges are x-y-monotone curves.  For a vertex $u$ of $G$, let $Q_i(u)$ denote the $i$th quadrant centered at $u$, where quadrants are labelled $0,\ldots,3$ in clockwise order.  Here and throughout the subscript $i$ in $Q_i(u)$ is implicitly taken modulo 4.
 

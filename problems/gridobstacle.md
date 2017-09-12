@@ -45,9 +45,9 @@ A *chord* in an outerplanar graph is an edge with bounded faces on each side of 
 </div>
 
 <div class="proof" markdown="1">
-  Let $G$ be a 2-connected outerplanar graph.   The proof is by induction on the number of chords of $G$.  If $G$ has no chords, then it is a cycle and we can easily find a grid obstacle representation that looks like a lightning-bolt (if the number of vertices is even) or like a lightning bolt with a blunt end of the number of vertices is odd.
+  Let $G$ be a 2-connected outerplanar graph.   The proof is by induction on the number of chords of $G$.  If $G$ has no chords, then it is a cycle and we can easily find a grid obstacle representation that looks like a lightning-bolt (if the number of vertices is even) or like a lightning bolt with a blunt end (if the number of vertices is odd).
 
-  Assume that $G$ therefore has at least one chord. Then $G$ has a chord $xy$ such that $G\setminus\\{x,y\\}$ has one component that is a path.  Therefore, there is a path $x=v_0,\ldots,v_k=y$ on the outer face of $G$ and $v_i$ has degree 2 for all $i\in\\{1,\ldots,k-1\\}$.  Now, apply the inductive hypothesis to obtain a non-blocking grid-representation of $G\setminus\\{v_1,\ldots,v_{k-1}\\}$.  Suppose, without loss of generality that, in this representation, $y\in Q_0(x)$, so $y$ is above and to the right of $x$, and that the face to the left of $xy$ is an interior face.
+  Assume that $G$ therefore has at least one chord. Then $G$ has a chord $xy$ such that $G\setminus\\{x,y\\}$ has one component that is a path.  Therefore, there is a path $x=v_0,\ldots,v_k=y$ on the outer face of $G$ where $v_i$ has degree 2 for all $i\in\\{1,\ldots,k-1\\}$.  Now, apply the inductive hypothesis to obtain a non-blocking grid-representation of $G\setminus\\{v_1,\ldots,v_{k-1}\\}$.  Suppose, without loss of generality that, in this representation, $y\in Q_0(x)$, so $y$ is above and to the right of $x$, and that the face to the left of $xy$ is an interior face.
 
   * Case 1: $y$ has a neighbour $z$ in $Q_0(y)$. In this case, we claim that $x$ has no neighbour in $Q_2(x)$, for if it had a neighbour $w$ in $Q_2(x)$, then $wxyz$ would be a monotone path, and would therefore induce a $K_4$ in $G$, contradicting the assumption that $G$ is outerplanar.  Therefore, there is a sufficiently small neighbourhood near $y$ in $Q_1(y)\cap Q_0(x)$ in which we can embed that path $v_1,\ldots,v_{k-1}$ as an x-monotone zig-zag.
 
@@ -68,9 +68,10 @@ A *chord* in an outerplanar graph is an edge with bounded faces on each side of 
 
 For general outerplanar graphs, we rely on the following technical lemma:
 
-<div class="lemma">
+<div class="lemma" markdown="1">
   Let $G$ be a chord-free outerplanar graph with two vertices adjacent $x$ and $y$, each of degree-1 such that there is a unique cycle containing $xy$ from $x$ to $y$.  Then, for any two points $x'$ and $y'$ with $y'\in Q_0(x')$, any point $m$ on the open segment $x'y'$, and any $\epsilon>0$, there is a straight-line non-blocking grid representation of $G$ in which
-  1. All vertices of $G$ appear on the outer face;
+
+  1. all vertices of $G$ appear on the outer face;
   2. $x$ and $y$ are drawn at positions $x'$ and $y'$, respectively;
   3. the vertices $V(G)\setminus\\{x,y\\}$ all appear in a ball of radius $\epsilon$ centered at $m$; and
   4. the vertices $V(G)\setminus\\{x,y\\}$ are all to the right of the supporting line of $x'y'$.
@@ -88,7 +89,7 @@ For general outerplanar graphs, we rely on the following technical lemma:
   Without loss of generality, we can assume that $G$ is connected.
   The proof is, again, by induction on the number of chords in $G$. If $G$ has no chords, then we can apply the preceding lemma with dummy values of $x$ and $y$.  
 
-  Otherwise, $G$ has some chord $xy$ such that removing $xy$ from $G$ partitions $G$ is into several connected subgraphs $G_1,\ldots,G_{k}$ and at least one of these subgraphs, say $G_1$ is such that $G[V(G_1)\cup\\{x,y\\}]$ has the structure needed to apply the preceding lemma.  In this case, apply induction on $G'=G[V(G_2)\cup\cdots\cup V(G_k)\cup\\{x,y\\}]$.  Like the proof for 2-connected planar graphs, this produces an embedding of $G'$. In particular, it fixes the locations of $x$ and $y$ and the edge $xy$ has a bounded face on one side of it.  Now, following the same 3-case argument as in the proof for 2-connected planar graphs, and using the preceding lemma, we add G_1$ to this embedding.
+  Otherwise, $G$ has some chord $xy$ such that removing $xy$ from $G$ partitions $G$ into several connected subgraphs $G_1,\ldots,G_{k}$ and at least one of these subgraphs, say $G_1$ is such that $G[V(G_1)\cup\{x,y\}]$ has the structure needed to apply the preceding lemma.  In this case, apply induction on $G'=G[V(G_2)\cup\cdots\cup V(G_k)\cup\\{x,y\\}]$.  Like the proof for 2-connected planar graphs, this produces an embedding of $G'$. In particular, it fixes the locations of $x$ and $y$ and the edge $xy$ has a bounded face on one side of it.  Now, following the same 3-case argument as in the proof for 2-connected planar graphs, and using the preceding lemma, we add $G_1$ to this embedding.
 </div>
 
 # 2-Trees

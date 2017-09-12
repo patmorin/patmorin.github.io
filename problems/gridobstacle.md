@@ -109,10 +109,14 @@ Initially, we thought that there might be no non-blocking grid obstacle represen
 
 ## 3-Connected Triangulations
 
-There's an easy argument that shows that not all triangulations have non-blocking grid obstacle representations.
+There's an easy argument that shows that not all triangulations have non-blocking grid obstacle representations.  It starts with the following geometric lemma:
 
 <div class="lemma">
   Any triangle $xyz$ can be labelled so that $y,z\in Q_i(x)$ for some $i\in\{0,\ldots,3\}$.
+</div>
+
+<div class="proof">
+  A short case analysis.
 </div>
 
 A *subdivision* of a triangle $xyz$ is obtained by adding a vertex $w$ in the interior of $xyz$ and adding the edges $wx$, $wy$, $wz$.  A $d$-level subdivision of $xyz$ is obtained by repeating this process recursively to a depth of $d$.
@@ -153,7 +157,7 @@ Let $G$ be a grid obstacle representation of a 4-connected triangulation.  Thus 
   If this were not the case then, since $G$ is 4-connected, $u$ would have two non-adjacent neighbours $x$ and $y$ with $x\in Q_j(u)$ and $y\in Q_{j+2}(u)$.  But this is a contradiction, since then the path $xuy$ is x-y-monotone but $x$ and $y$ are not adjacent.
 </div>
 
-The preceding lemma classifies the internal vertices of $u$ into four types $0$, $1$, $2$, and $3$.  We therefore, define $c(u)$ as the type of the vertex $u$.  For an internal vertex $u$ with $c(u)=i$, it is helpful to think of $u$ has having most of its neighbours in $Q_i(u)$ and as having none of its neighbours in $Q_{i+2}(u)$.
+The preceding lemma classifies the internal vertices of $u$ into four types $0$, $1$, $2$, and $3$.  We therefore define $c(u)$ as the *type* of the vertex $u$.  For an internal vertex $u$ with $c(u)=i$, it is helpful to think of $u$ has having most of its neighbours in $Q_i(u)$ and as having none of its neighbours in $Q_{i+2}(u)$.
 
 
 <div class="lemma">
@@ -169,7 +173,7 @@ The preceding lemma classifies the internal vertices of $u$ into four types $0$,
 </div>
 
 <div class="proof">
-  Let $u$ be an internal vertex of $G$ with $c(u)=i$.  Then $u$'s neighbours $x$ and $y$ in $Q_{i-1}(u)$ and $Q_{i+1}(u)$ are each either outer vertices or have $c(x)=i+1$ and $c(y)=i-1$. Similarly, $u$'s neighbor $y$ in $Q_{i+1}(u)$ is either an outer vertex or $c(y)=i-1$.  Any vertex $z\in Q_i(u)$ has at least one neighbour (namely $u$) in $Q_{i+2}(z)$ so $z$ is either an outer vertex or $c(z)\neq i$.
+  Let $u$ be an internal vertex of $G$ with $c(u)=i$.  Then $u$'s neighbours $x$ and $y$ in $Q_{i-1}(u)$ and $Q_{i+1}(u)$ are each either outer vertices or have $c(x)=i+1$ and $c(y)=i-1$. Similarly, $u$'s neighbour $y$ in $Q_{i+1}(u)$ is either an outer vertex or $c(y)=i-1$.  Any vertex $z\in Q_i(u)$ has at least one neighbour (namely $u$) in $Q_{i+2}(z)$ so $z$ is either an outer vertex or $c(z)\neq i$.
 </div>
 
 Now consider the graph $H$ shown here, and let the letters attached to vertices denote the colour of these vertices:
@@ -178,7 +182,7 @@ Now consider the graph $H$ shown here, and let the letters attached to vertices 
 ![2-tree proof](images/h.svg)
 
 <div class="lemma">
-   If $G$ is a non-blocking grid obstacle representation and $G$ contains $H$ and all its vertices are interior, then $\{c(e),c(f),c(g),c(g)\} = \{0,1,2,3\}$.
+   If $G$ is a non-blocking grid obstacle representation and $G$ contains $H$ and all its vertices are interior, then $c(e)=i$, $c(f)=i+1$, $c(g)=i+2$ and $c(h)=i+3$.
 </div>
 
 <div class="proof">
@@ -186,11 +190,12 @@ Now consider the graph $H$ shown here, and let the letters attached to vertices 
 </div>
 
 <div class="theorem">
-   There exists a 4-connected triangulation $G$ that does not have a non-blocking grid obstacle representation.
+   There exists a 4-connected triangulation $G$ with maximum degree 7 that does not have a non-blocking grid obstacle representation.
 </div>
 
-<div class="proof">
-  Create a triangulation $G$ that contains two copies of $H$ in which each of the vertices labelled $e$, $f$, $g$, and $h$ is adjacent to a common vertex $z_1$ and $z_2$ and such no vertex of the first copy is on the same face as any vertex of the second copy.  Then in any planar drawing of $G$, one of these copies of $H$ along with its corresponding vertex $z_i$ has only interior vertices.  By the previous lemma means that $z_i$ has neighbours of colours $0$, $1$, $2$, and $3$.  Therefore, $z_i$ has the same colour as one of its neighbours, contradicting the proper colouring lemma above.
+<div class="proof" markdown="1">
+  {:.center}
+  ![g](images/g.svg)
 </div>
 
 

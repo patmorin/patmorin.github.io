@@ -5,21 +5,21 @@ date:   2017-07-14
 permalink: grid-obstacle.html
 categories: openproblem
 ---
-This is stuff I've been working on with Saeed Mehrabi and Paz Carmi following up [some work he did][biedl-mehrabi] with Therese Biedl.
+This is stuff I've been working on with Saeed Mehrabi and Paz Carmi following up on [some work he did][biedl-mehrabi] with Therese Biedl.
 
-A *non-blocking grid obstacle representation* of a planar graph $G$ is (equivalent to) a planar drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have now been able to show:
+A *non-blocking grid obstacle representation* of a planar graph $G$ is (equivalent to) a planar drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have been able to show:
 
-* Every outerplanar graph has a non-blocking grid-obstacle representation.
-* Every 2-tree has a non-blocking grid-obstacle representation
-* Not every planar graph has a non-blocking grid-obstacle representation
-  * A fairly simple argument shows that the complete 3-ary 3-tree of height 4 does not have a non-blocking grid-obstacle representation
+* Every outerplanar graph has a non-blocking grid obstacle representation.
+* Every 2-tree has a non-blocking grid obstacle representation
+* Not every planar graph has a non-blocking grid obstacle representation
+  * A fairly simple argument shows that the complete 3-ary 3-tree of height 4 does not have a non-blocking grid obstacle representation
   * A more detailed argument shows that a particular 4-connected planar graph
-      has no non-blocking grid-obstacle representation.
-* The infinite triangular grid has a non-blocking grid-obstacle representation.
+      has no non-blocking grid obstacle representation.
+* The infinite triangular grid has a non-blocking grid obstacle representation.
 
 This leaves the following question:
 <div class="problem">
-  Does every partial 2-tree have a non-blocking grid-obstacle representation?
+  Does every partial 2-tree have a non-blocking grid obstacle representation?
 </div>
 
 # Notations
@@ -41,11 +41,11 @@ A *chord* in an outerplanar graph is an edge with bounded faces on each side of 
 ## 2-Connected Outerplanar Graphs
 
 <div class="thm">
-  Every 2-connected outerplanar graph has a straight-line non-blocking grid-obstacle representation in which all vertices appear on the outer face.
+  Every 2-connected outerplanar graph has a straight-line non-blocking grid obstacle representation in which all vertices appear on the outer face.
 </div>
 
 <div class="proof" markdown="1">
-  Let $G$ be a 2-connected outerplanar graph.   The proof is by induction on the number of chords of $G$.  If $G$ has no chords, then it is a cycle and we can easily find a grid-obstacle representation that looks like a lightning-bolt (if the number of vertices is even) or like a lightning bolt with a blunt end of the number of vertices is odd.
+  Let $G$ be a 2-connected outerplanar graph.   The proof is by induction on the number of chords of $G$.  If $G$ has no chords, then it is a cycle and we can easily find a grid obstacle representation that looks like a lightning-bolt (if the number of vertices is even) or like a lightning bolt with a blunt end of the number of vertices is odd.
 
   Assume that $G$ therefore has at least one chord. Then $G$ has a chord $xy$ such that $G\setminus\\{x,y\\}$ has one component that is a path.  Therefore, there is a path $x=v_0,\ldots,v_k=y$ on the outer face of $G$ and $v_i$ has degree 2 for all $i\in\\{1,\ldots,k-1\\}$.  Now, apply the inductive hypothesis to obtain a non-blocking grid-representation of $G\setminus\\{v_1,\ldots,v_{k-1}\\}$.  Suppose, without loss of generality that, in this representation, $y\in Q_0(x)$, so $y$ is above and to the right of $x$, and that the face to the left of $xy$ is an interior face.
 
@@ -73,7 +73,7 @@ For general outerplanar graphs, we rely on the following technical lemma:
 </div>
 
 <div class="theorem">
-  Every outerplanar graph $G$ has a straight-line non-blocking grid-obstacle representation in which all vertices appear on the outer face.  
+  Every outerplanar graph $G$ has a straight-line non-blocking grid obstacle representation in which all vertices appear on the outer face.  
 </div>
 
 <div class="proof">
@@ -88,7 +88,7 @@ For general outerplanar graphs, we rely on the following technical lemma:
 Vida and David have a lemma that says every 2-tree $T$ has a non-empty independent set $S$ such that (i) $T\setminus S$ is a triangle or (ii) $T\setminus S$ has a degree-2 vertex $v$ with neighbours $x$ and $y$ such that every element of $S$ is adjacent to $vx$ or to $vy$.  Using lemma we can prove:
 
 <div class="theorem">
-   Every 2-tree has a non-blocking grid-obstacle representation.
+   Every 2-tree has a non-blocking grid obstacle representation.
 </div>
 
 <div class="proof" markdown="1">
@@ -99,10 +99,10 @@ Vida and David have a lemma that says every 2-tree $T$ has a non-empty independe
 
 # Triangulations
 
-Initially, we thought that there might be no non-blocking grid-obstacle representation of the triangular grid, but then we found one:
+Initially, we thought that there might be no non-blocking grid obstacle representation of the triangular grid, but then we found one:
 
 <div class="theorem">
-   The infinite triangular grid has a non-blocking grid-obstacle representation.
+   The infinite triangular grid has a non-blocking grid obstacle representation.
 </div>
 
 ![triangular grid](images/triangular-grid.svg)
@@ -118,7 +118,7 @@ There's an easy argument that shows that not all triangulations have non-blockin
 A *subdivision* of a triangle $xyz$ is obtained by adding a vertex $w$ in the interior of $xyz$ and adding the edges $wx$, $wy$, $wz$.  A $d$-level subdivision of $xyz$ is obtained by repeating this process recursively to a depth of $d$.
 
 <div class="lemma">
-   Let $G$ be a non-blocking grid-obstacle representation of some graph, and let $xyz$ be a three-cycle in $G$ whose three edges all have positive slope.  Then $xyz$ does not contains a 2-level subdivision in its interior.
+   Let $G$ be a non-blocking grid obstacle representation of some graph, and let $xyz$ be a three-cycle in $G$ whose three edges all have positive slope.  Then $xyz$ does not contains a 2-level subdivision in its interior.
 </div>
 
 <div class="proof">
@@ -126,7 +126,7 @@ A *subdivision* of a triangle $xyz$ is obtained by adding a vertex $w$ in the in
 </div>
 
 <div class="lemma">
-   Let $G$ be a non-blocking grid-obstacle representation of some graph, and let $xyz$ be a three-cycle in $G$ with $yz\in Q_i(x)$ for some $i$.  Then $xyz$ does not contains a 3-level subdivision in its interior.
+   Let $G$ be a non-blocking grid obstacle representation of some graph, and let $xyz$ be a three-cycle in $G$ with $yz\in Q_i(x)$ for some $i$.  Then $xyz$ does not contains a 3-level subdivision in its interior.
 </div>
 
 <div class="proof">
@@ -134,7 +134,7 @@ A *subdivision* of a triangle $xyz$ is obtained by adding a vertex $w$ in the in
 </div>
 
 <div class="theorem">
-   The graph $G$ that is a 4-level subdivision of a triangle does not have a non-blocking grid-obstacle representation.
+   The graph $G$ that is a 4-level subdivision of a triangle does not have a non-blocking grid obstacle representation.
 </div>
 
 <div class="proof">
@@ -143,7 +143,7 @@ A *subdivision* of a triangle $xyz$ is obtained by adding a vertex $w$ in the in
 
 ## 4-Connected Triangulations
 
-Let $G$ be a grid-obstacle representation of a 4-connected triangulation.  Thus $G$ is a planar drawing whose vertices are identified with points in $\R^2$ and whose edges are x-y-monotone curves.  For a vertex $u$ of $G$, let $Q_i(u)$ denote the $i$th quadrant centered at $u$, where quadrants are labelled $0,\ldots,3$ in clockwise order.  Here and throughout the subscript $i$ in $Q_i(u)$ is implicitly taken modulo 4.
+Let $G$ be a grid obstacle representation of a 4-connected triangulation.  Thus $G$ is a planar drawing whose vertices are identified with points in $\R^2$ and whose edges are x-y-monotone curves.  For a vertex $u$ of $G$, let $Q_i(u)$ denote the $i$th quadrant centered at $u$, where quadrants are labelled $0,\ldots,3$ in clockwise order.  Here and throughout the subscript $i$ in $Q_i(u)$ is implicitly taken modulo 4.
 
 <div class="lemma">
   For every internal vertex $u$ of $G$, there is an $i\in\{0,\ldots,3\}$ such that $u$ has exactly one neighbour in $Q_{i-1}(u)$, exactly one neighbour in $Q_{i+1}(u)$, and all remaining neighbours in $Q_i(u)$.
@@ -222,7 +222,7 @@ Here is an observation of Paz:
 Can we extend this to partial 2-trees?  Paz and Saeed claim to have a proof of the following:
 
 <div class="theorem">
-   Every outerplanar graph has a non-blocking grid-obstacle representation.
+   Every outerplanar graph has a non-blocking grid obstacle representation.
 </div>
 
 
@@ -252,7 +252,7 @@ The preceding lemma naturally partitions the set of internal vertices into four 
   Omitted.
 </div>
 
-With a little bit of padding we can prove the following, which shows that proving that every triangulation has a non-blocking grid-obstacle representation is at least as hard as proving the four-colour theorem:
+With a little bit of padding we can prove the following, which shows that proving that every triangulation has a non-blocking grid obstacle representation is at least as hard as proving the four-colour theorem:
 
 <div class="lemma">
    If $G$ is a triangulation that is not four-colourable, then there exists a planar triangulation $G'$ that does not have a non-blocking grid obstacle representation.

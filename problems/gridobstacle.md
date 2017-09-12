@@ -51,9 +51,17 @@ A *chord* in an outerplanar graph is an edge with bounded faces on each side of 
 
   * Case 1: $y$ has a neighbour $z$ in $Q_0(y)$. In this case, we claim that $x$ has no neighbour in $Q_2(x)$, for if it had a neighbour $w$ in $Q_2(x)$, then $wxyz$ would be a monotone path, and would therefore induce a $K_4$ in $G$, contradicting the assumption that $G$ is outerplanar.  Therefore, there is a sufficiently small neighbourhood near $y$ in $Q_1(y)\cap Q_0(x)$ in which we can embed that path $v_1,\ldots,v_{k-1}$ as an x-monotone zig-zag.
 
+  {:.center}
+  ![xy-a](images/xy-a.svg)
+
+
   * Case 2: $x$ has a neighbour $w$ in $Q_2(x)$.  This case is symmetric to Case 1 above.
 
   * Case 3: $x$ has no neighbour in $Q_2(x)$ and $y$ has no neighbour in $Q_0(y)$.  In this case, we can embed $v_1,\ldots,v_{k-1}$ as an x-monotone zig-zag path in some sufficiently small neighbourhood near (say) the midpoint of $xy$.
+
+  {:.center}  
+  ![xy-a](images/xy-b.svg)
+
 </div>
 
 ## General Outerplanar Graphs
@@ -64,7 +72,7 @@ For general outerplanar graphs, we rely on the following technical lemma:
   Let $G$ be a chord-free outerplanar graph with two vertices adjacent $x$ and $y$, each of degree-1 such that there is a unique cycle containing $xy$ from $x$ to $y$.  Then, for any two points $x'$ and $y'$ with $y'\in Q_0(x')$, any point $m$ on the open segment $x'y'$, and any $\epsilon>0$, there is a straight-line non-blocking grid representation of $G$ in which
   1. All vertices of $G$ appear on the outer face;
   2. $x$ and $y$ are drawn at positions $x'$ and $y'$, respectively;
-  3. the vertices $V(G)\setminus\\{x,y\\}$ all appear in a ball of radius $\epsilon$ centered at $G$; and
+  3. the vertices $V(G)\setminus\\{x,y\\}$ all appear in a ball of radius $\epsilon$ centered at $m$; and
   4. the vertices $V(G)\setminus\\{x,y\\}$ are all to the right of the supporting line of $x'y'$.
 </div>
 

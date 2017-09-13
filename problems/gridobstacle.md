@@ -5,7 +5,7 @@ date:   2017-07-14
 permalink: grid-obstacle.html
 categories: openproblem
 ---
-This is stuff I've been working on with Saeed Mehrabi and Paz Carmi following up on [some work he did][biedl-mehrabi] with Therese Biedl.
+This is stuff I've been working on with other CG Lab Members following up on [some work of Saeed Mehrabi and Therese Biedl][biedl-mehrabi].
 
 A *non-blocking grid obstacle representation* of a planar graph $G$ is (equivalent to) a planar drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have been able to show:
 
@@ -69,7 +69,7 @@ A *chord* in an outerplanar graph is an edge with bounded faces on each side of 
 For general outerplanar graphs, we rely on the following technical lemma:
 
 <div class="lemma" markdown="1">
-  Let $G$ be a chord-free outerplanar graph with two vertices adjacent $x$ and $y$, each of degree-1 such that there is a unique cycle containing $xy$ from $x$ to $y$.  Then, for any two points $x'$ and $y'$ with $y'\in Q_0(x')$, any point $m$ on the open segment $x'y'$, and any $\epsilon>0$, there is a straight-line non-blocking grid representation of $G$ in which
+  Let $G$ be a chord-free outerplanar graph with two adjacent vertices $x$ and $y$, such that there is a unique cycle containing $xy$.  Then, for any two points $x'$ and $y'$ with $y'\in Q_0(x')$, any point $m$ on the open segment $x'y'$, and any $\epsilon>0$, there is a straight-line non-blocking grid representation of $G$ in which
 
   1. all vertices of $G$ appear on the outer face;
   2. $x$ and $y$ are drawn at positions $x'$ and $y'$, respectively;
@@ -207,6 +207,9 @@ Now consider the graph $H$ shown here, and let the letters attached to vertices 
   ![g](images/g.svg)
 </div>
 
+<div class="problem">
+   Is there a 4-connected triangulation of maximum degree 6 that does not have a non-blocking grid obstacle representation?
+</div>
 
 
 

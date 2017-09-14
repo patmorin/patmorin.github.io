@@ -117,32 +117,34 @@ We make use of the following Lemma of Dujmovic and Wood:
   We claim that if we embed the elements of $S$ sufficiently close to $u$, then this will not create any monotone
   vertex set $V(G)$ that contains $G$ as a subgraph.  Otherwise, we consider the set $S$ and the vertices $u$, $x$, and $y$ guaranteed by the preceding lemma and we partition $S$ into the sets $S_x$ of vertices adjacent to $ux$ in $T$ and the set $S_y$ of vertices adjacent to $uy$ in $T$.  Let $G'$ be the graph with vertex set $V(G')=V(G)\setminus S$ and edge set $E(G')=E(G\setminus S)\cup\\{ux,uy\\}$.  We now inductively find a non-blocking grid obstacle representation of $G'$.
 
-  Now observe that, since $u$ has degree 2 in $G'$, this embedding does not contain any monotone path of the form $uxw$ or $uyw$ for any $w\in V(G)\setminus $\\{u,x,y\\}$.  Therefore, if we place the vertices in $S$ sufficiently close to $u$, we will not create any monotone path of the form $ayw$ or $axw$ for any $a\in S$ and $w\in V(G)\setminus $\\{u,x,y\\}$.  What remains is to show how to place the elements of $S$ in order to avoid unwanted monotone paths of the form $uay$, $uax$, or $aub$ for any $a,b\in S$.
+  Now observe that, since $u$ has degree 2 in $G'$ and the edges $ux$ and $uy$ are in $G'$, this embedding does not contain any monotone path of the form $uxw$ or $uyw$ for any $w\in V(G)\setminus\\{u,x,y\\}$.  Therefore, if we place the vertices in $S$ sufficiently close to $u$, we will not create any monotone path of the form $ayw$ or $axw$ for any $a\in S$ and any $w\in V(G)\setminus \\{u,x,y\\}$.  What remains is to show how to place the elements of $S$ in order to avoid unwanted monotone paths of the form $uay$, $uax$, or $aub$ for any $a,b\in S$.
 
   There are three cases to consider:
 
+  - $x\in Q_i(u)$ and $y\in Q_{i+2}(u)$ for some $i\in\\{0,\ldots,3\\}$. Without loss of generality, assume that $Q_{i+3}(u)$ does not intersect the segment $xy$. Then we can embed the elements of $S$ in $Q_{i+3}$ without creating any new monotone paths.
 
-  1. $x\in Q_i(u)$ and $y\in Q_{i+2}(u)$ for some $i\in\\{0,\ldots,3\\}$. In this case, we know that $xy\in E(G)$ since the path $xuy$ is monotone.  Without loss of generality, assume that $Q_{i+1}(u)$ does not intersect the segment $xy$. Then we can embed the elements of $S$ is $Q_{i+1}$.
+  {:.center}
+  ![2-tree case 1](images/2tree-1.svg)
 
-  2. $x,y\in Q_i(u)$ for some $i\in\\{0,\ldots,3\\}$. There are two subcases:
-  2.1 At least one of $ux$ or $uy$ is in $E(G)$. Suppose $ux\in E(G)$.  Then we embed $S_x$ in $Q_i(u)$ and embed $S_y$ in $Q_{i+1}(u)$.  The only monotone path this creates is of the form $uax$, which is acceptable since $ux\in E(G)$.
-  2.2 Neither $ux$ nor $uy$ is in $E(G)$. In this case, we embed all of $S$ in $Q_{i+2}(u)$.  This does not create any new monotone paths.
+  - $x,y\in Q_i(u)$ for some $i\in\\{0,\ldots,3\\}$. There are two subcases:
+    - At least one of $ux$ or $uy$ is in $E(G)$. Suppose $ux\in E(G)$.  Then we embed $S_x$ in $Q_i(u)$ and embed $S_y$ in $Q_{i+1}(u)$.  The only monotone paths this creates are of the form $uax$ with $a\in S_x$, which is acceptable since $ux\in E(G)$.
+    - Neither $ux$ nor $uy$ is in $E(G)$. In this case, we embed all of $S$ in $Q_{i+2}(u)$.  This does not create any new monotone paths.
 
-  3. $x\in Q_i(u)$ and $y\in Q_{i+1}(u)$ for some $i\in\\{0,\ldots,3\\}$.  We have two subcases to consider:
+    {:.center}
+    ![2-tree case 2.1](images/2tree-2.svg)
+    ![2-tree case 2.1](images/2tree-3.svg)
 
-  3.1 $ux\in E(G)$.  In this case we embed the vertices of $S_x$ in $Q_i(u)$ and we embed the elements of $S_y(u)$ in $Q_{i+3}(u)$.
+  - $x\in Q_i(u)$ and $y\in Q_{i+1}(u)$ for some $i\in\\{0,\ldots,3\\}$.  We have two subcases to consider:
+    - $\|\{ux,uy\}\cap E(G)\|=1$.  In this case, assume $ux\in E(G)$. Then we embed the vertices of $S_x$ in $Q_i(u)$ and we embed the vertices of $S_y$ in $Q_{i+3}(u)$.  The only monotone paths this creates are of the form $uax$ with $a\in S_x$, which is acceptable since $ux\in E(G)$.
+    - $\|\\{ux,uy\\}\cap E(G)\|=2$.  In this case we embed the vertices of $S_x$ in $Q_i(u)$ and we embed the vertices of $S_y$ in $Q_{i+1}(u)$.  The only monotone paths this creates are of the form $uax$ with $a\in S_x$ and $uby$ with $b\in S_y$, which is acceptable since $ux,uy\in E(G)$.
+    - $\|\\{ux,uy\\}\cap E(G)\|=0$.  In this case, we embed all of $S$ into $Q_{i+2}\cup Q_{i+3}$.  This does not create any new monotone paths.
 
-  3.2 $uy\in E(G)$
+    {:.center}
+    ![2-tree case 2.1](images/2tree-4.svg)
+    ![2-tree case 2.1](images/2tree-5.svg)
+    ![2-tree case 2.1](images/2tree-6.svg)
 
-
-
-
-
-
-
-
-{:.center}
-![2-tree proof](images/2-trees.jpg)
+This completes the proof.
 </div>
 
 

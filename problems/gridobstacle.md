@@ -36,6 +36,9 @@ For a point/vertex $u$ and an integer $i\in\\{0,\ldots,3\\}$, let $Q_i(u)$ denot
 
 A *chord* in an outerplanar graph is an edge with bounded faces on each side of it.
 
+
+{::comment}
+
 # Outerplanar Graphs
 
 ## 2-Connected Outerplanar Graphs
@@ -92,15 +95,52 @@ For general outerplanar graphs, we rely on the following technical lemma:
   Otherwise, $G$ has some chord $xy$ such that removing $xy$ from $G$ partitions $G$ into several connected subgraphs $G_1,\ldots,G_{k}$ and at least one of these subgraphs, say $G_1$ is such that $G[V(G_1)\cup\{x,y\}]$ has the structure needed to apply the preceding lemma.  In this case, apply induction on $G'=G[V(G_2)\cup\cdots\cup V(G_k)\cup\\{x,y\\}]$.  Like the proof for 2-connected planar graphs, this produces an embedding of $G'$. In particular, it fixes the locations of $x$ and $y$ and the edge $xy$ has a bounded face on one side of it.  Now, following the same 3-case argument as in the proof for 2-connected planar graphs, and using the preceding lemma, we add $G_1$ to this embedding.
 </div>
 
-# 2-Trees
+{:/comment}
 
-Vida and David have a lemma that says every 2-tree $T$ has a non-empty independent set $S$ such that (i) $T\setminus S$ is a triangle or (ii) $T\setminus S$ has a degree-2 vertex $v$ with neighbours $x$ and $y$ such that every element of $S$ is adjacent to $vx$ or to $vy$.  Using lemma we can prove:
+# Partial 2-Trees
+
+We make use of the following Lemma of Dujmovic and Wood:
+
+<div class="lemma">
+  Every 2-tree $T$ is either a 3-cycle or it contains a non-empty independent set $S$ such that $T\setminus S$ is a 2-tree that has a degree-2 vertex $u$ with neighbours $x$ and $y$ such that every element of $S$ is adjacent to $ux$ or to $uy$.
+</div>
 
 <div class="theorem">
-   Every 2-tree has a non-blocking grid obstacle representation.
+   Every partial 2-tree has a straight-line non-blocking grid obstacle representation.
 </div>
 
 <div class="proof" markdown="1">
+  Let $G$ be a partial 2-tree. We can, without loss of generality, assume that $G$
+  is connected.  If $|V(G)|< 4$, then the result is trivial, so we can assume $|V(G)|\ge 4$.  We now proceed by induction on $|V(G)|$.
+
+  Let $T=T(G)$ be a 2-tree with
+  We claim that if we embed the elements of $S$ sufficiently close to $u$, then this will not create any monotone
+  vertex set $V(G)$ that contains $G$ as a subgraph.  Otherwise, we consider the set $S$ and the vertices $u$, $x$, and $y$ guaranteed by the preceding lemma and we partition $S$ into the sets $S_x$ of vertices adjacent to $ux$ in $T$ and the set $S_y$ of vertices adjacent to $uy$ in $T$.  Let $G'$ be the graph with vertex set $V(G')=V(G)\setminus S$ and edge set $E(G')=E(G\setminus S)\cup\\{ux,uy\\}$.  We now inductively find a non-blocking grid obstacle representation of $G'$.
+
+  Now observe that, since $u$ has degree 2 in $G'$, this embedding does not contain any monotone path of the form $uxw$ or $uyw$ for any $w\in V(G)\setminus $\\{u,x,y\\}$.  Therefore, if we place the vertices in $S$ sufficiently close to $u$, we will not create any monotone path of the form $ayw$ or $axw$ for any $a\in S$ and $w\in V(G)\setminus $\\{u,x,y\\}$.  What remains is to show how to place the elements of $S$ in order to avoid unwanted monotone paths of the form $uay$, $uax$, or $aub$ for any $a,b\in S$.
+
+  There are three cases to consider:
+
+
+  1. $x\in Q_i(u)$ and $y\in Q_{i+2}(u)$ for some $i\in\\{0,\ldots,3\\}$. In this case, we know that $xy\in E(G)$ since the path $xuy$ is monotone.  Without loss of generality, assume that $Q_{i+1}(u)$ does not intersect the segment $xy$. Then we can embed the elements of $S$ is $Q_{i+1}$.
+
+  2. $x,y\in Q_i(u)$ for some $i\in\\{0,\ldots,3\\}$. There are two subcases:
+  2.1 At least one of $ux$ or $uy$ is in $E(G)$. Suppose $ux\in E(G)$.  Then we embed $S_x$ in $Q_i(u)$ and embed $S_y$ in $Q_{i+1}(u)$.  The only monotone path this creates is of the form $uax$, which is acceptable since $ux\in E(G)$.
+  2.2 Neither $ux$ nor $uy$ is in $E(G)$. In this case, we embed all of $S$ in $Q_{i+2}(u)$.  This does not create any new monotone paths.
+
+  3. $x\in Q_i(u)$ and $y\in Q_{i+1}(u)$ for some $i\in\\{0,\ldots,3\\}$.  We have two subcases to consider:
+
+  3.1 $ux\in E(G)$.  In this case we embed the vertices of $S_x$ in $Q_i(u)$ and we embed the elements of $S_y(u)$ in $Q_{i+3}(u)$.
+
+  3.2 $uy\in E(G)$
+
+
+
+
+
+
+
+
 {:.center}
 ![2-tree proof](images/2-trees.jpg)
 </div>

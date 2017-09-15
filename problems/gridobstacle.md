@@ -113,9 +113,7 @@ We make use of the following Lemma of Dujmovic and Wood:
   Let $G$ be a partial 2-tree. We can, without loss of generality, assume that $G$
   is connected.  If $|V(G)|< 4$, then the result is trivial, so we can assume $|V(G)|\ge 4$.  We now proceed by induction on $|V(G)|$.
 
-  Let $T=T(G)$ be a 2-tree with
-  We claim that if we embed the elements of $S$ sufficiently close to $u$, then this will not create any monotone
-  vertex set $V(G)$ that contains $G$ as a subgraph.  Otherwise, we consider the set $S$ and the vertices $u$, $x$, and $y$ guaranteed by the preceding lemma and we partition $S$ into the sets $S_x$ of vertices adjacent to $ux$ in $T$ and the set $S_y$ of vertices adjacent to $uy$ in $T$.  Let $G'$ be the graph with vertex set $V(G')=V(G)\setminus S$ and edge set $E(G')=E(G\setminus S)\cup\\{ux,uy\\}$.  We now inductively find a non-blocking grid obstacle representation of $G'$.
+  Let $T=T(G)$ be a 2-tree with vertex set $V(G)$ and that contains $G$.  Apply the preceding lemma to $T$ to find the vertex set $S$ and the vertices $u$, $x$, and $y$ described in the lemma.  Now apply induction to find a non-blocking grid representation of the graph $G'$ whose vertex set is $V(G')=V(G)\setminus S$ and whose edge set is $E(G')=E(G\setminus S)\cup\\{ux,uy\\}$.
 
   Now observe that, since $u$ has degree 2 in $G'$ and the edges $ux$ and $uy$ are in $G'$, this embedding does not contain any monotone path of the form $uxw$ or $uyw$ for any $w\in V(G)\setminus\\{u,x,y\\}$.  Therefore, if we place the vertices in $S$ sufficiently close to $u$, we will not create any monotone path of the form $ayw$ or $axw$ for any $a\in S$ and any $w\in V(G)\setminus \\{u,x,y\\}$.  What remains is to show how to place the elements of $S$ in order to avoid unwanted monotone paths of the form $uay$, $uax$, or $aub$ for any $a,b\in S$.
 

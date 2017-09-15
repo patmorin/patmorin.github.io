@@ -17,10 +17,6 @@ A *non-blocking grid obstacle representation* of a planar graph $G$ is (equivale
       has no non-blocking grid obstacle representation.
 * The infinite triangular grid has a non-blocking grid obstacle representation.
 
-This leaves the following question:
-<div class="problem">
-  Does every partial 2-tree have a non-blocking grid obstacle representation?
-</div>
 
 # Notations
 
@@ -342,6 +338,52 @@ Finally, we note that we can recover the edge-colouring $c$ from the vertex colo
 
 So this means that what we're really trying to prove is a strengthening of the Four-Colour Theorem that not only gives a proper four-colouring of $V(G)$, but gives one that is defined by some good colouring of $\overrightarrow{E}(G)$
 {:/comment}
+
+
+# Extensions and Generalizations
+
+Here we present a couple of directions for future research.
+
+## Triangular Grid
+
+The original problem was about non-blocking grid obstacle representations where the underlying grid is square. If, instead, we consider the triangular grid then the problem changes.  In this version, each directed edge $uv$ is assigned of six directions. In particular, if $uv# makes a counterclockwise angle of $\alpha$ with the positive x-axis, then $uv$ is assigned the direction $\lfloor 3\alpha/\pi\rfloor$
+
+## Non-Planar Graphs
+
+This problem can have two possible extension to non-planar graphs:
+
+**Version 1:** A *x-y-transitive embedding* of a graph $G$ is a drawing of $G$ in which, for every pair $u,w\in V(G)$, the embedding contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  
+
+**Version 2:** A *x-y-transitive drawing* of a graph $G$ is a drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing, treated as the union of all its edges and vertices contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  
+
+The key difference between these two versions is what happens when two edges $uw$ and $xy$ cross. In the first version, this has no effect on the definition.  In the second version, if $uw$ and $xy$ both have positive slope, then the edges $ux$ and $wy$ must be present and have positive slope.  The second version is closer in spirit to the original non-blocking grid-obstacle question.
+
+Here's an easy result:
+
+<div class="theorem">
+   There exist graphs that do not have an x-y-transitive embedding or drawing.
+</div>
+
+<div class="proof">
+  Consider some x-y-transitive embedding of any $n$-vertex graph $G$.  Then, by Dilwerth's Theorem, there is a set $S$ of $\sqrt{n}$ vertices that form an xy-monotone sequence.  The set $S$ must induce a collection of disjoint cliques in $G$.  One or these cliques must have at least $n^{1/4}$ vertices or there must be at least $n^{1/4}$ cliques. In the latter case, selecting one vertex from each clique produces an independent set of size at least $n^{1/4}$.
+
+  The result now follows from the existence of graphs (established by Erdos and Renyi) having no indpendent set or clique of size $\log n$.
+</div>
+
+
+Here's another easy result:
+
+<div class="theorem">
+   Every 4-colourable graph, and hence every planar graph has an x-y-transitive embedding.
+</div>
+
+<div class="proof">
+  Embed the graph on the four sides of the unit square, so that each side gets a colour class.  Then any path of length 2 has a middle vertex that is extreme in either the x or y direction, so it is not monotone.
+</div>
+
+It seems much more difficult to find an x-y-transitive drawing.
+
+
 
 
 [biedl-mehrabi]: https://arxiv.org/abs/1708.01903

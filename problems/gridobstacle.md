@@ -7,7 +7,19 @@ categories: openproblem
 ---
 This is stuff I've been working on with other CG Lab Members following up on [some work of Saeed Mehrabi and Therese Biedl][biedl-mehrabi].
 
-A *non-blocking grid obstacle representation* of a planar graph $G$ is (equivalent to) a planar drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have been able to show:
+## A Very General definition
+
+For two graphs $H$ and $G$, a non-blocking $H$-representation of $G$ is a pair $(\varphi:V(G)\to V(H), S\subseteq H)$, with the following properties:
+
+1. $\varphi$ is one-to-one, i.e., $\varphi(u)\neq\varphi(w)$ if and only if $u\neq w$;
+2. for every $u\in V(G)$, $\varphi(u)\not\in S$; and
+2. for every $u,w\in V(G)$, $d_{H\setminus S}(\varphi(u),\varphi(w)=d_{H}(\varphi(u),\varphi(w)$ if and only if $uw\in E(G)$.
+
+Most previous work has taken $H$ to be the square grid, in which case this representation is called a non-blocking grid representation.
+
+## The Square Grid
+
+By using a fine enough grid, it is not hard to see that a planar graph $G$ has a plane non-blocking grid representation if and only if there is plane drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have been able to show:
 
 * Every outerplanar graph has a non-blocking grid obstacle representation.
 * Every 2-tree has a non-blocking grid obstacle representation
@@ -346,7 +358,47 @@ Here we present a couple of directions for future research.
 
 ## Triangular Grid
 
-The original problem was about non-blocking grid obstacle representations where the underlying grid is square. If, instead, we consider the triangular grid then the problem changes.  In this version, each directed edge $uv$ is assigned of six directions. In particular, if $uv# makes a counterclockwise angle of $\alpha$ with the positive x-axis, then $uv$ is assigned the direction $\lfloor 3\alpha/\pi\rfloor$
+If we go back to the general definition of non-blocking $H$ representation and take $H$ to be the infinite triangular grid, then we come up with an interesting variant.
+
+For any $d\in\N$, and any $u\in\R^2$, define the $i$th $d$-sector of $u$ as
+\\[
+Q^{d}_i(u) = \\{ u+r: r\in\R^2,\,\lfloor d\angle(u+(1,0),u,r)/(2\pi)\rfloor=i \\}
+\\]
+Where $\angle (a,b,c)\in[0,2\pi)$ denotes the counterclockwise angle between the segments $ab$ and $cb$.
+
+A curve $f:[0,1]\to\R^2$ is $d$-monotone in direction $i$ if $f(b)\in Q^d_i(f(a))$ for all $0 \le a < b \le 1$.  We say that $f$ is $d$-monotone if there exists some $i\in\\{0,\ldots,d-1\\}$ such that $f$ is $d$-monotone in direction $i$.
+
+A plane graph $G$ has a plane non-blocking 6-grid obstacle representation if and only if it has a a drawing such that, for every $u,v\in V(G)$, $G$ contains a $d$-monotone path from from $u$ to $v$ if and only if $uv\in E(G)$. Note that in the case $d=4$, a curve is 4-monotone if and only if it is x-y-monotone, so non-blocking 4-grid obstacle representations are the non-blocking grid obstacle representations described above.
+
+<div class="theorem">
+  Every planar 3-tree has a straight-line non-blocking 6-grid obstacle representation.
+</div>
+
+<div class="proof" markdown="1">
+The proof is by induction on the size of the 3-tree $G$.  The smallest planar 3-tree is the clique $K_4$ on four vertices, for which any planar drawing gives a non-blocking 6-monotone representation.
+
+That result of Dujmovic and Wood, when specialized to planar 3-trees says that every planar 3-tree is either $K_4$ or has a vertex $u$ and an independent set $S$ ($\|S\|\le 3$) such that $G\setminus S$ is a 3-tree, $u$ has degree 3 in $G\setminus S$, with neighbours $x$, $y$, and $z$, and every vertex $r$ in $S$ forms a clique with exactly one of $uxy$, $uyz$, or $uzx$.
+
+In the case $\|V(G)\|>4$, we applying the preding result and recurse on $G\setminus S$.  This gives us back a non-blocking 6-grid obstacle representation of $G\setminus S$.  There are two cases to consider, depending on the locations $x$, $y$, and $z$, with respect to $u$.  In both cases, the elements of $S$ are placed very close to $u$, so we do not create any new monotone paths involving vertices other than those in $\\{u,x,y,z\\}\cup S$.  Furthermore, since $\\{u,x,y,z\\}$ form a complete graph, we only need to worry about possibly creating a new monotone path involving at least one vertex of $S$.
+
+1. No two neighbours of $u$ are in consecutive 6-sectors, e.g., $x\in Q^6_1(u)$, $y\in Q^6_3(u)$ and $z\in Q^6_5(u)$.  In this case, we add the elements of $S$ as in the following figure:
+
+{:.center}
+![3-tree proof case 1](images/3tree-1.svg)
+
+2. Two neighbours of $u$ are in consecutive 6-sectors, e.g., $x\in Q^6_1(u)$, $y\in Q^6_2(u)$, and $z\in Q^6_5(u)$.  In this case we add the elements of $S$ as in the following figure:
+
+{:.center}
+![3-tree proof case 2](images/3tree-2.svg)
+
+</div>
+
+The fact that every 3-tree has a non-blocking 6-grid obstacle representation but not a non-blocking 4-grid obstacle representation raises the following open problem:
+
+<div class="problem">
+  Does every planar graph graph (or even every triangulation) have a non-blocking 6-grid obstacle representation?
+</div>
+
 
 ## Non-Planar Graphs
 
@@ -382,8 +434,6 @@ Here's another easy result:
 </div>
 
 It seems much more difficult to find an x-y-transitive drawing.
-
-
 
 
 [biedl-mehrabi]: https://arxiv.org/abs/1708.01903

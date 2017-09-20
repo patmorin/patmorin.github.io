@@ -62,7 +62,15 @@ div.theorem {
    margin-bottom: 1ex;
 }
 
+div.observation:before {
+    content: "Observation:";
+    font-weight: bold;
+}
 
+div.observation {
+   margin-top: 1ex;
+   margin-bottom: 1ex;
+}
 
 div.proof:before {
     content: "Proof:";

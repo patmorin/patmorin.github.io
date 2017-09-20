@@ -9,21 +9,33 @@ This is stuff I've been working on with other CG Lab Members following up on [so
 
 ## A Very General definition
 
-For two graphs $H$ and $G$, a non-blocking $H$-representation of $G$ is a pair $(\varphi:V(G)\to V(H), S\subseteq H)$, with the following properties:
+For two graphs $H$ and $G$, a *non-blocking $H$-obstacle representation* of $G$ is a pair $(\varphi:V(G)\to V(H), S\subseteq H)$, with the following properties:
 
 1. $\varphi$ is one-to-one, i.e., $\varphi(u)\neq\varphi(w)$ if and only if $u\neq w$;
 2. for every $u\in V(G)$, $\varphi(u)\not\in S$; and
-2. for every $u,w\in V(G)$, $d_{H\setminus S}(\varphi(u),\varphi(w)=d_{H}(\varphi(u),\varphi(w)$ if and only if $uw\in E(G)$.
+3. for every $u,w\in V(G)$, $d_{H\setminus S}(\varphi(u),\varphi(w)=d_{H}(\varphi(u),\varphi(w)$ if and only if $uw\in E(G)$.
 
-Most previous work has taken $H$ to be the square grid, in which case this representation is called a non-blocking grid representation.
+In the "plane case" there is also a mapping $\tau$ from edges of $G$ onto shortest paths in in $H\setminus S$ such that
+1. for any $uw\in E(G)$, $\tau(uw)$ is a shortest path in $H\setminus S$ from $u$ to $w$; and
+2. for any $e_1\neq e_2$, $\tau(e_1)$ and $\tau(e_2)$ have no vertices in common except, possibly, their endpoints.
+
+In this case, we call $(\varphi,S,\tau)$ a plane non-blocking $H$-obstacle representation of $G$.
+
+Note that for a fixed $H$, the property "$G$ has a (plane) non-blocking $H$ representation" is not monotone in $E(G)$.  It is, however, monotone in $V(G)$:
+
+<div class="observation">
+  If $G$ has an a (plane) non-blocking $H$-obstacle representation, then so does every induced subgraph of $G$.
+</div>
+
+Most previous work has taken $H$ to be the square grid, in which case this representation is called a (plane) non-blocking grid obstacle representation.
+
 
 ## The Square Grid
 
-By using a fine enough grid, it is not hard to see that a planar graph $G$ has a plane non-blocking grid representation if and only if there is plane drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have been able to show:
+By using a fine enough grid, it is not hard to see that a planar graph $G$ has a plane non-blocking grid-obstacle representation if and only if there is plane drawing of $G$ in which, for every pair $u,w\in V(G)$, the drawing contains an x-y-monotone path from $u$ to $w$ if and only if $uw\in E(G)$.  Here are some things we have been able to show:
 
-* Every outerplanar graph has a non-blocking grid obstacle representation.
-* Every 2-tree has a non-blocking grid obstacle representation
-* Not every planar graph has a non-blocking grid obstacle representation
+* Every partial 2-tree has a plane non-blocking grid obstacle representation
+* Not every planar graph has a plane non-blocking grid obstacle representation
   * A fairly simple argument shows that the complete 3-ary 3-tree of height 4 does not have a non-blocking grid obstacle representation
   * A more detailed argument shows that a particular 4-connected planar graph
       has no non-blocking grid obstacle representation.
@@ -32,7 +44,7 @@ By using a fine enough grid, it is not hard to see that a planar graph $G$ has a
 
 # Notations
 
-For a point/vertex $u$ and an integer $i\in\\{0,\ldots,3\\}$, let $Q_i(u)$ denote the open $i$the quadrant with corner at $u$.  More precisely,
+For a point/vertex $u$ and an integer $i\in\\{0,\ldots,3\\}$, let $Q_i(u)$ denote the $i$th open quadrant with corner at $u$.  More precisely,
 \begin{align}
    Q_i(u) = \left\\{ u+\begin{cases}
       (x,y): x,y> 0 & \text{when $i=0$} \newline
@@ -393,12 +405,42 @@ In the case $\|V(G)\|>4$, we applying the preding result and recurse on $G\setmi
 
 </div>
 
-The fact that every 3-tree has a non-blocking 6-grid obstacle representation but not a non-blocking 4-grid obstacle representation raises the following open problem:
 
-<div class="problem">
-  Does every planar graph graph (or even every triangulation) have a non-blocking 6-grid obstacle representation?
+
+Here's a stronger version of the preceding theorem:
+
+<div class="theorem">
+  Every partial planar 3-tree has a non-blocking 6-grid obstacle representation.
 </div>
 
+<div class="proof" markdown="1">
+  The proof follows the same lines the preceding proof except that we apply induction on the graph $G'$ whose vertices are $V(G)\setminus S$ and whose edge set is $E(G\setminus S)\cup\\{ux,uy,uz\\}$.  Then we have lots of cases to consider depending on the positions of $x$, $y$, and $z$ with respect to $u$ as well as whether the edges $ux$, $uy$, and $uz$ are present in $G$. Here what the cases look like:
+
+  {:.center}
+  ![partial-3-tree proof case](images/partial-3tree-1.svg)
+  ![partial-3-tree proof case](images/partial-3tree-2.svg)
+  ![partial-3-tree proof case](images/partial-3tree-3.svg)
+  ![partial-3-tree proof case](images/partial-3tree-4.svg)
+  ![partial-3-tree proof case](images/partial-3tree-5.svg)
+  ![partial-3-tree proof case](images/partial-3tree-6.svg)
+  ![partial-3-tree proof case](images/partial-3tree-7.svg)
+  ![partial-3-tree proof case](images/partial-3tree-8.svg)
+  ![partial-3-tree proof case](images/partial-3tree-9.svg)
+  ![partial-3-tree proof case](images/partial-3tree-10.svg)
+  ![partial-3-tree proof case](images/partial-3tree-11.svg)
+  ![partial-3-tree proof case](images/partial-3tree-12.svg)
+  ![partial-3-tree proof case](images/partial-3tree-13.svg)
+  ![partial-3-tree proof case](images/partial-3tree-14.svg)
+
+</div>
+
+The fact that every 3-tree (and even partial 3-tree) has a non-blocking 6-grid obstacle representation but not a non-blocking 4-grid obstacle representation raises the following open problem:
+
+<div class="problem">
+  Does every planar graph graph have a non-blocking 6-grid obstacle representation?
+</div>
+
+For any planar graph $G$, we can always add Steiner vertices and edges to obtain a triangulation that contains $G$ as an induced subgraph. Therefore, it suffices to study the preceding problem for triangulations.
 
 ## Non-Planar Graphs
 

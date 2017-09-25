@@ -387,11 +387,12 @@ A plane graph $G$ has a plane non-blocking 6-grid obstacle representation if and
 </div>
 
 <div class="proof" markdown="1">
-The proof is by induction on the size of the 3-tree $G$.  The smallest planar 3-tree is the clique $K_4$ on four vertices, for which any planar drawing gives a non-blocking 6-monotone representation.
+The proof is by induction on the size of the 3-tree $G$.  However, our inductive hypothesis is slightly stronger:  Every $n$ vertex planar 3-tree has a straight-line non-blocking 6-grid obstacle representation in which the neighbours of each vertex $u$ occupy at least 3 of the sectors $Q_0(u),\ldots,Q_5(u)$.
+The smallest planar 3-tree is the clique $K_4$ on four vertices, for which the standard planar drawing of $K_4$ satisfies the requirement.
 
 That result of Dujmovic and Wood, when specialized to planar 3-trees says that every planar 3-tree is either $K_4$ or has a vertex $u$ and an independent set $S$ ($\|S\|\le 3$) such that $G\setminus S$ is a 3-tree, $u$ has degree 3 in $G\setminus S$, with neighbours $x$, $y$, and $z$, and every vertex $r$ in $S$ forms a clique with exactly one of $uxy$, $uyz$, or $uzx$.
 
-In the case $\|V(G)\|>4$, we applying the preding result and recurse on $G\setminus S$.  This gives us back a non-blocking 6-grid obstacle representation of $G\setminus S$.  There are two cases to consider, depending on the locations $x$, $y$, and $z$, with respect to $u$.  In both cases, the elements of $S$ are placed very close to $u$, so we do not create any new monotone paths involving vertices other than those in $\\{u,x,y,z\\}\cup S$.  Furthermore, since $\\{u,x,y,z\\}$ form a complete graph, we only need to worry about possibly creating a new monotone path involving at least one vertex of $S$.
+In the case $\|V(G)\|>4$, we applying the preceding result and recurse on $G\setminus S$.  This gives us back a non-blocking 6-grid obstacle representation of $G\setminus S$.  Because of our stronger inductive hypothesis, there are two cases to consider, depending on the locations $x$, $y$, and $z$, with respect to $u$.  In both cases, the elements of $S$ are placed very close to $u$, so we do not create any new monotone paths involving vertices other than those in $\\{u,x,y,z\\}\cup S$.  Furthermore, since $\\{u,x,y,z\\}$ form a complete graph, we only need to worry about possibly creating a new monotone path involving at least one vertex of $S$.
 
 1. No two neighbours of $u$ are in consecutive 6-sectors, e.g., $x\in Q^6_1(u)$, $y\in Q^6_3(u)$ and $z\in Q^6_5(u)$.  In this case, we add the elements of $S$ as in the following figure:
 
@@ -403,6 +404,7 @@ In the case $\|V(G)\|>4$, we applying the preding result and recurse on $G\setmi
 {:.center}
 ![3-tree proof case 2](images/3tree-2.svg)
 
+In both cases, we can verify that the (at most 3) new neighbours of $u$ also satisify the stronger inductive hypothesis.
 </div>
 
 

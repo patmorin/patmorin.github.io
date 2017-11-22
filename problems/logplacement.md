@@ -5,7 +5,7 @@ date:   2017-07-14
 permalink: log-placement.html
 categories: openproblem
 ---
-The following problems are motivated by the problem of automatically placing log statements in order to differentiate execution paths, as in [this paper][ding].
+The following problems are motivated by the problem of automatically placing log statements in order to differentiate execution paths, as in [this paper][ding].  This title could be *optimal log placement for disambiguating execution paths*.
 
 We are directed graph $G$, with a single source $s$ and at least one sink and a probability distribution over all (directed) source to sink paths in $G$. This input is given to us as a list of pairs $(P_i,p_i)$ where $P_i$ is a source to sink path and $p_i>0$. Any source to sink path not in this list is assumed to have probability 0.
 

@@ -387,12 +387,15 @@ A plane graph $G$ has a plane non-blocking 6-grid obstacle representation if and
 </div>
 
 <div class="proof" markdown="1">
-The proof is by induction on the size of the 3-tree $G$.  However, our inductive hypothesis is slightly stronger:  Every $n$ vertex planar 3-tree has a straight-line non-blocking 6-grid obstacle representation in which the neighbours of each vertex $u$ occupy at least 3 of the sectors $Q_0(u),\ldots,Q_5(u)$.
-The smallest planar 3-tree is the clique $K_4$ on four vertices, for which the standard planar drawing of $K_4$ satisfies the requirement.
+The proof is by induction on the size of the 3-tree $G$.  That result of Dujmovic and Wood, when specialized to planar 3-trees says that every planar 3-tree is either $K_4$ or has a vertex $u$ and an independent set $S$ ($\|S\|\le 3$) such that $G\setminus S$ is a 3-tree, $u$ has degree 3 in $G\setminus S$, with neighbours $x$, $y$, and $z$, and every vertex $r$ in $S$ forms a clique with exactly one of $uxy$, $uyz$, or $uzx$.  Applying this repeatedly reduces $G$ to a $K_4$ whose vertices we call $v_1,\ldots,v_4$.
 
-That result of Dujmovic and Wood, when specialized to planar 3-trees says that every planar 3-tree is either $K_4$ or has a vertex $u$ and an independent set $S$ ($\|S\|\le 3$) such that $G\setminus S$ is a 3-tree, $u$ has degree 3 in $G\setminus S$, with neighbours $x$, $y$, and $z$, and every vertex $r$ in $S$ forms a clique with exactly one of $uxy$, $uyz$, or $uzx$.
+We use a slightly stronger inductive hypothesis:  Every $n$ vertex planar 3-tree has a straight-line non-blocking 6-grid obstacle representation in which the neighbours of each vertex $u$ occupy at least 3 of the sectors $Q_0(u),\ldots,Q_5(u)$ and the only vertices incident to the outer face are $v_1$, $v_2$, and $v_3$.
 
-In the case $\|V(G)\|>4$, we applying the preceding result and recurse on $G\setminus S$.  This gives us back a non-blocking 6-grid obstacle representation of $G\setminus S$.  Because of our stronger inductive hypothesis, there are two cases to consider, depending on the locations $x$, $y$, and $z$, with respect to $u$.  In both cases, the elements of $S$ are placed very close to $u$, so we do not create any new monotone paths involving vertices other than those in $\\{u,x,y,z\\}\cup S$.  Furthermore, since $\\{u,x,y,z\\}$ form a complete graph, we only need to worry about possibly creating a new monotone path involving at least one vertex of $S$.
+For the base case, we have to embed the clique defined by $v_1,\ldots,v_4$, which is easy.
+
+In the case $\|V(G)\|>4$, we applying the preceding result and recurse on $G\setminus S$.  This gives us back a drawing of $G\setminus S$ that satisfies the inductive hypothesis.  In particular, the vertex $u$ is not incident to the outer face, and is therefore contained in the triangle $xyz$ and $x$, $y$, and $z$ are in three different cones $Q_0(u),\ldots,Q_5(u)$.
+
+Therefore, up to symmetry, there are only two cases to consider. In both cases, we place the elements of $S$ very close to $u$, so we do not create any new monotone paths involving vertices other than those in $\\{u,x,y,z\\}\cup S$.  Furthermore, since $\\{u,x,y,z\\}$ form a complete graph, we only need to worry about possibly creating a new monotone path involving at least one vertex of $S$.
 
 1. No two neighbours of $u$ are in consecutive 6-sectors, e.g., $x\in Q^6_1(u)$, $y\in Q^6_3(u)$ and $z\in Q^6_5(u)$.  In this case, we add the elements of $S$ as in the following figure:
 
@@ -404,7 +407,7 @@ In the case $\|V(G)\|>4$, we applying the preceding result and recurse on $G\set
 {:.center}
 ![3-tree proof case 2](images/3tree-2.svg)
 
-In both cases, we can verify that the (at most 3) new neighbours of $u$ also satisify the stronger inductive hypothesis.
+In both cases, we can verify that the (at most 3) new neighbours of $u$ also satisfy the stronger inductive hypothesis.
 </div>
 
 
@@ -412,11 +415,16 @@ In both cases, we can verify that the (at most 3) new neighbours of $u$ also sat
 Here's a stronger version of the preceding theorem:
 
 <div class="theorem">
-  Every partial planar 3-tree has a non-blocking 6-grid obstacle representation.
+  Every partial planar 3-tree has a plane straight-line non-blocking 6-grid obstacle representation.
 </div>
 
 <div class="proof" markdown="1">
-  The proof follows the same lines the preceding proof except that we apply induction on the graph $G'$ whose vertices are $V(G)\setminus S$ and whose edge set is $E(G\setminus S)\cup\\{ux,uy,uz\\}$.  Then we have lots of cases to consider depending on the positions of $x$, $y$, and $z$ with respect to $u$ as well as whether the edges $ux$, $uy$, and $uz$ are present in $G$. Here what the cases look like:
+  **TODO:** This proof is broken.  I'm not sure how to satisfy the stronger inductive hypothesis.
+  Worse. In some cases, the triangle $xyz$ does not contain $u$.
+
+  The proof follows the same lines the preceding proof.  Of course, the stronger inductive hypothesis has to be modified slightly.  If $G$ is a partial planar 3-tree, then there is a 3-tree $T$ with vertex set $V(G)$ and whose edge set contains $E(G)$.  The inductive hypothesis says that we obtain a plane straight-line non-blocking 6-grid obstacle representation of $G$ that has the property that, for every vertex $u$, the neighbours of $u$ in $T$ occupy at least 3 of the sectors $Q_0(u),\ldots,Q_5(u)$.
+
+  For the inductive step, we apply induction on the graph $G'$ whose vertices are $V(G)\setminus S$ and whose edge set is $E(G\setminus S)\cup\\{ux,uy,uz\\}$.  Then we have lots of cases to consider depending on the positions of $x$, $y$, and $z$ with respect to $u$ as well as whether the edges $ux$, $uy$, and $uz$ are present in $G$. Here what the cases look like:
 
   {:.center}
   ![partial-3-tree proof case](images/partial-3tree-1.svg)
@@ -431,6 +439,7 @@ Here's a stronger version of the preceding theorem:
   ![partial-3-tree proof case](images/partial-3tree-10.svg)
   ![partial-3-tree proof case](images/partial-3tree-11.svg)
   ![partial-3-tree proof case](images/partial-3tree-12.svg)
+
   ![partial-3-tree proof case](images/partial-3tree-13.svg)
   ![partial-3-tree proof case](images/partial-3tree-14.svg)
 

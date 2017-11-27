@@ -272,6 +272,21 @@ Now consider the graph $H$ shown here, and let the letters attached to vertices 
 </div>
 
 
+# Planar Graphs of Bounded Degree
+
+Let $G$ be a planar graph of maximum degree $\Delta$ and let $c=c(\Delta)>0$ be an integer that depends only on $\Delta$. Pach *et al* describe a drawing of $G$ with the following properties:
+
+- each vertex $u$ is assigned a non-negative integer *granularity*, $\ell(u)$;
+- for any edge $uw\in E(G)$, $\|\ell(u)-\ell(w)\|\le c$;
+- there is a planar straight-line drawing of $G$ in which each vertex $u$
+      is assigned $x$ and $y$ coordinates that are divisible by $2^{\ell(u)-c}$ and
+      each edge has length at most $2^{\ell(u)+c}$.
+
+Notice that each edge of this drawing has a slope parallel to a line segment whose endpoints come from the $2^{2c}\times 2^{2c}$ grid and therefore, for fixed $\Delta$, this drawing uses only a fixed number of slopes.  This almost works for us, since we can use these slopes to define a polyhedral distance function and the only issue we need to worry about is the drawing containing a path $uxw$ with $ux$ parallel to $xw$.  We can avoid this by multiplying all coordinates by 8 and finding a 4-colouring $c:V(G)\to\\{0,1,3,7\\}$ and adding $c(u)$ to the y-coordinate of each vertex $u\in V(G)$.  Now it's straightforward to verify that the slope of $ux$ is never equal to the slope of $xw$ because $c(u)-c(x)\neq c(x)-c(w)$.
+
+
+
+
 
 
 

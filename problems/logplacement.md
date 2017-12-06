@@ -27,4 +27,6 @@ which measures the expected entropy after seeing $P_i\cap V'$.
 
 To start, we can consider each of these problems when $G$ is acyclic.
 
+**Update:** I posed this problem at the Hawaiian Workshop on Parallel Algorithms and Data Structures. Progress is listed at workshop's [Coauthor site](https://coauthor.ulb.ac.be/Hawaiian%20Workshop%20on%20Parallel%20Algorithms%20and%20Data%20Structures/m/L5ZxqDusrDqCrrXQc).
+
 [ding]:http://log20.dsrg.utoronto.ca/log20_sosp17_paper.pdf

@@ -19,7 +19,7 @@ In the "plane case" there is also a mapping $\tau$ from edges of $G$ onto shorte
 1. for any $uw\in E(G)$, $\tau(uw)$ is a shortest path in $H\setminus S$ from $u$ to $w$; and
 2. for any $e_1\neq e_2$, $\tau(e_1)$ and $\tau(e_2)$ have no vertices in common except, possibly, their endpoints.
 
-In this case, we call $(\varphi,S,\tau)$ a plane non-blocking $H$-obstacle representation of $G$.
+In this case, we call $(\varphi,S,\tau)$ a *plane non-blocking $H$-obstacle representation* of $G$.
 
 Note that for a fixed $H$, the property "$G$ has a (plane) non-blocking $H$ representation" is not monotone in $E(G)$.  It is, however, monotone in $V(G)$:
 
@@ -28,7 +28,6 @@ Note that for a fixed $H$, the property "$G$ has a (plane) non-blocking $H$ repr
 </div>
 
 Most previous work has taken $H$ to be the square grid, in which case this representation is called a (plane) non-blocking grid obstacle representation.
-
 
 ## The Square Grid
 
@@ -40,6 +39,15 @@ By using a fine enough grid, it is not hard to see that a planar graph $G$ has a
   * A more detailed argument shows that a particular 4-connected planar graph
       has no non-blocking grid obstacle representation.
 * The infinite triangular grid has a non-blocking grid obstacle representation.
+
+## Geometric Interpretation in Terms of Distance Functions
+
+An *obstacle representation* $(\varphi,S)$ of a graph $G$ is a on-to-one mapping $\varphi:V(G)\to\R^2$ and a set $S$ of connected subsets of $\R^2$ with the property that, for every $u,w\in V(G)$, $d_{\R^2}(\varphi(u),\varphi(w)) = d_{\R^2\setminus(\cup S)}(\varphi(u),\varphi(w))$ if and only if $uw\in E(G)$.  Here, $d_{X}(p,q)$ denotes the geodesic distance in $X$ between two points $p,q\in X$, where geodesic distance is measured using Euclidean distance as the underlying metric.
+
+If, instead of using Euclidean distance, we use Manhattan distance, then $G$ has a $L_1$-obstacle representation if and only if $G$ has a non-blocking grid obstacle representation.  We can also using polyhedral metric, in which case we obtain the $k$-grid obstacle representations discussed below.
+
+
+
 
 
 # Notations

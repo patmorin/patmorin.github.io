@@ -36,12 +36,11 @@ We do not even know a bound of $o(\sqrt{n})$ for the $\sqrt{n}\times\sqrt{n}$ gr
 
 - Every non-repetitive colouring is a proper colouring, so $\chi(G)\le \pi(G)$
 - Every anagram-free colouring is non-repetitive, so $\pi(G)\le \pi_\alpha(G)$
-- A *linear colouring* is a colouring in which every path contains a colour that occurs exctly once. Every linear colouring is anagram-free, so $\pi_\alpha(G)\le \chi_{\mathrm{lin}}(G)$; see [Kun, O'Brien, and Sullivan](https://arxiv.org/abs/1802.09665) who introduced linear colourings
+- A *linear colouring* is a colouring in which every path contains a colour that occurs exactly once. Every linear colouring is anagram-free, so $\pi_\alpha(G)\le \chi_{\mathrm{lin}}(G)$; see [Kun, O'Brien, and Sullivan](https://arxiv.org/abs/1802.09665) who introduced linear colourings
 - A *centered colouring* is a colouring in which every connected subgraph contains
   a unique colour. Every centered colouring is a linear colouring, so $\chi_{\mathrm{lin}}(G) \le \chi_{\mathrm{cen}}(G)$
 - The *treedepth* of a graph $G$ is the minimum height of any tree $T$ with the property that, for each $uw\in E(G)$, $u$ is an ancestor of $w$ in $T$.  The treedepth and the centered chromatic number is the same, so $\DeclareMathOperator{\td}{td}\td(G) = \chi_{\mathrm{cen}}(G)$; see Lemma 4.2 in [Nešetřil and Ossona de Mendez](https://doi.org/10.1016/j.ejc.2005.01.010)
 - A *vertex ranking* is a colouring in which every path between two endpoints of the same colour contains a vertex of larger colour.  It turns out that vertex rankings and centered colourings are equivalent, so $\chi_{\mathrm{cen}}(G) = \chi_{\mathrm{vr}}(G)$; see Lemma 4.1 in [Nešetřil and Ossona de Mendez](https://doi.org/10.1016/j.ejc.2005.01.010)
-
 
 Summarizing:
 \\[
@@ -50,6 +49,8 @@ Summarizing:
 \\]
 
 We know that bounded degree graphs have constant non-repetitive chromatic number but that their anagram-free chromatic number can be nearly linear, so these two parameters are obviously very different.
+
+One property of centered colourings are that the set of unique colours of $G$ form a cut-set.  Using this fact, it is not hard to show that, for $k\le n$, the $k\times n$ grid, $G_{k\times n}$, has $\chi_{\mathrm{cen}}(G_{k\times n}) \in\Omega(k\log(n/k))$. 
 
 # Partial results
 

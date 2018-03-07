@@ -15,11 +15,11 @@ The best upper bound of $O(\log n)$ is due to [Dujmović][dujmovic].  The only k
 
 For maximum-degree $\Delta$ graphs, [Dujmović et al][dujmovic-etal] showed that $\pi(G)=(1+o(1))\Delta^2$ and the best known lower bound is $\Omega(\Delta^2/\log\Delta)$.  The proof of the upper-bound uses entropy compression and at the heart of it, it relies on the simple fact that the number of paths of length $2k$ that contain any vertex $v$ is at most $k\Delta^{2k}$.  In [our paper on random trees][random-trees] we showed that, in a $d$-degenerate graph, the average (over all $v\in V(G)$) number of paths of length $2k$ that contain $v$ is $O(k(d\Delta)^k)$.
 
-
 <div class="problem">
   Prove that the non-repetitive chromatic number of any maximum degree $\Delta$ $d$-degenerate graphs is $O(d\Delta)$.
 </div>
 
+One way to achieve this would be to prove that every $n$-vertex maximum-degree $\Delta$ $d$-degenerate graph $G$ has a vertex ordering $v_1,\ldots,v_n$ with the property that, for each $i\in\\{1,\ldots,n\\}$ and all $\ell$, the number of paths in $G[v_1,\ldots,v_i]$ of length $\ell$ that begin at $v_i$ is $O((d\Delta)^{\ell/2})$.  For a fixed value of $\ell$, this is easy to show. The tricky part is finding an ordering that works for all $\ell$ simultaneously.
 
 
 [dujmovic]:https://arxiv.org/abs/1302.0304

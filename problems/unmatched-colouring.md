@@ -17,11 +17,9 @@ If we take $B_\ell=K_{\ell,\ell}$ to be a complete bipartite graph for every $\e
 
 ## Easy Results
 
-If the graphs in $\mathcal{B}$ are have maximum degree $d$, then an application of the entropy compression method can be used to show that any graph of maximum degree $\Delta$ has a $\mathcal{B}$-unmatched colouring using $O(d\Delta)$ colours. (This requires a results by [Alon and Friendland][alon-friendland] on the number of perfect matchings in a bipartite graph with a given degree sequence.)  More generally, if $\mathcal{B}$ is such that the number of perfect matchings in $B_\ell$ is upper-bounded by $a^\ell$, then this approach shows that $O(a\Delta)$ colours suffice. 
+If the graphs in $\mathcal{B}$ are have maximum degree $d$, then an application of the entropy compression method can be used to show that any graph of maximum degree $\Delta$ has a $\mathcal{B}$-unmatched colouring using $O(d\Delta)$ colours. (This requires a results by [Alon and Friendland][alon-friendland] on the number of perfect matchings in a bipartite graph with a given degree sequence.)  More generally, if $\mathcal{B}$ is such that the number of perfect matchings in $B_\ell$ is upper-bounded by $a^\ell$, then this approach shows that $O(a\Delta)$ colours suffice.
 
 If the graphs in $\mathcal{B}$ are matchings $(1,w_1),\ldots,(\ell,w_\ell)$ with the property that $|w_{i}-w_{i+1]| < c$ for some constant $c$ and all $i\in\{1,\ldots,\ell\}$ then I believe that any graph $G$ with layered separations of width $w$ has a $\mathcal{B}$-unmatched colouring using $O(w)$ colours.  Maybe this can be extended to settings where $\mathcal{B}$ is not a matching.  (Both these results would require some work to figure out exactly what properties we would need for colouring the layers.)
-
-
 
 ## Problems
 

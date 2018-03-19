@@ -36,7 +36,7 @@ At [WoGaG 2018](http://cglab.ca/~morin/misc/bb2018/) a group of us made some pro
 </div>
 
 <div class="proof">
-  Consider the curve defined in the proof of the previous lemma.  Cut the curve at some point in $f$ and walk clockwise along the curve in the forward direction.  The first time the curve crosses an edge $e$ incident to some vertex $u$ orient $e$ towards $u$.  Now repeat the same procedure walking counterclockwise.  Obviously each vertex has in-degree 2. Less obviously, each edge is oriented in only one direction, except the 4 edges of $f$ which are oriented in both directions.  Remove one of these oriented cycles.
+  Consider the curve defined in the proof of the previous lemma.  Cut the curve at some point in $f$ and walk clockwise along the curve in the forward direction.  The first time the curve crosses an edge $e$ incident to some vertex $u$ orient $e$ towards $u$.  Now repeat the same procedure walking counterclockwise.  Obviously each vertex has in-degree 2. Less obviously, each edge is oriented in only one direction, except the 4 edges of $f$ which are oriented in both directions.  Remove one of these oriented cycles to obtain the desired orientation.
 </div>
 
 <div class="lemma">
@@ -44,5 +44,7 @@ At [WoGaG 2018](http://cglab.ca/~morin/misc/bb2018/) a group of us made some pro
 </div>
 
 <div class="proof">
-  The preceding lemma and a bit of algrebra show that this can be modelled as a set of (linear?) equations that have four free variables.
+  This can be modelled as a set of equations in $k$ variables $s_1,\ldots,s_k$, where $s_i$ is the slope of $e_i$ (we can assume all slopes are positive).  The locations of each vertex of $G$ is determined by the slopes of any two of its incident edges.  Similarly, the location of a vertex of $G$ determines the slopes of all its incident edges.  The orientation described in the preceding lemma shows that this system of equations is not overspecified. In fact, it has 4 degrees of freedom which we can use to specify the slopes of the four edges on the outer face of $G$.
+
+  It is straightforward to check that, if the outer face specified this way is non-crossing, then the entire drawing obtained in this way is non-crossing.
 </div>

@@ -16,13 +16,14 @@ A classic result on combinatorics of the strings is that the $n$-vertex path $P_
 
 Using divide-and-conquer, we obtain an anagram-free colouring of the $2\times n$ using grid $\log_2(n+1)$ colours. More generally, any graph $G$ of treewidth $k$ has an $\pi_\alpha(G)\in O(k\log n)$.  For graphs $G$ coming from hereditary families with treewidth $O(n^\delta)$, $0<\delta<1$, $\pi_\alpha(G)\in O(n^{\delta})$.  So, for examples, $\pi_\alpha(G)\in O(\sqrt{n})$ for any $n$-vertex planar graph $G$.  It is worth noting that this divide-and-conquer approach gives a stronger property: The smallest colour on any path occurs exactly once.  This stronger type of colouring is known as a *vertex ranking*.
 
-[Kamčev, Łuczak, and Sudakov][kamčev-ea] show that the anagram-free chromatic number of $n$-vertex binary trees can be $\Omega(\sqrt{\log n})$. See [Wilson and Wood][wilson-wood] for more results on trees.
+[Kamčev, Łuczak, and Sudakov][kamčev-ea] show that the anagram-free chromatic number of $n$-vertex binary trees can be $\Omega(\sqrt{\log n/\log\log n})$. See [Wilson and Wood][wilson-wood] for more results on trees.
 
 <div class="problem">
   What is largest anagram-free chromatic number of any $n$-vertex tree?
 </div>
 
-[Wilson and Wood][wilson-wood] show that the anagram-free chromatic number of $n$-vertex planar graphs can be $\Omega(\log n/\log\log n)$.  [Carmi, Dujmović and Morin][carmi-dujmovic-morin] use a completely different construction that increases this lower bound to $\Omega(\log n)$
+[Wilson and Wood][wilson-wood] and [Kamčev, Łuczak, and Sudakov][kamčev-ea]
+show that the anagram-free chromatic number of $n$-vertex planar graphs can be $\Omega(\log n)$.  [Carmi, Dujmović and Morin][carmi-dujmovic-morin] use a different construction (with pathwidth 3) that proves the same $\Omega(\log n)$ lower bound.
 
 <div class="problem">
   What is largest anagram-free chromatic number of any $n$-vertex planar graph?
@@ -50,7 +51,16 @@ Summarizing:
 
 We know that bounded degree graphs have constant non-repetitive chromatic number but that their anagram-free chromatic number can be nearly linear, so these two parameters are obviously very different.
 
-One property of centered colourings are that the set of unique colours of $G$ form a cut-set.  Using this fact, it is not hard to show that, for $k\le n$, the $k\times n$ grid, $G_{k\times n}$, has $\chi_{\mathrm{cen}}(G_{k\times n}) \in\Omega(k\log(n/k))$. 
+One property of centered colourings are that the set of unique colours of $G$ form a cut-set.  Using this fact, it is not hard to show that, for $k\le n$, the $k\times n$ grid, $G_{k\times n}$, has $\chi_{\mathrm{cen}}(G_{k\times n}) \in\Omega(k\log(n/k))$.
+
+# Unmatchable colourings
+
+Call a colouring *unmatchable* if every path has a colour that occurs an odd number of times. Clearly every unmatchable colouring is anagram-free, but not ever unmatchable colouring is a linear colouring. So the *unmatchable chromatic number* sits between the anagram-free and linear- chromatic numbers.
+
+<div class="problem">
+  What is the unmatchable chromatic number of $P_n$, the $n$ vertex path?
+</div>
+
 
 # Partial results
 

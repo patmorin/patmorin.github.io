@@ -6,7 +6,7 @@ permalink: lpw-vs-pn.html
 categories: openproblem
 ---
 
-This is joint work with Vida Dujović and Céline Yelle.
+This is joint work with Vida Dujmović and Céline Yelle.
 
 <div class="problem">
 Prove that there exists some function $f:\N\to\N$ such that any graph with layered pathwidth at most $k$ has stack number at most $f(k)$.

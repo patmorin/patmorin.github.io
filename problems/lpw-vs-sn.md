@@ -51,9 +51,9 @@ If $G$ is a graph with $\lpw(G)\le k$, then $\pn(G)\le 2k^2+k$.
      * $v\prec w$ if $i$ is even; or
      * $w\prec v$ if $i$ is odd.
 
-  To assign edges to pages we begin with the colouring of inter-layer edges defined by the previous lemma.  In this colouring, each edge is assigned a pair in $\lbrace1,\ldots,k\rbrace^2$.  For each inter-layer edge $vw$ with $v\in L_j$ and $w\in L_{j+1}$ whose colour was $(a,b)$ we reassign it the colour $(j\bmod 2, a, b)$.
+  To construct the assignment $\varphi$ of edges to pages we begin with the colouring of inter-layer edges defined by the previous lemma.  In this colouring, each edge is assigned a pair in $\lbrace1,\ldots,k\rbrace^2$.  For each inter-layer edge $vw$ with $v\in L_j$ and $w\in L_{j+1}$ whose colour was $(a,b)$ we reassign it the colour $\varphi(vw)=(j\bmod 2, a, b)$.
 
-  It remains to colour the intra-layer edges. For each intra-layer edge $vw$ with $v\prec_B w$ we assign $vw$ the colour $\varphi(v)$.  
+  It remains to colour the intra-layer edges. For each intra-layer edge $vw$ with $v\prec_B w$ we assign $vw$ the colour $\varphi(vw)=\varphi(v)$.  
 
   This concludes the description of our edge colouring. The colours assigned to intra-layer edges are $\lbrace1,\ldots,k\rbrace$ and the colours assigned to inter-layer edges are $\lbrace 0,1\rbrace\times \lbrace 1,\ldots,k\rbrace^2$ for a total of $2k^2+k$ colours.  What remains is to show is that this is a valid assignment of edges to pages, i.e., that there does not exist any pair of edges $vw$ and $xy$ that are assigned the same colour and such that $v\prec x\prec w\prec y$.  There are several cases to consider:
   1. If $vw$ and $xy$ are intra-layer edges and $L[v]=L[w] < L[x]=L[y]$, then $v,w\prec x,y$, so $vw$ and $xy$ can be assigned to the same page.

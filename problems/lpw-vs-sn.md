@@ -12,14 +12,15 @@ This is joint work with Vida Dujmović and Céline Yelle.  It's an easier verion
 Prove that there exists some function $f:\N\to\N$ such that any graph with layered pathwidth at most $k$ has stack number at most $f(k)$.
 </div>
 
-# Preliminary Steps
+# A Solution
 
+$\DeclareMathOperator{\pn}{pn}\DeclareMathOperator{\lpw}{lpw}$
 Let $G$ be a graph. A *layering* $L=\langle L_i: i\in\N\rangle$ of $G$ is a sequence of subsets that partition $V(G)$ with the property that, for every edge $vw\in E(G)$, if $u\in L_i$, then $w\in L_{i-1}\cup L_i\cup L_{i+1}$.  For a layering $L$ and a vertex $v\in V$, we use $L[v]$ to denote the unique index $i$ such that $v\in L_i$.
 
 A *path decomposition* $B=\langle B_i: i\in\N\rangle$ of $G$ is a sequence of subsets of $V(G)$ called *bags* with the property that, (i) for every edge $vw\in E(G)$ there exists at least one bag $B_i$ containing both $v$ and $w$ and (ii) for every vertex $v\in V(G)$, the set $B[v]=\lbrace i:v\in B_i\rbrace$ is contiguous.
 
 $\DeclareMathOperator{\w}{w}$A *layered path decomposition* $(L,B)$ of $G$ is a layering $L$ of $G$ and a path decomposition $B$ of $G$.  The *width* of a layered path decomposition $(L,B)$ is $\w(L,B)=\max\lbrace|B_i\cap L_j|:i,j\in \N\rbrace$.
-The *layered pathwidth* of $G$ is equal to the minimum width of any layered path decomposition of $G$.
+The *layered pathwidth* $\lpw(G)$ of $G$ is equal to the minimum width of any layered path decomposition of $G$.
 
 A path decomposition $B$ of $G$ is *left-normal* if, for every distinct pair $v,w\in V$, $\min B[v] \neq \min B[w]$.  It is straightforward to verify that, for every layered path decomposition $(L,B)$ of $G$ there exists a layered path decomposition $(L,B')$ of $G$ in which $\w(L,B)=\w(L,B')$ and $B'$ is left-normal.  For a left-normal path decomposition of $G$ and two vertices $v,w\in V(G)$, we use the notation $v\prec_B w$ if $L[v]=L[w]$ and $\min B[v]<\min B[w]$.  Note that, for each layer $L_i$, $\prec_B$ is a total order over $L_i$ and therefore $\prec_B$ is a partial order over $V(G)$.
 
@@ -35,8 +36,10 @@ When we have a path decomposition $(L,B)$ of $G$ we say that an edge $vw$ is an 
    This colouring obviously uses at most $k^2$ colours so all that remains is to show that this colouring avoids monochromatic crossings.  Consider two edges $vw$ and $xy$ with $L[v]=L[x]=j$ and $L[w]=L[y]=j+1$ that receive the same colour.  Since $\varphi(v)=\varphi(x)$, there is no  bag containing both $v$ and $x$.  Similarly, since $\varphi(w)=\varphi(y)$, there is no bag containing both $w$ and $y$. Therefore, if $\min B[v] < \min B[x]$, it must be the case $\min B[w] < \min B[y]$ since, otherwise there would be no bag containing both $v$ and $w$ or no bag containing both $x$ and $y$. Therefore, any two edges that receive the same colour do not cross.
 </div>
 
+A $p$-page layout $(\prec,\varphi)$ consists of a total order $\prec$ on $V(G)$ and an assignment $\varphi:E(G)\to P$, where $P$ is a set of *pages* of cardinality $p$.
+The page number $\pn(G)$ of $G$ is the smallest value $p$ for which $G$ has a $p$-page layout.
 
-$\DeclareMathOperator{\pn}{pn}\DeclareMathOperator{\lpw}{lpw}$
+
 <div class="theorem">
 If $G$ is a graph with $\lpw(G)\le k$, then $\pn(G)\le 2k^2+k$.
 </div>

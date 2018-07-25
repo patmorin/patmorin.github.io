@@ -36,8 +36,8 @@ When we have a path decomposition $(L,B)$ of $G$ we say that an edge $vw$ is an 
    This colouring obviously uses at most $k^2$ colours so all that remains is to show that this colouring avoids monochromatic crossings.  Consider two edges $vw$ and $xy$ with $L[v]=L[x]=j$ and $L[w]=L[y]=j+1$ that receive the same colour.  Since $\varphi(v)=\varphi(x)$, there is no  bag containing both $v$ and $x$.  Similarly, since $\varphi(w)=\varphi(y)$, there is no bag containing both $w$ and $y$. Therefore, if $\min B[v] < \min B[x]$, it must be the case $\min B[w] < \min B[y]$ since, otherwise there would be no bag containing both $v$ and $w$ or no bag containing both $x$ and $y$. Therefore, any two edges that receive the same colour do not cross.
 </div>
 
-A $p$-page layout $(\prec,\varphi)$ consists of a total order $\prec$ on $V(G)$ and an assignment $\varphi:E(G)\to P$, where $P$ is a set of *pages* of cardinality $p$.
-The page number $\pn(G)$ of $G$ is the smallest value $p$ for which $G$ has a $p$-page layout.
+A $p$-page layout $(\prec,\varphi)$ of a graph $G$ consists of a total order $\prec$ on $V(G)$ and an assignment $\varphi:E(G)\to P$, where $P$ is a set of *pages* of cardinality $p$ with the propert that, for any two edges $vw,xy\in E(G)$ with $v\prec x\prec w\prec y$, $\varphi(vw)\neq\varphi(xy)$.
+The *page number* $\pn(G)$ of $G$ is the smallest value $p$ for which $G$ has a $p$-page layout.
 
 
 <div class="theorem">

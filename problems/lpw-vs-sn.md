@@ -1,9 +1,10 @@
 ---
 layout: problem
-title:  "Layered Patwidth versus Stack Number"
+title:  "Layered Pathwidth versus Stack Number"
 date:   2018-07-24
 permalink: lpw-vs-pn.html
 categories: openproblem
+tags: graphs layering
 ---
 
 This is joint work with Vida Dujmović and Céline Yelle.  It's an easier verion of [this other problem](page-number-versus-layered-treewidth.html).

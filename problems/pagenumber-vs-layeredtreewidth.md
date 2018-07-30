@@ -3,7 +3,8 @@ layout: problem
 title:  "Page Number Versus Layered Treewidth"
 date:   2017-07-14
 permalink: page-number-versus-layered-treewidth.html
-categories: openproblem
+categories: openproblem graphs layeredwidth
+category: problem
 ---
 [David Wood](http://users.monash.edu.au/~davidwo/) asked me this question in June 2017.  It asks about finding a relationship between the page number of a graph and its layered treewidth.  (A definition of layered treewidth can be found in [Section 2 of this paper](https://arxiv.org/pdf/1306.1595.pdf).)
 

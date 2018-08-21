@@ -3,8 +3,11 @@ layout: problem
 title:  "Grid Obstacle Representations"
 date:   2017-07-14
 permalink: grid-obstacle.html
-categories: openproblem
+categories: openproblem solved
 ---
+This work has now [been published](https://arxiv.org/abs/1803.03705).
+
+<!--
 This is stuff I've been working on with other CG Lab Members following up on [some work of Saeed Mehrabi and Therese Biedl][biedl-mehrabi].
 
 ## A Very General definition
@@ -513,3 +516,4 @@ It seems much more difficult to find an x-y-transitive drawing.
 
 
 [biedl-mehrabi]: https://arxiv.org/abs/1708.01903
+-->

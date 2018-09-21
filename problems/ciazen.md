@@ -90,3 +90,40 @@ This question is open even if $G$ is planar.
 # 11 Kolja Knauer
 
 Basil Coeteux: Two posets $P$ and $Q$.  Consider $P\cup Q$.  This is, in general not a poset.  What is the complexity of finding the largest poset contained in $P\cup Q$.
+
+# 12 Oswin Aicholzer
+
+A (topological) drawing of $K_n$ is good if no two edges incident to a common vertex cross, no two edges cross more than once, no edge crosses itself, and no two edges are tangent.  (This is sometimes called a topological graph.)
+
+Problem: Does every good drawing of $K_n$ contain a non-crossing Hamiltonian cycle?
+
+The strongest such result is that every good drawing of $K_n$ contains a non-crossing matching of size $\Omega(n^{2/3})$.
+
+# 13 Birgit Vogtenhuber(sp?)
+
+Straight-line drawing of $K_n$ with no three points collinear.  Want to $k$-colour the edges in such a way that the number of monochromatic crossings is minimized. How fast can the best colouring be found?  Start with the case $k=2$.
+
+Remark: For any fixed $k$, the number of monochromatic crossings will always be $\Theta(n^4)$.
+
+Remark: The problem is NP-complete if $K_n$ is replaced with an arbitrary graph with vertices in convex position. In fact, even if the graph is a matching (by colouring intersection graphs of segments whose vertices are in convex position)
+
+# 14 Kolja Knauer
+
+Partition the vertices of a planar graph $G$ into two sets $A$ and $B$ so that
+
+* $A$ and $B$ each induce forests (not possible)
+* $A$ and $B$ each induce chordal graphs (possible by Li and Mohar)
+* $A$ induces a chordal graph and $B$ induces a forest (this is the question)
+
+Related problem: Does every $n$ vertex planar graph have a subset of $n/2$ vertices that induce a tree?  (Hard open problem)
+
+What about a set of size $n/2$ that induces a chordal graph? (Don't know.)
+
+# 15 Piotr Micek
+
+Queue layouts for posets.  Let $G$ be the cover graph of a poset $P$.  The queue number of $P$ is the minimum, over all linear orderings of $V(G)$ consistent with $P$ of the number of colours needed to avoid monochromatic rainbows.
+
+$\DeclareMathOperator{\qn}{qn}\DeclareMathOperator{\wi}{width}$
+Conjecture $\qn(P)\le\wi(P)$.
+
+Piotr and others have shown that, for planar posets $P$, $\qn(P)\le 3\wi(P)$.

@@ -42,10 +42,14 @@ Real questions:
 
 # 5 Pat Morin: Non-Crossing Geodesic Obstacle Representations
 
-This problem deals with straight-line non-crossing drawings of planar graphs. For any natural number $k$, we can partition the edges of $X$ and each vertex $v$, partition $\R^2$ into $2k$ cones by drawing $2k$ rays centered at $v$ and having directions $2\pi i/k$ for each $i\in\lbrace 1,\ldots,2k\rbrace$.  For each $i
+This problem deals with showing the existence of a special type of F\'ary\ embedding of planar graphs.
 
+For distinct points $p,q\in\R^2$, we say that $p$ $(i,k)$-dominates $q$ if we draw a regular $2k$-gon centered at $p$ and the ray originating at $p$ and containing $q$ itersects the $i$th edge of this $2k$-gon.  We write this as $q \prec_{i,k} p$. (There is a small ambiguity here when the ray passes through a vertex of the $2k$-gon, treat each edge of the $2k$-gon as contain its counterclockise endpoint but not its clockwise endpoint.)
 
-For any natural number $k$, the edges of such a drawing can be partitioned into $k$ sets $E_1,\ldots,E_k$, where $E_i$ contains the edges whose lower endpoint makes an angle with the positive x-axis that is in the range $[(i-1)\pi/k,i\pi/k)$.  A path   
+We say that a non-crossing plane straight-line drawing of a graph $G$ is $k$-transitive if, for every $i\in\lbrace 1,\ldots,k\rbrace$ and every path $xyz$ in $G$ for which $x\prec_{i,k} y\prec_{i,k} z$, the edge $xz$ is also in $G$.  Intuitively, this captures the idea that if $xz$ is not in $G$ then the path $zyz$ should ``bend significantly'' at $y$.
+
+Problem: Does there exist a constant $k$ such that every planar graph $G$ has a $k$-transitive non-crossing plane straight line drawing?
+
 
 # 6 Daniel Goncalves
 

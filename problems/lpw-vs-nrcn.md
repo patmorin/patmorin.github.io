@@ -36,14 +36,14 @@ Now, suppose $P=v_0,\ldots,v_{2k-1}$ is a path in $G$.  For each $i\in[2k]$ let 
 Note that $y_0,\ldots,y_{2k-1}$ and $g_0,\ldots,g_{2k-1}$ are each walks over the path $0,\ldots,r-1$.  Therefore, by the Kundgen-Pelsmajer Lemma, for every $i\in[k]$,  $y_i=y_{k+i}$ and $g_i=g_{k+i}$.  That is, $v_i$ and $v_{k+i}$ are in the same row and within that row, they are in the same group.
 
 
-<div class="claim">
+<div class="lemma">
   For every $t\in[r]$ and every $i_1,i_2\in\lbrace i : y_i = t\rbrace$,
   $g_{i_1}=g_{i_2}$.
 </div>
 
-\begin{proof}
+<div class="proof" markdown="1">
   This should follow from the planarity of $G$, so that $P$ is an open meander with respect to the line $y=t$ along with the fact that $f_t(x)$ is monotone.
-\end{proof}
+</div>
 
 Then I think we're almost done.
 

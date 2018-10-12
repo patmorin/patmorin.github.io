@@ -17,6 +17,38 @@ For a graph $G$, let $\lpw(G)$, $\ltw(G)$, and $\pi(G)$ denote the layered pathw
 
 [Dujmovic et al][dujmovic-ea] show that $\pi(G) \le \ltw(G)\cdot\log n$ for all $n$-vertex graphs $G$.
 
+# David's Exercise
+
+David asked about the following family $\mathcal{F}=\bigcup_{r\in\N}\mathcal{F}_r$ of planar graphs, which has layered pathwidth $O(1)$. For any $r\in\N$, let $[r]=\lbrace 0,\ldots,r-1\rbrace$.  For every graph $G\in\mathcal{F}_r$, the vertex set is $V_r=[r]^2$. For every $G\in\mathcal{F}_r$, the *horizontal edges* $\lbrace (a,b)(a+1,b):a\in[r-1],\,b\in[r]\rbrace$ are present. In addition to these edges, any maximal subset of the edges in $\lbrace(a,b)(a',b+1):a,a'\in[r],\, b\in[r-1]\rbrace$ is present subject to the graph having a non-crossing straight-line planar drawing with each vertex $(a,b)$ drawn at position $(a,b)$. In other words, $G$ is obtained from the $r\times r$ square grid by deleting the internal vertical edges and triangulating all of the resulting internal faces (each of which is a $r\times 2$ rectangle with $2r$ vertices on its boundary).  
+
+For each $G\in\mathcal{F}_i$, we call $Y_i=\lbrace (a,i): a\in[r]\rbrace$ the $i$th *row* of $G$ and $X_i=\lbrace (i,b):i\in[r]\rbrace$ the $i$th *column* of $G$. Observe that $Y_1,\ldots,Y_r$ is a layering of $G$, but $X_1,\ldots,X_r$ is not.
+
+We now define a nonrepetitive 64-colouring of $G$.  Consider the layering $G_0,\ldots,G_{r-1}$ where $G_i$ contains all vertices at distance $i$ from $\lbrace (1,1),\ldots,(1,r)\rbrace$. In other words, for every vertex $v\in G_i$, the shortest path from $v$ to the leftmost column $X_0$ has length $i$.  (Note that we could have been define $Y_i$ similarly; for every $v\in R_i$, the shortest path from $v$ to the topmost row $R_0$ has length $i$). We call $G_i$ the $i$th *group* of $G$. For any vertex $v=(a,b)$ of $G$, let $x(v)=a$ and $y(v)=b$ and $g(v)$ denote the unique index $i$ such that $v\in G_i$.  So, $v\in X_{x(v)}\cap Y_{y(v)}\cap G_{g(v)}$.
+
+Observe that, for each row $Y_t$, the function $f_t(x)=g((x,i))$ is a non-decreasing function of $x$.  In particular, for any $x_1<x_2$, if $q=g((x_1,i))=g((x_2,i))$ then $g(x,i)=q$ for all $x\in\lbrace x_1,\ldots,x_2\rbrace$.
+
+Now, consider some nonrepetitive anagram-free string $s_0,\ldots,s_{r-1}$ over the alphabet $[4]$.  We colour each vertex $v=(a,b)\in G$ with the product colour $\varphi(v)=(s_{x(v)},s_{y(v)},s_{g(v)})$.   This obviously uses only 64 colours.  This is also obviously a proper colouring since if some edge $vw$ is horizontal then $s_{x(v)}\ne s_{x(w)}$, otherwise $s_{y(v)}\neq s_{y(w)}$.  
+
+Recall the lemma in Kundgen and Pelsmajer which states that, for any walk $w_0,\ldots,w_{2k-1}$ over the path $0,\ldots,r-1$, the string $s_{w_0},\ldots,w_{w_{2k-1}}$ is a repetition if and only if $w_0,\ldots,w_{2k-1}$ is a repetition.
+
+Now, suppose $P=v_0,\ldots,v_{2k-1}$ is a path in $G$.  For each $i\in[2k]$ let $v_i=(x_i,y_i)$ and $g_i=g(v_i)$.  Suppose $P$ is repetitively coloured. Then, since each row $Y_i$ of $G$ is nonrepetitively coloured, we know that $P$ contains vertices from at least two different rows.  
+
+Note that $y_0,\ldots,y_{2k-1}$ and $g_0,\ldots,g_{2k-1}$ are each walks over the path $0,\ldots,r-1$.  Therefore, by the Kundgen-Pelsmajer Lemma, for every $i\in[k]$,  $y_i=y_{k+i}$ and $g_i=g_{k+i}$.  That is, $v_i$ and $v_{k+i}$ are in the same row and within that row, they are in the same group.
+
+
+<div class="claim">
+  For every $t\in[r]$ and every $i_1,i_2\in\lbrace i : y_i = t\rbrace$,
+  $g_{i_1}=g_{i_2}$.
+</div>
+
+\begin{proof}
+  This should follow from the planarity of $G$, so that $P$ is an open meander with respect to the line $y=t$ along with the fact that $f_t(x)$ is monotone.
+\end{proof}
+
+Then I think we're almost done.
+
+
+
 # Bounded Pathwidth: A Warm-Up
 
 I have some hope that the following proof can generalize to layered pathwidth.

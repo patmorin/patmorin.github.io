@@ -19,6 +19,10 @@ For a graph $G$, let $\lpw(G)$, $\ltw(G)$, and $\pi(G)$ denote the layered pathw
 
 # David's Exercise
 
+
+The following is all wrong. The problem is that, if the top-left vertex is adjacent to everything in row 2, then in the lower-right $n/2\times n/2$ grid, the two layerings coincide so we really only have one layering.
+
+
 David asked about the following family $\mathcal{F}=\bigcup_{r\in\N}\mathcal{F}_r$ of planar graphs, which has layered pathwidth $O(1)$. For any $r\in\N$, let $[r]=\lbrace 0,\ldots,r-1\rbrace$.  For every graph $G\in\mathcal{F}_r$, the vertex set is $V_r=[r]^2$. For every $G\in\mathcal{F}_r$, the *horizontal edges* $\lbrace (a,b)(a+1,b):a\in[r-1],\,b\in[r]\rbrace$ are present. In addition to these edges, any maximal subset of the edges in $\lbrace(a,b)(a',b+1):a,a'\in[r],\, b\in[r-1]\rbrace$ is present subject to the graph having a non-crossing straight-line planar drawing with each vertex $(a,b)$ drawn at position $(a,b)$. In other words, $G$ is obtained from the $r\times r$ square grid by deleting the internal vertical edges and triangulating all of the resulting internal faces (each of which is a $r\times 2$ rectangle with $2r$ vertices on its boundary).  
 
 For each $G\in\mathcal{F}_i$, we call $Y_i=\lbrace (a,i): a\in[r]\rbrace$ the $i$th *row* of $G$ and $X_i=\lbrace (i,b):i\in[r]\rbrace$ the $i$th *column* of $G$. Observe that $Y_1,\ldots,Y_r$ is a layering of $G$, but $X_1,\ldots,X_r$ is not.

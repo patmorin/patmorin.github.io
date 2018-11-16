@@ -37,9 +37,14 @@ Now this idea can be used in a recursive procedure to determine the order $\prec
 
 Thus we can partition $V(G_2)\setminus V(F)\setminus V(C)$ into a set $A$ of vertices that should be drawn inside of $C$ and a set $B$ of vertices that should be drawn outside of $C$ (but inside of $F$).  
 
-Now we can recurse on $G_2[V(C)\cup A]$ with $C$ as the outer face to order the vertices in $V(C)\cup A$.  Think of this as a drawing of $G[V(C)\cup A]$
+Now we can recurse on $G_2[V(C)\cup A]$ with $C$ as the outer face to order the vertices in $V(C)\cup A$.  Think of this as a drawing of $G[V(C)\cup A]$.  Note that before recursing, we had a choice about whether we should have $x_0\prec y_0$ or *vice-versa*.
 
-Next consider the graph $G_2'$ obtained by contracting $(V(C)\cup A)\cap L_i$ for each $i\in\lbrace 1,\ldots,h\rbrace$.  In this graph $V(C)\cup A$ becomes a path $v_0,\ldots,v_m$ with $v_i\in L_i$.   The node $v_0$ has degree-1 and is unmatched in $M$, so we remove the maximal path $v_0,\ldots,v_k$ where each node in this path has degree at most 2.  Now we recurse on $G_2'$ to obtain an ordering on $V(F)\cup B\cup\lbrace v_0,\ldots,v_m\rbrace$.  Think of this also as a drawing.  Now, to obtain a drawing of $G_2$, replace the path $v_0,\ldots,v_m$ with the the drawing of $G_2[V(C)\cup A]$ obtained from the first recursive call.
+Next consider the graph $G_2'$ obtained by contracting $(V(C)\cup A)\cap L_i$ for each $i\in\lbrace 1,\ldots,h\rbrace$.  In this graph $V(C)\cup A$ becomes a path $v_0,\ldots,v_m$ with $v_i\in L_i$.   The node $v_0$ has degree-1 and is unmatched in $M$, so we remove the maximal path $v_0,\ldots,v_k$ where each node in this path has degree at most 2.  Now we recurse on $G_2'$ to obtain an ordering on $V(F)\cup B\cup\lbrace v_0,\ldots,v_m\rbrace$.  Think of this also as a drawing of $G_2'$.
+
+
+Now, we want to obtain a drawing of $G_2$ by replacing the path $v_0,\ldots,v_m$ with the drawing of $G_2[V(C)\cup A]$ obtained from the first recursive call.  Indeed this works, the only thing to look out for is that the drawing of $G_2[V(C)\cup A]$ may need to have its ordering reversed.  This happens because the path $v_1,\ldots,v_m$ in the drawing of $G_2'$ represents the outer face $x_0,\ldots,(x_m=y_m),y_{m-1},\ldots,y_0$ of the drawing of $G_2[V(C)\cup A]$. In $G_2$, some vertices of $G_2'$ are adjacent to $x_i$ or $y_i$ and but in $G_2'$ such vertices are all adjacent to $v_i$.  So after we draw $G_2'$ there is a distinction between vertices adjacent to $v_0,\ldots,v_m$ from the "$x$-side" and those adjacent to $v_0,\ldots,v_m$ from the "$y$-side".  Luckily (or by design) all the $x$-side vertices in $L_i$ precede $v_i$ and $v_i$ precedes all the $y$-side vertices, or vice-versa.  So we may have to reverse the left-to-right order of all the vertices in the drawing of $G_2[V(C)\cup A]$ to to make this consistent. (This corresponds to the note two paragraphs above about being able to choose whether $x_0\prec y_0$ or $y_0\prec x_0$ before recursing.)
+
+So that's it. This method finds the planar drawing of $G_2$ required as input for the Bekos algorithm.
 
 # Generalizing
 

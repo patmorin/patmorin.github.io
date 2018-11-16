@@ -17,5 +17,8 @@ github_username:  patmorin
 
 exclude: [Hyphenate]
 
+#gems:
+#  - jekyll-last-modified-at
+
 # Build settings
 markdown: kramdown

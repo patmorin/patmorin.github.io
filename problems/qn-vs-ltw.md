@@ -3,8 +3,21 @@ layout: problem
 title:  "Queue Number versus Layered Treewidth"
 date:   2017-07-14
 permalink: qn-vs-ltw.html
-categories: openproblem
+categories: openproblem solved
 ---
+**Defunct:** This problem is more or less defunct at this point, because of this theorem:
+
+<div class="theorem">
+  If a graph $G$ has a layered $H$-partition with layered width $\ell$ where $\DeclareMathOperator{\qn}{qn}\qn(H)\le q$, then $\qn(G)\le 3q + 4$.
+</div>
+
+Every graph from an apex-minor-free family has such a layered $H$-partition (where $\ell$ and $q$ depend on the apex-minor) and so do $k$-planar graphs (where $\ell$ and $q$ depend on $k$.)  See [Dujmović et al.](https://arxiv.org/abs/1904.04791) and [Dujmović, Morin, and Wood](), respectively.
+
+---
+---
+
+# The Original Problem
+
 $\DeclareMathOperator{\depth}{depth}$[Bekos et al][bekos-ea] have recently shown that planar graphs of bounded maximum degree have bounded queue number.  Can we generlize this result to bounded layered treewidth graphs of bounded degree?
 
 Here's what we have and what we need  (I think).

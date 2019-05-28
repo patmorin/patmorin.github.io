@@ -5,6 +5,20 @@ date:   2017-07-14
 permalink: track-number.html
 categories: openproblem, synthesis
 ---
+**Defunct:** This page is more or less defunct at this point, because of this theorem, and the fact that track-number is bounded by queue number:
+
+<div class="theorem">
+  If a graph $G$ has a layered $H$-partition with layered width $\ell$ where $\DeclareMathOperator{\qn}{qn}\qn(H)\le q$, then $\qn(G)\le 3q + 4$.
+</div>
+
+Every graph from an apex-minor-free family has such a layered $H$-partition (where $\ell$ and $q$ depend on the apex-minor) and so do $k$-planar graphs (where $\ell$ and $q$ depend on $k$.)  See [Dujmović et al.](https://arxiv.org/abs/1904.04791) and [Dujmović, Morin, and Wood](), respectively.
+
+---
+---
+
+# The Original Page
+
+
 $\newcommand{\Q}{\mathcal{Q}}\newcommand{\X}{\mathcal{X}}\newcommand{\D}{\mathcal{D}}$This is a summary of Jiun-Jie Wang's new paper: [Layouts for Plane Graphs on Constant Number of Tracks][wang].  These notes are mainly to help me understand the paper.
 
 # The Big Picture

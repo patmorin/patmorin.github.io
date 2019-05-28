@@ -31,7 +31,35 @@ show that the anagram-free chromatic number of $n$-vertex planar graphs can be $
 
 We do not even know a bound of $o(\sqrt{n})$ for the $\sqrt{n}\times\sqrt{n}$ grid. I would be willing to bet that there are $n$-vertex planar graphs with anagram-free chromatic number $\Omega(n^\epsilon)$ for some $\epsilon >0$.
 
-[Wilson and Wood][wilson-wood] also show that any tree $T$ of pathwidth $k$ has $\pi_\alpha(T)\in O(k)$, thus avoiding the $O(\log n)$ factor of the divide-and-conquer algorithm.  They do this by choosing a path $P$ in $T$ whose removal disconnects $T$ into components that each have pathwidth at most $k-1$ and colouring $P$ using an anagram-free 4-colouring.  Their result doesn't generalize from trees to graphs: [Carmi, Dujmović and Morin][carmi-dujmovic-morin] show that there are $kn$-vertex graphs of pathwidth $k$ that require $\Omega(k\log n)$ colours.
+[Wilson and Wood][wilson-wood] also show that any tree $T$ of pathwidth $k$ has $\pi_\alpha(T)\le 4k+1$, thus avoiding the $O(\log n)$ factor of the divide-and-conquer algorithm.  They do this by choosing a path $P$ in $T$ whose removal disconnects $T$ into components that each have pathwidth at most $k-1$ and colouring $P$ using an anagram-free 4-colouring.  Their result doesn't generalize from trees to graphs: [Carmi, Dujmović and Morin][carmi-dujmovic-morin] show that there are $kn$-vertex graphs of pathwidth $k$ that require $\Omega(k\log n)$ colours.
+
+Somewhere between Wilson and Wood's upper bound of $4k+1$ for trees of pathwidth $k$ and the lower bound of $\Omega(\log n)$ for planar graphs of pathwidth 3 is the following question, that arose through discussions with Therese Biedl:
+
+<div class="problem">
+  What is largest anagram-free chromatic number of any $n$-vertex outerplanar graph of pathwidth $k$?
+</div>
+
+At the heart of this question is the following:
+
+<div class="problem">
+  What is largest anagram-free chromatic number of any $n$-vertex outerplanar graph of pathwidth $2$?
+</div>
+
+This looks like it will be tricky to solve.  Outerplanar graphs of pathwidth 2 include  the $2\times n$ square grid with one diagonal edge inside each square.  This is *very* close to the lower bound graph that requires $\Omega(\log n)$ colours.
+
+
+Related to this is a question posed by Wilson and Wood:
+
+<div class="problem">
+  Is there a caterpillar whose anagram-free colouring requires 5 colours.
+</div>
+
+
+
+
+
+
+
 
 # Relations to Other Colouring Problems
 

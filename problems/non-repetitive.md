@@ -5,6 +5,20 @@ date:   2018-07-14
 permalink: non-repetitive.html
 categories: openproblem
 ---
+**Defunct:** Some of this question is defunct, now, because of this theorem of [Dujmović et al](https://arxiv.org/abs/1904.05269):
+
+<div class="theorem">
+  If a graph $G$ has a layered $H$-partition with layered width $1$ where $\DeclareMathOperator{\tw}{tw}\tw(H)\le t$, then $\pi(G)\le 4^{t+1}$.
+</div>
+
+Every graph from an apex-minor-free family has such a layered $H$-partition (where $t$ depends on the apex-minor) and so do $k$-planar graphs (where $t$ depends on $k$.)  See [Dujmović et al.](https://arxiv.org/abs/1904.04791) and [Dujmović, Morin, and Wood](), respectively.
+
+
+
+---
+---
+
+# The Original Question
 A string $s=s_1,\ldots,s_{2k}$ is a *repetition* if $s_1,\ldots,s_k=s_{k+1},\ldots,s_{2k}$.  A colouring $\varphi:V(G)\to\\{1,\ldots,c\\}$ of a graph $G$ is *non-repetitive* if, for every path $v_1,\ldots,v_{2k}$ in $G$, the string $\varphi(v_1),\ldots,\varphi(2k)$ is not a repetition.  The non-repetitive chromatic number $\pi(G)$ of $G$ is the smallest number of colours in any non-repetitive colouring of $G$.
 
 <div class="problem">

@@ -53,7 +53,7 @@ Outerplanar graphs of pathwidth 2 include  the $2\times n$ square grid with one 
 **Update:** We (Therese and I) made some progress today (May 29, 2019).  
 
 <div class="theorem">
-  Outerplanar graph of pathwidth 3 and maximum-degree $\Delta$ have anagram-free chromatic-number $O(\Delta)$.
+  Outerplanar graph of pathwidth 3 and maximum-degree $\Delta$ have anagram-free chromatic-*index* $O(\Delta)$.
 </div>
 
 The proof is by looking at particle greedy path $P=v_1,\ldots,v_m$ in such a graph and computing an anagram-free 4-colouring the edges of $P$.  Each edge of $P$ makes a 2-vertex cutset $\lbrace v_i,v_i+1\rbrace$.  The remaining edges are coloured with colours that encode the edges of $P$ that they are skipping over.  (Essentially, for every $v_i$ in $P$ we find a triple of edges such that any path from $v_i$ to $v_{i+1},\ldots,v_m$ must use exactly one edge from this triple.)  In this way, if some path $P'$ has an anagram colouring we can relate this to a subpath of $P$ that has an anagram colouring.
@@ -61,7 +61,7 @@ The proof is by looking at particle greedy path $P=v_1,\ldots,v_m$ in such a gra
 The nice thing about this is that we can slice out a pathwidth-3 *separator* $S$ from a general outerplane graph and we are left with components that are each outerplanar, each have smaller pathwidth than the original graph, and are glued to $S$ by an edge. This last property is akin to *shadow completeness* and means we can prove:
 
 <div class="theorem">
-  Outerplanar graph of pathwidth $k$ and maximum-degree $\Delta$ have anagram-free chromatic-number $O(k\Delta)$.
+  Outerplanar graph of pathwidth $k$ and maximum-degree $\Delta$ have anagram-free chromatic-*index* $O(k\Delta)$.
 </div>
 
 (Note: The $\Delta$ here is only required to rule out trivial anagrams caused by paths of length 2.)

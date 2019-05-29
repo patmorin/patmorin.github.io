@@ -33,6 +33,9 @@ We do not even know a bound of $o(\sqrt{n})$ for the $\sqrt{n}\times\sqrt{n}$ gr
 
 [Wilson and Wood][wilson-wood] also show that any tree $T$ of pathwidth $k$ has $\pi_\alpha(T)\le 4k+1$, thus avoiding the $O(\log n)$ factor of the divide-and-conquer algorithm.  They do this by choosing a path $P$ in $T$ whose removal disconnects $T$ into components that each have pathwidth at most $k-1$ and colouring $P$ using an anagram-free 4-colouring.  Their result doesn't generalize from trees to graphs: [Carmi, Dujmović and Morin][carmi-dujmovic-morin] show that there are $kn$-vertex graphs of pathwidth $k$ that require $\Omega(k\log n)$ colours.
 
+
+# Outerplanar graphs of small pathwidth
+
 Somewhere between Wilson and Wood's upper bound of $4k+1$ for trees of pathwidth $k$ and the lower bound of $\Omega(\log n)$ for planar graphs of pathwidth 3 is the following question, that arose through discussions with Therese Biedl:
 
 <div class="problem">
@@ -45,7 +48,46 @@ At the heart of this question is the following:
   What is largest anagram-free chromatic number of any $n$-vertex outerplanar graph of pathwidth $2$?
 </div>
 
-This looks like it will be tricky to solve.  Outerplanar graphs of pathwidth 2 include  the $2\times n$ square grid with one diagonal edge inside each square.  This is *very* close to the lower bound graph that requires $\Omega(\log n)$ colours.
+Outerplanar graphs of pathwidth 2 include  the $2\times n$ square grid with one diagonal edge inside each square.  This is *very* close to the lower bound graph that requires $\Omega(\log n)$ colours.
+
+**Update:** We made some progress today (May 29, 2019).  
+
+<div class="theorem">
+  Outerplanar graph of pathwidth 3 and maximum-degree $\Delta$ have anagram-free chromatic-number $O(\Delta)$.
+</div>
+
+The proof is by looking at particle greedy path $P=v_1,\ldots,v_m$ in such a graph and computing an anagram-free 4-colouring the edges of $P$.  Each edge of $P$ makes a 2-vertex cutset $\lbrace v_i,v_i+1\rbrace$.  The remaining edges are coloured with colours that encode the edges of $P$ that they are skipping over.  (Essentially, for every $v_i$ in $P$ we find a triple of edges such that any path from $v_i$ to $v_{i+1},\ldots,v_m$ must use exactly one edge from this triple.)  In this way, if some path $P'$ has an anagram colouring we can relate this to a subpath of $P$ that has an anagram colouring.
+
+The nice thing about this is that we can slice out a pathwidth-3 *separator* $S$ from a general outerplane graph and we are left with components that are each outerplanar, each have smaller pathwidth than the original graph, and are glued to $S$ by an edge. This last property is akin to *shadow completeness* and means we can prove:
+
+<div class="theorem">
+  Outerplanar graph of pathwidth $k$ and maximum-degree $\Delta$ have anagram-free chromatic-number $O(k\Delta)$.
+</div>
+
+(Note: The $\Delta$ here is only required to rule out trivial anagrams caused by paths of length 2.)
+
+Finally, the subgraph $P^+$ consisting of the edges of $P$ and the triples of cut edges has constant degree.  We can use this fact to transfer our edge colouring of $P^+$ to a vertex colouring that is anagram-free, solving the open problem stated above:
+
+<div class="theorem">
+   Outerplanar graphs of path $k$ have anagram-free chromatic number $O(k)$.
+</div>
+
+This strengthens Wilson and Wood's result from trees to outerplanar graphs and puts us right on the edge of the class of graphs that have anagram-free chromatic number bounded by their pathwidth.  My guess is that appropriate versions of the preceding ideas should carry through to 2-trees.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Related to this is a question posed by Wilson and Wood:

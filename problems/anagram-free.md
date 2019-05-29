@@ -50,7 +50,7 @@ At the heart of this question is the following:
 
 Outerplanar graphs of pathwidth 2 include  the $2\times n$ square grid with one diagonal edge inside each square.  This is *very* close to the lower bound graph that requires $\Omega(\log n)$ colours.
 
-**Update:** We made some progress today (May 29, 2019).  
+**Update:** We (Therese and I) made some progress today (May 29, 2019).  
 
 <div class="theorem">
   Outerplanar graph of pathwidth 3 and maximum-degree $\Delta$ have anagram-free chromatic-number $O(\Delta)$.

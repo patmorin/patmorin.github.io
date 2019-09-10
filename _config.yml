@@ -6,10 +6,10 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Open Problems
+title: Research Stuff &mdash; Pat Morin
 email: morin@scs.carleton.ca
 description: > # this means to ignore newlines until "baseurl:"
-  A site I use for keeping track of open problems. 
+  A site I use for keeping track of open problems.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://patmorin.github.io" # the base hostname & protocol for your site
 #twitter_username: devnull
@@ -22,3 +22,11 @@ exclude: [Hyphenate]
 
 # Build settings
 markdown: kramdown
+
+collections:
+  problems:
+    output: true
+    sort_by: title
+  projects:
+    output: true
+    sort_by: date

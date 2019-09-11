@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Obstacle Numbers</title>
+  <meta name="description" content="$\DeclareMathOperator{\obs}{obs}\DeclareMathOperator{\cupdotop}{\dot{\cup}}$For a set $P\subset \R^2$ of points and a set $R$ of connected subsets of $\R^2$,...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://patmorin.github.io/obstacle-numbers.html">
+  <link rel="alternate" type="application/rss+xml" title="Open Problems" href="http://patmorin.github.io/feed.xml">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
+                    displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
+                    processEscapes: true },
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
+      });
+    </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+
+  <body lang="en" class="hyphenate">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Open Problems</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <!-- <a class="page-link" href="/k-planar-talk.html">Layered Partitions of $k$-Planar Graphs</a> -->
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="problem" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Obstacle Numbers</h1>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    $\newcommand{\N}{\mathbb{N}}\newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\E}{E}$
+    <p>$\DeclareMathOperator{\obs}{obs}\DeclareMathOperator{\cupdotop}{\dot{\cup}}$For a set $P\subset \R^2$ of points and a set $R$ of connected subsets of $\R^2$, the visibility graph $V_R(P)$ of $P$ with respect to $R$ is the graph $G=(P,E)$ in which an edge $uw$ is in $E$ if and only the segment with endpoints $u$ and $w$ is disjoint from every element in $R$.  We say that $(P,R)$ is an <em>obstacle representation</em> of $G$.  The <em>obstacle number</em>, $\obs(G)$ of a graph $G$ is the minimum number of obstacles in any obstacle representation of a graph isomorphic to $G$.</p>
+
+<div class="problem">
+  What is the maximum obstacle number of an $n$-vertex graph?
+</div>
+
+<p>It is known that there are $n$-vertex graphs with obstacle number $\Omega(n/(\log\log n)^2)$ (see <a href="http://www.combinatorics.org/ojs/index.php/eljc/article/view/v22i3p1">Dujmović and Morin</a>) and that every $n$-vertex graph has obstacle number $O(n\log n)$ (see <a href="https://arxiv.org/abs/1610.04741">Balko, Cibulka, and Valtr</a>).
+The lower bound is non-constructive; it shows that a random graph has high obstacle number with high probability.</p>
+
+<div class="problem">
+  Give an explicit construction of a graph with large obstacle number.
+</div>
+
+<p>The upper bound of $O(n\log n)$ starts by placing the vertices of $G$ in general position, but in such a way that there is a set $B$ of $O(n\log n)$ $\epsilon$-disk points that <em>block</em> every pair of vertices. (A disk $D$ blocks $u$ and $w$ if $x$ is in the interior of the line segment joining $u$ and $w$.)  Then, a careful perturbation of the vertices is used so that each set of edges that passes through a disk $D\in B$ becomes (in the neighbourhood of $D$) an arrangement of lines in which all lines are incident to one face.  In this way, a single obstacle near $D$ is sufficient to block any subset of the edges that passes through $D$.</p>
+
+<p>If we take the limit as $\epsilon\rightarrow 0$, then we obtain
+a point set that can be blocked by $O(n\log n)$ points. If we want to improve this upper bound, then a natural place to start is to find a set of $n$ points that can be blocked by $o(n\log n)$ points.  This is already an open problem (see Conjecture 3 of <a href="http://dx.doi.org/10.20382/jocg.v1i1a3">Pór and Wood</a>).</p>
+
+<div class="problem">
+  What is the fewest number of blockers required to block an $n$-point set in general position?
+</div>
+
+<p>Pinchasi conjectured that the answer is $\Omega(n\log n)$.  An upper bound of $n2^{O(\sqrt{n})}$ is due to <a href="https://www.math.nyu.edu/~pach/publications/midpoint.ps">Pach</a>, who actually shows gives an example of an $n$-point set in general position that has only $n2^{O(\sqrt{n})}$ midpoints.
+(See my <a href="blockers-and-midpoints.html">open problems on blockers and midpoints</a>.)</p>
+
+<p>The construction of Balko, Cibulka, and Valtr doesn’t given an $O(n\log n)$ upper bound because, in the limit $\epsilon=0$, the point set stops being in general position (it lives on two vertical lines).  This leads to another variant of the blocking question.</p>
+
+<div class="problem">
+  Let $S:(0,1]\to(\R^2)^n$ be a continuous family of $n$ point sets with the property that, for all $\epsilon\in(0,1]$, $S(\epsilon)$ is in general position and can be blocked by a set of $f(n)$ $\epsilon$-disks.  What is the minimum value of $f(n)$?.
+</div>
+
+<p>A solution to the preceding problem would not necessarily help with the obstacle number question, unless it has some special structure.</p>
+
+<h2 id="counting-h-obstacle-graphs">Counting $h$-Obstacle Graphs</h2>
+
+<div class="problem">
+  What is the number of graphs with obstacle number $h$?
+</div>
+
+<p>Theorem 1 of <a href="http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p32">Mukkamala et al</a> gives an upper bound of $2^{O(hn\log^2 n)}$.  Theorem 4 in <a href="https://arxiv.org/abs/1610.04741">Balko, Cibulka, and Valtr</a> gives a lower bound of $2^{\Omega(hn)}$.</p>
+
+<h2 id="obstacle-numbers-of-product-graphs">Obstacle Numbers of Product Graphs</h2>
+
+<p>The product graph $G_1\times G_2$ of two graphs $G_1$ and $G_2$ is the graph with vertex set $V(G_1)\times V(G_2)$ and that contains an edge joing $(u_1,u_2)$ to $(w_1,w_2)$ if
+$u_1w_1\in E(G_1)$ or $u_2w_2\in E(G_2)$.</p>
+
+<div class="problem">
+  What can we say about $\obs(G_1\times G_2)$ in terms of $\obs(G_1)$ and $\obs(G_2)$?
+</div>
+
+<h2 id="planar-graphs">Planar Graphs</h2>
+
+<p>Less is known about obstacle numbers of planar graphs:</p>
+
+<div class="problem">
+  What is the maximum obstacle number of an $n$-vertex planar graph?
+</div>
+
+<p>A lower bound of 2 was recently shown by <a href="https://arxiv.org/abs/1606.03782">Berman et al</a>, who showed that the icosahedron (as well as another planar graph with 10 vertices) has obstacle number 2.  An upper bound of $O(n)$ comes from the fact that a planar drawing of an $n$-vertex planar graph has at most $2n-4$ faces and placing an obstacle inside each face gives an obstacle representation of this graph.  Actually, this bound has been reduced to $n-3$ by <a href="https://arxiv.org/abs/1706.06992">Gimble etal</a>.  The bound of $n-3$ is tight for planar representations of planar graphs.</p>
+
+<p><a href="https://arxiv.org/abs/1706.06992">Gimble etal</a> also show that if $G$ is bipartite and planar, then $\obs(G)\le 1$.  This makes it plausible that planar graphs have bounded obstacle number.</p>
+
+<h2 id="sparse-graphs">Sparse graphs</h2>
+
+<p>The known graphs with large obstacle number (namely $G_{n,1/2}$) are dense. If we can’t find planar graphs with large obstacle number, then maybe we can find other sparse graphs with large obstacle number:</p>
+
+<div class="problem">
+  Is there a constant $d$ such that $d$-degenerate graphs have arbitrarily large obstacle number?
+</div>
+
+<h2 id="a-lemma">A Lemma</h2>
+
+<p>An <em>outside obstacle</em> in an obstacle representation $(P,R)$ is an obstacle that is not bounded by visibility edges, i.e, there is a path from the obstacle to infinity that does not intersect any edge of $V_R(P)$. An <em>outside obstacle representation</em> of $G$ is an obstacle representation of $G$ that has an outside obstacle.  The <em>outside obstacle number</em> of $G$ is the minimum number of obstacles in any outside obstacle representation of $G$.</p>
+
+<p>Here’s a lemma that might help that might be helpful for solving these kinds of problems. (It’s an easy generalization of Lemma 4.1
+in <a href="https://arxiv.org/abs/1606.03782">Berman etal’s paper</a>).</p>
+
+<div class="lemma">
+  If $G_1$ and $G_2$ each have outside obstacle number $k$, then their disjoint
+  union, $G=G_1\cupdotop G_2$ has obstacle number $k$.
+</div>
+
+<div class="proof">
+  <p>Observe that $\obs(G_1)\ge k-1$ since, otherwise, we could add a useless outside obstacle to an obstacle representation of $G_1$ with less than $k-1$ obstacles to show that the outside obstacle number of $G_1$ is less than $k$. Also $\obs(G) &gt; \obs(G_1)$ since any obstacle representation of $G$ gives an obstacle representation of $G_1$ just by deleting vertices of $G_2$.</p>
+
+  <p>Therefore, the only concern is that $G$ has an obstacle representation with $k-1$ obstacles and that these are all inner obstacles. Take any line, $\ell$ tangent to the convex hull, $C$, of these obstacles.  Then the same argument used in Lemma 4.1 of <a href="https://arxiv.org/abs/1606.03782">Berman et al’s paper</a> shows that $G_1$ and $G_2$ each contain vertices on both sides of $\ell$.  But this is contradiction, since there is some pair of vertices $u\in V(G_1)$ and $w\in V(G_2)$ that are on the side $\ell$ that does not contain $C$.  These vertices are not blocked by any obstacle but they are not adjacent in $G$, so this is not an obstacle representation of $G$.</p>
+</div>
+
+<p>Since the disjoint union of planar graphs is also planar, the preceding lemma reduces the problem of finding graphs with obstacle number $k$ to the problem of finding graphs with outside obstacle number $k$.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Open Problems</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Open Problems</li>
+          <li><a href="mailto:morin@scs.carleton.ca">morin@scs.carleton.ca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/patmorin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">patmorin</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>A site I use for keeping track of open problems.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+  <script>Hyphenator.run();</script>
+</html>

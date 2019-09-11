@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Layered Pathwidth versus Stack Number</title>
+  <meta name="description" content="This is joint work with Vida Dujmović and Céline Yelle.  It’s an easier verion of this other problem.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://patmorin.github.io/lpw-vs-pn.html">
+  <link rel="alternate" type="application/rss+xml" title="Open Problems" href="http://patmorin.github.io/feed.xml">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
+                    displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
+                    processEscapes: true },
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
+      });
+    </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+
+  <body lang="en" class="hyphenate">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Open Problems</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <!-- <a class="page-link" href="/k-planar-talk.html">Layered Partitions of $k$-Planar Graphs</a> -->
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="problem" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Layered Pathwidth versus Stack Number</h1>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    $\newcommand{\N}{\mathbb{N}}\newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\E}{E}$
+    <p>This is joint work with Vida Dujmović and Céline Yelle.  It’s an easier verion of <a href="page-number-versus-layered-treewidth.html">this other problem</a>.</p>
+
+<div class="problem">
+Prove that there exists some function $f:\N\to\N$ such that any graph with layered pathwidth at most $k$ has stack number at most $f(k)$.
+</div>
+
+<h1 id="a-solution">A Solution</h1>
+
+<p>$\DeclareMathOperator{\pn}{pn}\DeclareMathOperator{\lpw}{lpw}$
+Let $G$ be a graph. A <em>layering</em> $L=\langle L_i: i\in\N\rangle$ of $G$ is a sequence of subsets that partition $V(G)$ with the property that, for every edge $vw\in E(G)$, if $u\in L_i$, then $w\in L_{i-1}\cup L_i\cup L_{i+1}$.  For a layering $L$ and a vertex $v\in V$, we use $L[v]$ to denote the unique index $i$ such that $v\in L_i$.</p>
+
+<p>A <em>path decomposition</em> $B=\langle B_i: i\in\N\rangle$ of $G$ is a sequence of subsets of $V(G)$ called <em>bags</em> with the property that, (i) for every edge $vw\in E(G)$ there exists at least one bag $B_i$ containing both $v$ and $w$ and (ii) for every vertex $v\in V(G)$, the set $B[v]=\lbrace i:v\in B_i\rbrace$ is contiguous, i.e., it contains all integers in $\lbrace \min B[v],\ldots,\max B[v]\rbrace $.</p>
+
+<p>$\DeclareMathOperator{\w}{w}$A <em>layered path decomposition</em> $(L,B)$ of $G$ is a layering $L$ of $G$ and a path decomposition $B$ of $G$.  The <em>width</em> of a layered path decomposition $(L,B)$ is $\w(L,B)=\max\lbrace|B_i\cap L_j|:i,j\in \N\rbrace$.
+The <em>layered pathwidth</em> $\lpw(G)$ of $G$ is equal to the minimum width of any layered path decomposition of $G$.</p>
+
+<p>A path decomposition $B$ of $G$ is <em>left-normal</em> if, for every distinct pair $v,w\in V$, $\min B[v] \neq \min B[w]$.  It is straightforward to verify that, for every layered path decomposition $(L,B)$ of $G$ there exists a layered path decomposition $(L,B’)$ of $G$ in which $\w(L,B)=\w(L,B’)$ and $B’$ is left-normal.  For a left-normal path decomposition of $G$ and two vertices $v,w\in V(G)$, we use the notation $v\prec_B w$ if $\min B[v]&lt;\min B[w]$.
+Note that, since $B$ is left-normal, $\prec_B$ is a total order.</p>
+
+<p>For any edge $vw$ with $v\prec_B w$ we call $v$ the <em>left endpoint</em> of the edge and $w$ the <em>right endpoint</em>.  We use the convention of writing any edge with endpoints $v$ and $w$ as $vw$ where $v$ is the left endpoint and $w$ is the right endpoint.</p>
+
+<p>A $p$-page layout $(\prec,\varphi)$ of a graph $G$ consists of a total order $\prec$ on $V(G)$ and an assignment $\varphi:E(G)\to P$, where $P$ is a set of <em>pages</em> of cardinality $p$ with the property that, for any two edges $vw,xy\in E(G)$ with $v\prec x\prec w\prec y$, $\varphi(vw)\neq\varphi(xy)$.
+The <em>page number</em> $\pn(G)$ of $G$ is the smallest value $p$ for which $G$ has a $p$-page layout.</p>
+
+<div class="theorem">
+For any graph $G$, $\pn(G)\le 4\lpw(G)$.
+</div>
+
+<div class="proof">
+  <p>Consider a left-normalized layered path decomposition $(L,B)$ of $G$ of width at most $k$.  To construct a page layout of $G$ we first construct a total ordering $\prec$ on the vertices of $G$.  This ordering is constructed as follows:</p>
+  <ul>
+    <li>If $v\in L_i$ and $w\in L_j$ with $i &lt; j$, then $v\prec w$.</li>
+    <li>If $v,w\in L_i$ with $v \prec_B w$ then
+      <ul>
+        <li>$v\prec w$ if $i$ is even; or</li>
+        <li>$w\prec v$ if $i$ is odd.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>To define the colouring $\varphi$, we begin with a (greedy) vertex $k$-colouring $\varphi:V\to \lbrace 1,\ldots,k\rbrace$ so that, for any $i,j\in\N$, no two vertices in $B_i\cap L_j$ are assigned the same colour. This is easily done since the path decomposition $\langle B_i\cap L_j : i\in N\rangle$ has bags of size at most $k$.</p>
+
+  <p>We say that the edge $vw$ has <em>positive slope</em> if $L[v]=L[w]+1$ and has <em>negative slope</em> if $L[v]=L[w-1]$.  We colour the edge $vw$ with the colour $\varphi(vw)=(a,b,c)$ where $a=L[v]\bmod 2$, $b$ is a bit indicating whether $v$ has positive or negative slope, and $c$ is the colour $\varphi(v)$ of the left endpoint $v$.  This clearly uses only $2\times2\times k=4k$ colours so all that remains is to show that $(\prec,\varphi)$ is indeed a $4k$-page layout.</p>
+
+  <p>Consider two edges $vw$ and $xy$ (whose left-endpoints are $v$ and $x$, respectively) and suppose without loss of generality that $v\prec x\prec w\prec y$.  We must show that $\varphi(vw)\neq\varphi(xy)$.  There are several cases to consider. In each case, $i$ is an integer and we assume, without loss of generality that $i$ is even.</p>
+
+  <ol>
+    <li>
+      <p>$L[v]=L[x]=L[y]=i$. In this case $v\prec_B x\prec_B y$.  If $L[w]\neq i$, then either $w\prec x$ or $y\prec w$, which is not possible.  On the other hand, if $L[w]=i$, then $v \prec_B x\prec_B y\prec_B w$ so $v,x\in B_{\min B[y]}$, so $\varphi(v)\ne\varphi(x)$ and $\varphi(vw)$ and $\varphi(xy)$ differ in their third component.</p>
+    </li>
+    <li>
+      <p>$L[v]=L[x]=i$, $L[w]=L[y]=i\pm 1$.  Without loss of generality, we can assume that $L[w]=L[y]=i+1$.  In this case the assumption that $v\prec x\prec w\prec y$ implies that $v \prec_B x \prec_B y\prec_B w$, and again $\varphi(vw)$ and $\varphi(xy)$ differ in their third component.</p>
+    </li>
+    <li>
+      <p>$L[v] = L[y] = i$ and $L[x]=L[w]=i\pm 1$.  In this case, $vw$ has negative slope and $xy$ has positive slope or vice-versa, so $\varphi(vw)$ and $\varphi(xy)$ differ in their second component.  (Also, $L[v]\not\equiv L[x]\pmod 2$.)</p>
+    </li>
+    <li>
+      <p>$L[v] = L[x]= i$, $L[w]=i-b$, $L[w]=i+b$ for some $b\in\lbrace 0,1\rbrace$.  In this case, again $vw$ and $xy$ have positive and negative slopes, so $\varphi(vw)$ and $\varphi(xy)$ differ in their second component.</p>
+    </li>
+    <li>
+      <p>$L[v] = i-b$, $L[x]= i+b$, $L[w]=L[y]=i$ for some $b\in\lbrace 0,1\rbrace$.  In this case, again $vw$ and $xy$ have positive and negative slopes, so $\varphi(vw)$ and $\varphi(xy)$ differ in their second component.</p>
+    </li>
+    <li>
+      <p>$L[v]=i-1$, $L[w]=L[x]=i$, $L[y]=i+1$.  In this case $L[v]\not\equiv L[x]\pmod 2$ so $\varphi(vw)$ and $\varphi(xy)$ differ in their first component.</p>
+    </li>
+  </ol>
+
+  <p>Note that $v\prec x\prec w\prec y$ implies that $\lbrace L[v],L[w]\rbrace \cap \lbrace L[x],L[y]\rbrace \neq \emptyset$.  Therefore, the preceding is an exhaustive case analysis.</p>
+</div>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Open Problems</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Open Problems</li>
+          <li><a href="mailto:morin@scs.carleton.ca">morin@scs.carleton.ca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/patmorin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">patmorin</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>A site I use for keeping track of open problems.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+  <script>Hyphenator.run();</script>
+</html>

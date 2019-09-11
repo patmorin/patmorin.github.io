@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Plane Graphs on a Constant Number of Tracks</title>
+  <meta name="description" content="Defunct: This page is more or less defunct at this point, because of this theorem, and the fact that track-number is bounded by queue number:">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://patmorin.github.io/track-number.html">
+  <link rel="alternate" type="application/rss+xml" title="Open Problems" href="http://patmorin.github.io/feed.xml">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
+                    displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
+                    processEscapes: true },
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
+      });
+    </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+
+  <body lang="en" class="hyphenate">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Open Problems</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <!-- <a class="page-link" href="/k-planar-talk.html">Layered Partitions of $k$-Planar Graphs</a> -->
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="problem" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Plane Graphs on a Constant Number of Tracks</h1>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    $\newcommand{\N}{\mathbb{N}}\newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\E}{E}$
+    <p><strong>Defunct:</strong> This page is more or less defunct at this point, because of this theorem, and the fact that track-number is bounded by queue number:</p>
+
+<div class="theorem">
+  If a graph $G$ has a layered $H$-partition with layered width $\ell$ where $\DeclareMathOperator{\qn}{qn}\qn(H)\le q$, then $\qn(G)\le 3q + 4$.
+</div>
+
+<p>Every graph from an apex-minor-free family has such a layered $H$-partition (where $\ell$ and $q$ depend on the apex-minor) and so do $k$-planar graphs (where $\ell$ and $q$ depend on $k$.)  See <a href="https://arxiv.org/abs/1904.04791">Dujmović et al.</a> and <a href="">Dujmović, Morin, and Wood</a>, respectively.</p>
+
+<hr />
+<hr />
+
+<h1 id="the-original-page">The Original Page</h1>
+
+<p>$\newcommand{\Q}{\mathcal{Q}}\newcommand{\X}{\mathcal{X}}\newcommand{\D}{\mathcal{D}}$This is a summary of Jiun-Jie Wang’s new paper: <a href="https://arxiv.org/abs/1708.02114">Layouts for Plane Graphs on Constant Number of Tracks</a>.  These notes are mainly to help me understand the paper.</p>
+
+<h1 id="the-big-picture">The Big Picture</h1>
+
+<p>$\DeclareMathOperator{\tn}{tn}$A $t$-<em>track assignment</em> of a graph $G$ is a (not necessarily proper) $t$-colouring $c:V(G)\to\{1,\ldots,t\}$ of $G$’s vertices, along with a total ordering $&lt;_i$ of the vertices in each colour class $i\in\{1,\ldots,t\}$.  An <em>X-crossing</em> in a track assignment is a pair of edges $vw$ and $xy$ with $c(v)=c(x)=i$, $c(w)=c(y)=j$, $v&lt;_i x$, and $w&lt;_j y$.  The <em>span</em> of a track assignment $(c,&lt;_{1},\ldots,&lt;_t)$ is the maximum value $|c(u)-c(w)|$ where $uw$ is an edge of $G$.</p>
+
+<p>The <em>track number</em> $\tn(G)$ of $G$ is the minimum value of $t$ for which $G$ has a $t$-track assignment $(c,&lt;_{1},\ldots,&lt;_t)$ such that $c$ is a proper colouring and that has no X-crossings.</p>
+
+<!-- A $(k,t)$-track layout of $G$ is a $t$-track assignment along with a $k$-colouring $s:E(G)\to\\{1,\ldots,k\\}$ of $G$'s edges in which the edges of each X-crossing are assigned two different colours.  A $(1,t)$-track layout is called a $t$-track layout.  The minimum $t$ for which $G$ has a $t$-track layout is called the *track number* of $G$, and is denoted by $\tn(G)$ -->
+
+<p>It follows from gluing together results by <a href="https://www.emis.de/journals/DMTCS/pdfpapers/dm070111.pdf">Dujmovic and Wood</a> and <a href="https://arxiv.org/abs/cs/0407033">Dujmovic, Por, and Wood</a> that if $G$ has a track assignment $(c,&lt;_{1},\ldots,&lt;_t)$ for which</p>
+
+<ol>
+  <li>the queue number of the subgraph induced by each colour class of $c$ is at most $\Q$;</li>
+  <li>the largest set of pairwise X-crossing edges is at most $\X$; and</li>
+  <li>the span of $c$ is at most $\D$,</li>
+</ol>
+
+<p>then $\tn(G) \le f(\Q,\X,\D)$ for some function $f:\N^3\to \N$.</p>
+
+<p>Therefore, it suffices to find a track assignment for which $\Q,\X,\D\in O(1)$.  From now on, we’ll call this a $(\Q,\X,\D)$-layout. (Wang calls it a $(\Q,\X,\D)$-well-placed layout in a ladder $\mathcal{H}$.)</p>
+
+<ul>
+  <li>Input: Plane graph $G$</li>
+  <li>Let $G^1$ be a 1-subdivision of $G$.</li>
+  <li>Get a composite-layerlike embedding, $E$, of $G^1$ (Theorem 4 in Section 4)</li>
+  <li>Convert $E$ into a $(\Q,\X,\D)$-layout $c$ of $G^1$ (Theorem 10, last page)</li>
+  <li>By the results discussed above, $\tn(G^1) \in O(1)$ and, therefore, by a result of Dujmovic and Wood [<a href="https://www.emis.de/journals/DMTCS/pdfpapers/dm070111.pdf">1, Lemma 7</a>] $\tn(G)\in O(1)$.</li>
+</ul>
+
+<h1 id="key-definitions">Key Definitions</h1>
+
+<p>These are my interpretations of some key definitions:</p>
+
+<ul>
+  <li>A <em>layer</em> is a horizontal line.  Layers proceed downward, with higher numbered layers below lower numbered layers.</li>
+  <li>A <em>layerlike graph</em> is a plane graph where the vertices are assigned to layers $1,\ldots,k$, and there is an ordering of the vertices on each layer with the restriction that edges always join two vertices on the same layer or on consecutive layers.</li>
+</ul>
+
+<blockquote>
+  <p>A layerlike graph Π is a graph whose vertices are partitioned and placed on contiguous layers such that no edge is placed between any two non-contiguous layers and no edges are crossing.</p>
+</blockquote>
+
+<ul>
+  <li>A <em>downpointing triangle</em> in a layerlike graph is a cycle with all but one vertex on layer $i$ and the remaining vertex on layer $i+1$.</li>
+</ul>
+
+<blockquote>
+  <p>Given a layerlike graph Π, a down-pointing triangle ▽ is a a cycle (l, · · · , r, m) that vertices on the cycle (l, · · · , r, m) are on the two contiguous layers where the path from l to r are on the upper layer and the vertex m is on the lower layer</p>
+</blockquote>
+
+<ul>
+  <li>A <em>bowl</em> in a layerlike graph is a cycle with all vertices on the same layer.</li>
+</ul>
+
+<blockquote>
+  <p>A bowl ♥ is a cycle (l, · · · , r) that the cycle are on the same layer where each vertex of the cycle is on the same layer.</p>
+</blockquote>
+
+<ul>
+  <li>A <em>composite-layerlike graph</em> is a plane graph that has a <em>backbone</em> $K$ that is a layerlike graph.  Each bowl $\heartsuit$ of $K$ can contain a composite-layerlike graph whose first layer is $\heartsuit$.  Each downpointing triangle $\triangledown$ of $K$ can contain a composite-layerlike graph whose first layer is the top layer of $\triangledown$.</li>
+</ul>
+
+<blockquote>
+  <p>A composite-layerlike graph G can be recursively defined as follows: G consists of a layerlike graph Π such that each bowl ♥ of G has a smaller composite-layerlike graph G1 where G1’s first layer is the bowl ♥, and each down-pointing triangle ▽ has a composite-layerlike graph G2 where the first layer of G2 is the upper layer of ▽.</p>
+</blockquote>
+
+<p>This object should really be called a composite-layerlike embedding of a plane graph.</p>
+
+<h1 id="theorem-2">Theorem 2</h1>
+
+<p>This theorem says that, if $G$ is a $(\Q,\X,\D)$-layout, then $G$ can also be drawn as a $(\Q,\X,O(\D))$-well-placed graph with only $O(\D)$ layers.</p>
+
+<p>The proof of this is to wrap the graph onto $O(\D)$ layers.  The fact that the edge span is $\D$ ensures that this wrapping doesn’t increase $\Q$ or $\X$. This is basically the original wrapping argument from [<a href="http://cglab.ca/~morin/publications/gd/treewidth-sicomp.pdf">1</a>]. But actually, I don’t think this is needed since it we can use one of the results in one the {Dujmovic, Por, Morin, Wood} papers.</p>
+
+<h1 id="section-3">Section 3</h1>
+
+<p>This section discusses how to take a composite-layerlike (embedding of a planar) graph $G$ and turn it into a $(\Q,\X,\D)$-layout with $\Q,\X,\D\in O(1)$.  Part of this Section includes Conjecture 1, which is later proved in Section 7.</p>
+
+<h1 id="section-4">Section 4</h1>
+
+<p>This section shows how to find a composite-layerlike embedding of a plane graph.  More specificially, it shows (in Theorem 4) that a 1-subdivision of any planar graph $G$ has a composite-layerlike embedding.</p>
+
+<p>I found this proof (which is supposedly the easy part of the paper) almost impossible to follow.  In fact, I think there’s a counterexample.  Let me quote the paper:$\newcommand{\OO}{\mathcal{O}}\newcommand{\GG}{\mathcal{G}}$</p>
+
+<blockquote>
+  <p>In this section,
+we show how to reform a plane graph $G$ to a composite-layerlike graph $\GG$.
+Let $G$ be a plane graph and $\OO(G)$ be its outer boundary. Each layer in a composite-layerlike graph $\GG$ can be recursively defined as follows:
+the first layer is $\OO(G)$ and $\OO_{G}$ is placed as clockwise order $(m, u_1,u_2, \cdots)$. Then $(\OO_1, \OO_2, \cdots, \OO_p)$ are the sequential maximal inner cycles inside $\OO$ such that for each maximal inner cycle $\OO_i, 1\leq i\leq p$, there are some vertices on $\OO_i$ connecting to the vertex $m$.
+Now for each maximal inner cycle $\OO_i, 1\leq i\leq p$, we can walk around the cycle $\OO_i$ by clockwise order to get two contiguous vertices $(L^U(\OO_i)=(v^i_1=u^i_y, v^i_2, \cdots, v^i_x=u^i_1), L^B(\OO_i)=(u^i_1=v^i_x, u^i_2, \cdots, u^i_y=v^i_1) )$ where each vertex of $L^U(\OO_i)$ don’t connect to the vertex $m$ except the first and last vertices ${v^i_1, v^i_y}$ of $L^U(\OO_i)$ and each vertex of $L^B(\OO_i)$ connects to the vertex $m$.
+All maximal inner cycles $(\OO_1, \OO_2, \cdots, \OO_p)$ can be placed on the second layer as the order: $(\OO_1, \OO_2, \cdots, \OO_p)$. Moreover,
+for each maximal inner cycle $\OO_i$, $\OO_i$ is placed on the second layer from the vertex $u^i_1$ by clockwise order as: $(v^i_1=u^i_y, v^i_2, \cdots, v^i_x=u^i_y, u^i_{y-1}, \cdots, u^i_2)$.</p>
+</blockquote>
+
+<p>The following picture illustrates the problem:</p>
+
+<p class="center"><img src="images/tracknumber-example.svg" alt="tracknumber-example" /></p>
+
+<p>The second figure represents my understanding of the preceding paragraph, which could be incorrect.  However, if the goal is that $\OO_1$, $\OO_2$, and $\OO_3$ should all be bowls on the same layer, then I don’t see any way to resolve the fact that $\OO_2$ shares two non-adjacent vertices with $\OO_1$ and $\OO_3$.</p>
+
+<p>There is another problem still:  If the graph $G$ is the <em>stellated triangulation</em>.  In this graph, the outer face $\OO(G)$ is a cycle of length three $v_1,v_2,v_3$, which becomes a bowl $\heartsuit$ of length three on layer 0.  Now, the three vertices of $\heartsuit$ are each connected to the same vertex $v$.  Though the above description doesn’t say what to do in this case, the only reasonable interpretation is to place $v$ onto the layer 1, inside $\heartsuit$.  In this case, each of the down-pointing triangles $v_1,v_2,v$, $v_2,v_3,v$ and $v_1,v_3,v$ has something inside of it,  The problem is that $v_1,v_3,v_3$ is not really a downpointing triangle, at least not in the way that every other triangle is downpointing.</p>
+
+<p>obtained by starting with a triangle and splitting it into three triangles, and splitting each of these into three triangles.</p>
+
+<p>$K_3$ trianguluation,</p>
+
+<h1 id="section-5">Section 5</h1>
+
+<p>This is where they prove Theorem 6, which is that every plane graph has $O(1)$ track number.  This is where I have a problem.</p>
+
+<h1 id="section-6">Section 6</h1>
+<p>In this section, they prove how to get a $(\Q,\X,\D)$-well-placed layout for something called a <em>raising fan</em>.  This is later used in Section 7, I think.</p>
+
+<h1 id="section-7">Section 7</h1>
+
+<p>In this section, they show how to find a skeleton in a region so that the skeleton has a $(\Q,\X,\D)$-well-placed layout.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Open Problems</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Open Problems</li>
+          <li><a href="mailto:morin@scs.carleton.ca">morin@scs.carleton.ca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/patmorin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">patmorin</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>A site I use for keeping track of open problems.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+  <script>Hyphenator.run();</script>
+</html>

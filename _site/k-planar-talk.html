@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Layered Partitions of $k$-Planar Graphs</title>
+  <meta name="description" content="A site I use for keeping track of open problems.
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://patmorin.github.io/k-planar-talk.html">
+  <link rel="alternate" type="application/rss+xml" title="Open Problems" href="http://patmorin.github.io/feed.xml">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
+                    displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
+                    processEscapes: true },
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
+      });
+    </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+
+  <body lang="en" class="hyphenate">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Open Problems</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <!-- <a class="page-link" href="/k-planar-talk.html">Layered Partitions of $k$-Planar Graphs</a> -->
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Layered Partitions of $k$-Planar Graphs</h1>
+    <!--<p class="post-meta"><time datetime="2019-05-24T00:00:00-04:00" itemprop="datePublished">May 24, 2019</time></p>a-->
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    $\newcommand{\N}{\mathbb{N}}\newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\E}{E}$
+    <ul>
+  <li>The original planar result:
+    <ul>
+      <li>The PS-tree $K$
+        <ul>
+          <li>A triangulation $G$</li>
+          <li>An extra node $r$ and the BFS tree from $r$.</li>
+          <li>Inductive construction</li>
+          <li>Each node $x\in V(K)$ has a cycle $F_x$ and tripod $Y_x$</li>
+          <li>The $F_x$ is made up of vertices from at most 3 tripods in ancestors of $x$.</li>
+        </ul>
+      </li>
+      <li>The tripod partition $P$ and graph $H=G/P$</li>
+      <li>The tree decomposition of $H$</li>
+      <li>The layering $L$ and the layered width</li>
+      <li>Statement in terms layered partitions: Every triangulation $G$ has a layered partition $(L,P)$ of layered-width 3 where $H=G/P$ has treewidth 3.</li>
+    </ul>
+  </li>
+  <li>Applications:
+    <ul>
+      <li>Queue-number, track-number non-repetitive chromatic number, $p$-centered chromatic number, layered treewidth, 3D-drawing volume</li>
+    </ul>
+  </li>
+  <li>The new $k$-planar result
+    <ul>
+      <li>Definition of $k$-planar graph (emphasize non-straight edges)</li>
+      <li>Theorem Statement: Every $k$-planar graph $G$ has a layered partition $(L,P)$ of layered width $O(k^2)$ where $H=G/P$ has treewidth $O(k^3)$.</li>
+      <li>Proof Sketch
+        <ul>
+          <li>Add dummy vertices and triangulate, to get a graph $G^+$.</li>
+          <li>Add surrounding $K_4$ and triangulate to get $G^{++}$.</li>
+          <li>Use PS-tree $K$ for $G^{++}$, $T$, and $r$.</li>
+          <li>The partition $P$ of $V(G)$:
+            <ul>
+              <li>Elements of $P$ are indexed by nodes of $K$, i.e., $P=\lbrace S_x: x\in V(K)\rbrace$</li>
+              <li>Each $v\in S_x$ iff $x$ is the lowest node that contains all edges incident to $v$ in its interior.</li>
+              <li>$P=\lbrace S_x: x\in V(K)\rbrace$ is clearly a partition
+                <ul>
+                  <li>Analyze width of $P$.
+                    <ul>
+                      <li>First with respect to layering of $G^{++}$: $3\times 4\times (2k+3)$</li>
+                      <li>Squish $(k+1)$ consecutive layers to get a layering of $G$: increases layered width by factor of $K+1$</li>
+                      <li>Therefore $P$ has layered width $O(k^2)$</li>
+                    </ul>
+                  </li>
+                  <li>Analyze treewidth of $H=G/P$.
+                    <ul>
+                      <li>$V(H) = V(K)$</li>
+                      <li>$xy\in E(H)$ iff $y$ is an ancestor of $x$ (or vice-versa)</li>
+                      <li>Tree decomposition:
+                        <ul>
+                          <li>Underlying tree is $K$, so decomposition is $(B_x:x\in V(K))$</li>
+                          <li>$K[y]$ is rooted at $y$</li>
+                          <li>$K[y]$ contains the $xy$ path for every $xy\in E(H)$.</li>
+                        </ul>
+                      </li>
+                      <li>$B_x=\lbrace y : xy\in E(H)\rbrace$</li>
+                      <li>Focus on root-to-$x$ path $x_0,\ldots,x_d$ in $K$ .</li>
+                      <li>If $xx_\delta\in E(H)$, then we have $vw\in E(G)$ with $v\in S_x=S_{x_d}$ and $w\in S_{x_\delta}$</li>
+                      <li>But both $v$ and $w$ are “contained” in the node $x$ of $K$</li>
+                      <li>But $w\in S_{x_\delta}$ so there is an edge $ww’\in E(G)$ that is:
+                        <ul>
+                          <li>contained in the node $x_\delta$, i.e., $ww’$ is inside $F_{x_\delta}$</li>
+                          <li>touches $x_\delta$’s tripod</li>
+                        </ul>
+                      </li>
+                      <li>Walking along $ww’$ gives a walk in $G^+$ that we call a $\delta$-walk.</li>
+                      <li>$|B_x|\le |\lbrace \delta\in\lbrace 0,\ldots,d-1\rbrace: \mbox{$\exists$ a $\delta$-walk}\rbrace|$</li>
+                      <li>Bound of $O(k^3)$ comes from (roughly):
+                        <ul>
+                          <li>x has $\le 3$ ancestors $x_a$, $x_b$, $x_c$ with $a&gt;b&gt;c$ and $x_a=d-1$.</li>
+                        </ul>
+                      </li>
+                      <li>walk can leave immediately to highest ancestor of $x_c$, but then has used up one crossing.</li>
+                      <li>walk can leave immediately to $x_b$ but then has used one crossing and is restricted to staying inside $x_c$.</li>
+                      <li>walk can leave immediately to $x_a$ but then is restricted to staying inside $x_b$. (this implies walk can only go to $x_{d-1},x_{d-2},\ldots,x_{d-k})$</li>
+                      <li>Illustrate with a picture</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Open Problems</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Open Problems</li>
+          <li><a href="mailto:morin@scs.carleton.ca">morin@scs.carleton.ca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/patmorin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">patmorin</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>A site I use for keeping track of open problems.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+  <script>Hyphenator.run();</script>
+</html>

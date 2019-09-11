@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Problems</title>
+    <description>A site I use for keeping track of open problems.
+</description>
+    <link>http://patmorin.github.io/</link>
+    <atom:link href="http://patmorin.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 11 Sep 2019 11:54:28 -0400</pubDate>
+    <lastBuildDate>Wed, 11 Sep 2019 11:54:28 -0400</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+  </channel>
+</rss>

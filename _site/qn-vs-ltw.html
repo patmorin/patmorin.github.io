@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Queue Number versus Layered Treewidth</title>
+  <meta name="description" content="Defunct: This problem is more or less defunct at this point, because of this theorem:">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://patmorin.github.io/qn-vs-ltw.html">
+  <link rel="alternate" type="application/rss+xml" title="Open Problems" href="http://patmorin.github.io/feed.xml">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
+                    displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
+                    processEscapes: true },
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
+      });
+    </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+
+  <body lang="en" class="hyphenate">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Open Problems</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <!-- <a class="page-link" href="/k-planar-talk.html">Layered Partitions of $k$-Planar Graphs</a> -->
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="problem" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Queue Number versus Layered Treewidth</h1>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    $\newcommand{\N}{\mathbb{N}}\newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\E}{E}$
+    <p><strong>Defunct:</strong> This problem is more or less defunct at this point, because of this theorem:</p>
+
+<div class="theorem">
+  If a graph $G$ has a layered $H$-partition with layered width $\ell$ where $\DeclareMathOperator{\qn}{qn}\qn(H)\le q$, then $\qn(G)\le 3q + 4$.
+</div>
+
+<p>Every graph from an apex-minor-free family has such a layered $H$-partition (where $\ell$ and $q$ depend on the apex-minor) and so do $k$-planar graphs (where $\ell$ and $q$ depend on $k$.)  See <a href="https://arxiv.org/abs/1904.04791">Dujmović et al.</a> and <a href="">Dujmović, Morin, and Wood</a>, respectively.</p>
+
+<hr />
+<hr />
+
+<h1 id="the-original-problem">The Original Problem</h1>
+
+<p>$\DeclareMathOperator{\depth}{depth}$<a href="https://arxiv.org/abs/1811.00816">Bekos et al</a> have recently shown that planar graphs of bounded maximum degree have bounded queue number.  Can we generlize this result to bounded layered treewidth graphs of bounded degree?</p>
+
+<p>Here’s what we have and what we need  (I think).</p>
+
+<p>Here’s what we have:</p>
+
+<p>A graph $G_2$ that consists of</p>
+<ol>
+  <li>a max-degree $\Delta$ tree $T$ whose leaves all have the same depth, $h$, plus</li>
+  <li>a perfect matching $M$ on the leaves of $T$.</li>
+</ol>
+
+<p>Furthermore, $G_2$ has layered treewidth at most $k$ using the layering $L_i = \lbrace v\in V(T) : \depth_T(v)=h-i\rbrace$.</p>
+
+<p>Here’s what I would like to have:</p>
+
+<p>A partial order $\prec$ over $V(G_2)$ that has the following properties:</p>
+
+<ol>
+  <li>
+    <p>Two vertices of $G_2$ are comparable if and only if they belong to the same layer $L_i$.</p>
+  </li>
+  <li>
+    <p>$\prec$ defines a non-crossing drawing of $T$ where all nodes in $L_i$ are on the line $y=i$ in the order given by $\prec$.</p>
+  </li>
+  <li>
+    <p>$\prec$ defines an $O(1)$ page layout of $M$, i.e., for some $p\in O(1)$ there is no pencil of edges $x_1y_1,\ldots,x_py_p$ in $M$ where $x_1\prec x_2\prec\cdots\prec x_p \prec y_1 \prec\cdots\prec y_p$.</p>
+  </li>
+</ol>
+
+<h1 id="the-planar-case">The Planar case</h1>
+
+<p>Bekos et al are given the partial order $\prec$ (it ultimately comes from a planar embedding of $G$ which translates into a planar embedding of $G_2$) and, in their case Requirement 3 is actually satisfied with $p=1$.  Still, I think it’s instructive to see how to we could find $\prec$ if we weren’t given this embedding.</p>
+
+<p>Take any edge $x_0y_0$ of $M$ and consider the unique cycle $C=x_0,\ldots,(x_m=y_m),\ldots y_0$ in $G_2$ formed by $x_0y_0$ and the path, in $T$, from $x_0$ to $y_0$.  $G_2’=G_2-V(C)$ has connected components $A_1,\ldots,A_k$.  Each component $A_i$ is incident to one or more vertices of $C$.  We say that $A_i$ and $A_j$ are <em>incompatible</em> if there exists indices $a&lt;b&lt;c&lt;d$ such that $A_i$ is adjacent to $v_a$ and $v_c$ and $A_j$ is adjacent to $v_b$ and $v_d$.  In other words, in a planar embedding of $G_2$ it is not possible to draw both $A_i$ and $A_j$ inside of $C$ nor is it possible to draw them both outside of $C$.  Now make a graph $H$ with vertex set $V(H)=\lbrace 1,\ldots,k\rbrace$ in which the edge $ij$ is present iff $A_i$ and $A_j$ are incompatible.  Note that, since $G_2$ is planar, $H$ has no odd cycles so it’s bipartite.</p>
+
+<p>Now this idea can be used in a recursive procedure to determine the order $\prec$.  Suppose someone has already told us that the $G_2$ has a planar embedding with outer face $F=v_0,\ldots,(v_h=w_h),w_{h-1},\ldots,w_0$ where each $v_i,w_i\in L_i$ and $v_0w_0$ is an edge of $M$.  Now we take any other edge $x_0y_0$ of $M$ and use the incompatibility graph $H$ described above which may have several components, each of which is bipartite.  Now one needs to make a quick argument that if $A_i$ and $A_j$ are in the same component of $H$ but on different sides of the bipartition, then at least one of $A_i$ or $A_j$ is not adjacent to any vertex in $V(F)\setminus V(C)$.  (Otherwise any planar drawing of $G_2$ would have $A_i$ and $A_j$ on opposite sides of $C$, but the vertices of $V(F)\setminus V(C)$ are all inside or all outside of $C$).</p>
+
+<p>Thus we can partition $V(G_2)\setminus V(F)\setminus V(C)$ into a set $A$ of vertices that should be drawn inside of $C$ and a set $B$ of vertices that should be drawn outside of $C$ (but inside of $F$).</p>
+
+<p>Now we can recurse on $G_2[V(C)\cup A]$ with $C$ as the outer face to order the vertices in $V(C)\cup A$.  Think of this as a drawing of $G[V(C)\cup A]$.  Note that before recursing, we had a choice about whether we should have $x_0\prec y_0$ or <em>vice-versa</em>.</p>
+
+<p>Next consider the graph $G_2’$ obtained by contracting $(V(C)\cup A)\cap L_i$ for each $i\in\lbrace 1,\ldots,h\rbrace$.  In this graph $V(C)\cup A$ becomes a path $v_0,\ldots,v_m$ with $v_i\in L_i$.   The node $v_0$ has degree-1 and is unmatched in $M$, so we remove the maximal path $v_0,\ldots,v_k$ where each node in this path has degree at most 2.  Now we recurse on $G_2’$ to obtain an ordering on $V(F)\cup B\cup\lbrace v_0,\ldots,v_m\rbrace$.  Think of this also as a drawing of $G_2’$.</p>
+
+<p>Now, we want to obtain a drawing of $G_2$ by replacing the path $v_0,\ldots,v_m$ with the drawing of $G_2[V(C)\cup A]$ obtained from the first recursive call.  Indeed this works, the only thing to look out for is that the drawing of $G_2[V(C)\cup A]$ may need to have its ordering reversed.  This happens because the path $v_1,\ldots,v_m$ in the drawing of $G_2’$ represents the outer face $x_0,\ldots,(x_m=y_m),y_{m-1},\ldots,y_0$ of the drawing of $G_2[V(C)\cup A]$. In $G_2$, some vertices of $G_2’$ are adjacent to $x_i$ or $y_i$ and but in $G_2’$ such vertices are all adjacent to $v_i$.  So after we draw $G_2’$ there is a distinction between vertices adjacent to $v_0,\ldots,v_m$ from the “$x$-side” and those adjacent to $v_0,\ldots,v_m$ from the “$y$-side”.  Luckily (or by design) all the $x$-side vertices in $L_i$ precede $v_i$ and $v_i$ precedes all the $y$-side vertices, or vice-versa.  So we may have to reverse the left-to-right order of all the vertices in the drawing of $G_2[V(C)\cup A]$ to to make this consistent. (This corresponds to the note two paragraphs above about being able to choose whether $x_0\prec y_0$ or $y_0\prec x_0$ before recursing.)</p>
+
+<p>So that’s it. This method finds the planar drawing of $G_2$ required as input for the Bekos algorithm.</p>
+
+<h1 id="generalizing">Generalizing</h1>
+
+<p>Why do I think this has a hope of generalizing?  Well, the cycle $C$ is a separator of $G_2$ that has width 2 with respect to the layering $L_0,\ldots,L_h$.  (Note that we don’t require this separator to be balanced, but we could.)  Almost by definition, bounded layered treewidth graphs always have such a separator, so we can assume we are given a separator $C’$ of small layered width.  $C’\cap L_0$ has constant size, so we can take $C$ to be $C’$ plus all vertices matched with vertices of $C’$ plus the set of all paths from $x\in C\cap L_0$ to the root of $T$.</p>
+
+<p>No matter what order we pick for the vertices in $G_2[C]$ we can’t create a large pencil, since $G_2[C]$ only has $O(1)$ edges in $L_0$.  So let’s try an arbitrary drawing of $G_2[C]$ in which no pair of tree edges cross.  At this point we need to argue that the components of $G_2-C$ can somehow be organized into a way that fits neatly into this picture.  I’m not sure yet what this means or how to do it.  Maybe (as Vida has been telling me for several days now) we should consider the case where $G_2$ has bounded genus.  At least there we understand what the separator $C’$ looks like (see Section 3 of <a href="https://arxiv.org/pdf/1306.1595.pdf">Dujmovic, Morin, and Wood</a>).</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Open Problems</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Open Problems</li>
+          <li><a href="mailto:morin@scs.carleton.ca">morin@scs.carleton.ca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/patmorin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">patmorin</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>A site I use for keeping track of open problems.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+  <script>Hyphenator.run();</script>
+</html>

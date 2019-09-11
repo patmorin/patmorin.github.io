@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Layered Pathwidth and Non-Repetitive Chromatic Number</title>
+  <meta name="description" content="$\DeclareMathOperator{\lpw}{lpw}\DeclareMathOperator{\ltw}{ltw}\DeclareMathOperator{\pw}{pw}$">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://patmorin.github.io/lpw-vs-nrcn.html">
+  <link rel="alternate" type="application/rss+xml" title="Open Problems" href="http://patmorin.github.io/feed.xml">
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+      MathJax.Hub.Config({
+          HTML: ["input/TeX","output/HTML-CSS"],
+          TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                 equationNumbers: { autoNumber: "AMS" } },
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX","output/HTML-CSS"],
+          tex2jax: { inlineMath: [ ["\\(","\\)"], ["$", "$"] ],
+                    displayMath: [ ["\\[","\\]"], ["$$", "$$"] ],
+                    processEscapes: true },
+      });
+      // Use this to fix conflict with Hyphenator and MathJax
+      MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+        MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+          data.math = data.math.replace(/\u00AD/g,"");
+        });
+      });
+    </script>
+    <script src="Hyphenator/Hyphenator.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+
+  <body lang="en" class="hyphenate">
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Open Problems</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+          <!-- <a class="page-link" href="/k-planar-talk.html">Layered Partitions of $k$-Planar Graphs</a> -->
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="problem" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Layered Pathwidth and Non-Repetitive Chromatic Number</h1>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    $\newcommand{\N}{\mathbb{N}}\newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\DeclareMathOperator{\E}{E}$
+    <p>$\DeclareMathOperator{\lpw}{lpw}\DeclareMathOperator{\ltw}{ltw}\DeclareMathOperator{\pw}{pw}$</p>
+
+<p>This is a problem given to me by Vida Dujmović, that might be suitable to work on with our student Celine Yelle.</p>
+
+<p>For a graph $G$, let $\lpw(G)$, $\ltw(G)$, and $\pi(G)$ denote the layered pathwidth, layered treewidth, and non-repetitive chromatic number of $G$, respectively.</p>
+
+<div class="problem">
+  Does there exist some $f:\N\to\N$ such that, for all graphs $G$, $\pi(G)\le f(\lpw(G))$?
+</div>
+
+<p><a href="http://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i1p51">Dujmovic et al</a> show that $\pi(G) \le \ltw(G)\cdot\log n$ for all $n$-vertex graphs $G$.</p>
+
+<h1 id="davids-exercise">David’s Exercise</h1>
+
+<p>The following is all wrong. The problem is that, if the top-left vertex is adjacent to everything in row 2, then in the lower-right $n/2\times n/2$ grid, the two layerings coincide so we really only have one layering.</p>
+
+<p>David asked about the following family $\mathcal{F}=\bigcup_{r\in\N}\mathcal{F}_r$ of planar graphs, which has layered pathwidth $O(1)$. For any $r\in\N$, let $[r]=\lbrace 0,\ldots,r-1\rbrace$.  For every graph $G\in\mathcal{F}_r$, the vertex set is $V_r=[r]^2$. For every $G\in\mathcal{F}_r$, the <em>horizontal edges</em> $\lbrace (a,b)(a+1,b):a\in[r-1],\,b\in[r]\rbrace$ are present. In addition to these edges, any maximal subset of the edges in $\lbrace(a,b)(a’,b+1):a,a’\in[r],\, b\in[r-1]\rbrace$ is present subject to the graph having a non-crossing straight-line planar drawing with each vertex $(a,b)$ drawn at position $(a,b)$. In other words, $G$ is obtained from the $r\times r$ square grid by deleting the internal vertical edges and triangulating all of the resulting internal faces (each of which is a $r\times 2$ rectangle with $2r$ vertices on its boundary).</p>
+
+<p>For each $G\in\mathcal{F}_i$, we call $Y_i=\lbrace (a,i): a\in[r]\rbrace$ the $i$th <em>row</em> of $G$ and $X_i=\lbrace (i,b):i\in[r]\rbrace$ the $i$th <em>column</em> of $G$. Observe that $Y_1,\ldots,Y_r$ is a layering of $G$, but $X_1,\ldots,X_r$ is not.</p>
+
+<p>We now define a nonrepetitive 64-colouring of $G$.  Consider the layering $G_0,\ldots,G_{r-1}$ where $G_i$ contains all vertices at distance $i$ from $\lbrace (1,1),\ldots,(1,r)\rbrace$. In other words, for every vertex $v\in G_i$, the shortest path from $v$ to the leftmost column $X_0$ has length $i$.  (Note that we could have been define $Y_i$ similarly; for every $v\in R_i$, the shortest path from $v$ to the topmost row $R_0$ has length $i$). We call $G_i$ the $i$th <em>group</em> of $G$. For any vertex $v=(a,b)$ of $G$, let $x(v)=a$ and $y(v)=b$ and $g(v)$ denote the unique index $i$ such that $v\in G_i$.  So, $v\in X_{x(v)}\cap Y_{y(v)}\cap G_{g(v)}$.</p>
+
+<p>Observe that, for each row $Y_t$, the function $f_t(x)=g((x,i))$ is a non-decreasing function of $x$.  In particular, for any $x_1&lt;x_2$, if $q=g((x_1,i))=g((x_2,i))$ then $g(x,i)=q$ for all $x\in\lbrace x_1,\ldots,x_2\rbrace$.</p>
+
+<p>Now, consider some nonrepetitive anagram-free string $s_0,\ldots,s_{r-1}$ over the alphabet $[4]$.  We colour each vertex $v=(a,b)\in G$ with the product colour $\varphi(v)=(s_{x(v)},s_{y(v)},s_{g(v)})$.   This obviously uses only 64 colours.  This is also obviously a proper colouring since if some edge $vw$ is horizontal then $s_{x(v)}\ne s_{x(w)}$, otherwise $s_{y(v)}\neq s_{y(w)}$.</p>
+
+<p>Recall the lemma in Kundgen and Pelsmajer which states that, for any walk $w_0,\ldots,w_{2k-1}$ over the path $0,\ldots,r-1$, the string $s_{w_0},\ldots,w_{w_{2k-1}}$ is a repetition if and only if $w_0,\ldots,w_{2k-1}$ is a repetition.</p>
+
+<p>Now, suppose $P=v_0,\ldots,v_{2k-1}$ is a path in $G$.  For each $i\in[2k]$ let $v_i=(x_i,y_i)$ and $g_i=g(v_i)$.  Suppose $P$ is repetitively coloured. Then, since each row $Y_i$ of $G$ is nonrepetitively coloured, we know that $P$ contains vertices from at least two different rows.</p>
+
+<p>Note that $y_0,\ldots,y_{2k-1}$ and $g_0,\ldots,g_{2k-1}$ are each walks over the path $0,\ldots,r-1$.  Therefore, by the Kundgen-Pelsmajer Lemma, for every $i\in[k]$,  $y_i=y_{k+i}$ and $g_i=g_{k+i}$.  That is, $v_i$ and $v_{k+i}$ are in the same row and within that row, they are in the same group.</p>
+
+<div class="lemma">
+  For every $t\in[r]$ and every $i_1,i_2\in\lbrace i : y_i = t\rbrace$,
+  $g_{i_1}=g_{i_2}$.
+</div>
+
+<div class="proof">
+  <p>This should follow from the planarity of $G$, so that $P$ is an open meander with respect to the line $y=t$ along with the fact that $f_t(x)$ is monotone.</p>
+</div>
+
+<p>Then I think we’re almost done.</p>
+
+<h1 id="bounded-pathwidth-a-warm-up">Bounded Pathwidth: A Warm-Up</h1>
+
+<p>I have some hope that the following proof can generalize to layered pathwidth.</p>
+
+<div class="theorem">
+  For any graph $G$ with $\pw(G)\le k$, $\pi(G)\le 4k^2$.
+</div>
+
+<div class="proof">
+  <p>Consider some path decomposition $B=B_1,\ldots,B_r$ of $G$ of width $k$ and assume that no two bags in this decomposition are identical.  We do a 2-part product colouring. The first-part is the standard $k$-colouring of $G$ in which two vertices receive different colours if they appear in the same bag.  The second part is a $4k$-colouring that we now define.</p>
+
+  <p>Define groups of vertices $V_1,\ldots,V_r$ of $G$ as follows.  Let $B^1=B$. Consider the largest index $i_1$ such that some vertex $v\in B_1$ is also in $B_{i_1}$.  We let $V_1=B_{i_1}$ and let $B^2=B_1\setminus V_1,\ldots,B_m\setminus V_1$ and then proceed inductively on $B^2$ starting at $i_1+1$, i.e., we find the largest index $i_2$ such that a vertex $v\in B^2<em>{i_1+1}$ appears in $B^2</em>{i_2}$, set $V_2=B^2_{i_2}$, and so on.</p>
+
+  <p>This process completes after $t$ steps, once $i_t=r$.  At this point $B^t$ defines $r-1$ disjoint subgraphs $G_1,\ldots,G_{t-1}$, where $G_j$ is the subgraph of $G$ induced by the union of all vertices in $B^t_{i_j+1},\ldots,B^t_{i_{j+1}-1}$ [TODO: Off-by-one error here.].  Note that each such $G_j$ has pathwidth at most $k-1$.</p>
+
+  <p>For the second part of our colouring, we let $s_1,\ldots,s_t$ be a palindrome-free non-repetitive string on 4 symbols and we colour all elements in $V_i$ with colour $s_i$.  We then inductively colour each graph $G_1,\ldots,G_{t-1}$ using new colours, for a total of $4k$ colours.  Thus, our product colouring uses $4k^2$ colours.</p>
+
+  <p>To see why this colouring is non-repetitive, consider some path $P=v_1,\ldots,v_{2r}$. If $P$ does not use any vertices in $V_1,\ldots,V_t$, then we can apply induction on $k$.  If $P$ does use vertices in $V_1,\ldots,V_t$ recall that this means that, if $v_i\in V_j$ for $i&lt;r$, then $v_{r-1+i}\in V_j$ (this is a Lemma of <a href="https://www.sciencedirect.com/science/article/pii/S0012365X0700667X?via%3Dihub">Kundgen and Pelsmajer</a>).  But this is a contradiction since all vertices in $V_j$ appear in a common bag and therefore $v_i$ and $v_{r+i-1}$ receive different colours in the first part of the colouring.</p>
+</div>
+
+<p>Note that the choice of $i_1,i_2,\ldots,i_t$ is not unique in this proof.  In particular, we could have chosen $i_1$ to be any smaller value as long as $B_{i_1}$ and $B_{i_2}$ have no vertices in common.</p>
+
+<h1 id="a-lemma-broken">A Lemma (Broken)</h1>
+
+<p>Here we establish a lemma that should make it possible to use an entropy-encoding argument to prove our result.</p>
+
+<p>Let $k=\lpw(G)$  Consider some layered path decomposition $(\mathcal{B},\mathcal{L})$ of $G$ having width $k$.  For any vertex $v\in V(G)$, let $i(v)=i(v,\mathcal{B})=\min\lbrace i:v\in B_i\rbrace$. Without loss of generality, assume that for any two distinct vertices $v,w\in V(G)$, $i(v)\neq i(w)$.  Let $\prec$ denote the total order on $V(G)$ in which $v\prec w$ if and only if $i(v) &lt; i(w)$.</p>
+
+<p>Let $\varphi:V(G)\to\lbrace 1,\ldots,k\rbrace$ be a colouring of $G$ that assigns distinct colours to any two vertices $v,w\in V(G)$ such that $L[v]=L[w]$ and $B[v]\cap B[w]\neq\emptyset$.  This colouring can be obtained by $k$-colouring $G[L_i]$ for each $i\in\N$, which is possible since $G[L_i]$ has pathwidth $k$.</p>
+
+<p>For a path $P=v_0,\ldots,v_\ell$ in $G$, the <em>trace</em> $T(P)$ of $P$ is a sequence of $\ell$ triples
+$T(P)=t_1,\ldots,t_\ell$, where each $t_i=(h_i,v_i,\varphi_i)$ defined as follows:
+\[
+   h_i = \begin{cases}
+     -1 &amp; \text{if $v_i\prec v_{i-1}$} \newline
+     +1 &amp; \text{otherwise}
+   \end{cases}i
+\]
+\[
+   v_i = \begin{cases}
+     -1 &amp; \text{if $L[v_i]&lt; v_{i-1}$} \newline
+     0 &amp; \text{if $L[v_i]= v_{i-1}$} \newline
+     +1 &amp; \text{otherwise}
+   \end{cases}
+\]
+\[
+      \varphi_i = \varphi(v_i) \enspace .
+\]
+Intuitively, $h_i$ and $v_i$ describe the step from $v_{i-1}$ to $v_i$, where $h_i$ tells us whether the step goes left or right and $v_i$ describes whether the step goes up, down, or stays at the same layer.</p>
+
+<div class="lemma">
+   Let $v$ be any vertex of $G$ and let $t_1,\ldots,t_\ell$ be a trace, and let $\mathcal{P}$ be the set of all paths $P$ in $G$ whose first vertex is $v$ and whose trace is $t(P)=t_1,\ldots,t_\ell$.  Then the union of all edges in $P$ is a tree.
+</div>
+
+<div class="proof">
+  <p>Let $v=x_0,x_1,\ldots,x_\ell$ and $v=y_0,y_1,\ldots,y_\ell$ be any two paths in $\mathcal{P}$.
+   It is sufficient to show that, for all $j\in\lbrace 1,\ldots,\ell\rbrace$, if $x_{j-1}\neq y_{j-1}$, then $x_j\neq y_j$.  To see this, assume without loss of generality that $x_{j-1}\prec y_{j-1}$, and that $h_j=+1$.  Let $x=x_{j-1}$, $y=y_{j-1}$ and assume, for the sake of contradiction that $z=x_j=y_j$.</p>
+
+  <p>By direct assumption $x\prec y$ and by the assumption that $h_j=+1$, $y\prec z$ so by transitivity $x\prec y\prec z$.  In particular, this implies that $B_{i(z)}$ contains $x$, $y$, and $z$.
+   However, $L[x]=L[y]=L[v]+\sum_{\tau=1}^{j-1} v_\tau$ and $\varphi(x)=\varphi(y)=\varphi_i$.  But this is a contradiction since the colouring $\varphi$ would not assign the same colour to $x$ and $y$.</p>
+</div>
+
+<p>Let $v\in V(G)$ be any vertex of $G$ and let $T=t_1,\ldots,t_{2\ell-1}$ be a trace.  We say that $T$ is <em>repetitive for $v$</em> if,</p>
+
+<ol>
+  <li>$\varphi(v)=\varphi_{\ell}$;</li>
+  <li>for every $j\in\lbrace 1,\ldots,\ell-1\rbrace $, $h_j=h_\ell+j$ and $v_j=v_{\ell+j}$; and</li>
+  <li>$\sum_{\tau=1}^\ell v_\tau = 0$.</li>
+</ol>
+
+<p>The following lemma is FALSE:</p>
+<div class="lemma">
+  Let $v\in V(G)$ be any vertex of $G$, let $T=t_1,\ldots,t_{2\ell-1}$ be any trace that is repetitive for $v$, and let $\mathcal{P}$ be the set of all paths that begin at $v$ and that have trace $T$.  Then $|\mathcal{P}|=O(\ell k^\ell)$.
+</div>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Open Problems</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Open Problems</li>
+          <li><a href="mailto:morin@scs.carleton.ca">morin@scs.carleton.ca</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/patmorin"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">patmorin</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>A site I use for keeping track of open problems.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+  <script>Hyphenator.run();</script>
+</html>

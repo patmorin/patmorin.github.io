@@ -64,6 +64,7 @@ Therefore each of $G_0$ and $G_1$ is a dismantlable triangulation so, by inducti
 **Theorem 1:** Every ball 1-Helly triangulation $G$ is a planar 3-tree.
 
 *Proof:* By Characterization 3 in the previous section every ball 1-Helly graph is dismantlable so, by Lemma A, every ball 1-Helly triangulation is a planar 3-tree.   ∎
+
 <!--
 Every 3-tree is dismantlable so, using Characterization 3, we need only show that every *planar* 3-tree is clique 1-Helly. We can prove this by induction on $n:=\|V(G)\|$.  The base case $n=3$ is trivial.  Consider a degree-3 vertex $v$ of $G$.  Then $v$ and its neighbours $v_1,v_2,v_3$ form a clique $K$ and  $G'=G-\lbrace v\rbrace$ is a planar 3-tree.  By induction $G'$ is clique 1-Helly.  
 
@@ -92,8 +93,7 @@ $\bigcap_{i=1}^n b_i$ contains $y$.  ∎
 *Proof:* The proof is by induction on $n:=\|V(G)\|$.  The case $n=1$ is trivial.
 For $n>1$, we claim that $G$ has a dominated vertex $z$.  To see this, consider any vertex $x\in V(G)$, let $z$ be a vertex that maximizes $r=d_G(x,z)$ and let $y$ the second-to-last vertex on a shortest path $P$ from $x$ to $z$.  We claim that $y$ dominates $z$.  To see why, let $v\neq y$ be any neighbour of $z$.  Then $r-1\le d_G(x,v)\le r$.  
 
-1. If $d_G(x,v)= r$ then consider the last vertex $y'$ on $P$ such that $d_G(x,y')+d_G(y',v)=r$.  Notice that the path along $P$ from $y'$ to $z$, the edge $zv$ and the shortest path from $y'$ to $v$ is an isometric cycle in $G$.  If $y'\neq y$ then this cycle has length at least 4, in which case $G$ is not 2-Helly.  If $y'=y$ then $yv$ is an edge of $G$.
-2. If $d_G(x,v)= r-1$ then we can argue similarly.  Let $y'$ be the last vertex on $P$ such that $d_G(x,y')+d_G(y',v)=r-1$.  In this case, $y'$ is definitely not equal to $y$.  Therefore, the cycle that made up of the portion of $P$ from $y'$ to $z$ plus the edge $zv$ plus a shortest path from $y'$ to $v$ has length at least 4.  Furthermore, $y'z\not\in E(G)$ so, to avoid an isometric cycle of length at least 4 it must be the case that $yv\in E(G)$.  
+Consider the last vertex $y'$ on $P$ such that $d_G(x,y')+d_G(y',v)\le r$.  Notice that the path along $P$ from $y'$ to $z$, the edge $zv$ and the shortest path from $y'$ to $v$ is an isometric cycle in $G$.  If $y'\neq y$ then this cycle has length at least 4, in which case $G$ is not 2-Helly. Therefore $y'=y$ and $yv$ is an edge of $G$.
 
 Therefore, $yz\in E(G)$ and $yv\in E(G)$ for every neighbour $v$ of $z$, i.e, $y$ dominates $z$.  By Observation 0', the graph $G-\lbrace z\rbrace$ is 2-Helly and therefore, by induction it has a dismantling $v_1,\ldots,v_{n-1}$ so $v_1,\ldots,v_{n-1},z$ is a dismantling of $G$.  ∎
 

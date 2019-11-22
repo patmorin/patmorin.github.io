@@ -20,7 +20,7 @@ A *maximal clique* in a graph $G$ is a subset $C\subseteq V(G)$ such that $G[C]$
 \\[
   \mathcal{C}_G = \lbrace C\subseteq V(G): \text{$C$ is a maximal clique in $G$}   \rbrace
 \\]
-if $d$-Helly.
+is $d$-Helly.
 
 A graph $G$ is *subgraph-$d$-Helly* if the family
 \\[
@@ -68,8 +68,6 @@ Therefore each of $G_0$ and $G_1$ is a dismantlable triangulation so, by inducti
 Every 3-tree is dismantlable so, using Characterization 3, we need only show that every *planar* 3-tree is clique 1-Helly. We can prove this by induction on $n:=\|V(G)\|$.  The base case $n=3$ is trivial.  Consider a degree-3 vertex $v$ of $G$.  Then $v$ and its neighbours $v_1,v_2,v_3$ form a clique $K$ and  $G'=G-\lbrace v\rbrace$ is a planar 3-tree.  By induction $G'$ is clique 1-Helly.  
 
 Now, consider a set $K_1,\ldots,K_n$ of pairwise intersecting cliques in $G$.  If none of these cliques is $K$, then these are also cliques in $G'$ so $\bigcap_{i=1}^n K_n\neq\emptyset$ and we are done.  On the other hand, if one of these cliques, say $K_n=K$, then consider the *parent clique* $K'$ of $K$, which is the only clique aside from $K$ that contains $v_1,v_2,v_3$.  Now observe that, since $v\notin K_i$ for any $i\in\lbrace 1,\ldots,n-1\rbrace$, $K'\cap K_i\supseteq K\cap K_i$ for each $i\in\lbrace 1,\ldots,n-1\rbrace$.  Therefore $K_1,\ldots,K_{n-1},K'$ is pairwise intersecting and, since $K'$ is a clique in $G'$, $\emptyset\neq \bigcap_{i=1}^{n-1}K_i\cap K'=\bigcap_{i=1}^n K_i$.   ∎
-
-The following observation is used in the proof of [Theorem 2.2 of Bandelt and Prisner](https://doi.org/10.1016/0095-8956(91)90004-4).
 
 
 # Extension to Planar Ball 2-Helly Triangulations

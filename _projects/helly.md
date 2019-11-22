@@ -61,14 +61,15 @@ We claim that $G_a$ is dismantlable for each $a\in\lbrace 0,1\rbrace$.  In parti
 
 Therefore each of $G_0$ and $G_1$ is a dismantlable triangulation so, by induction, each is a 3-tree.  Therefore $G$ is obtained by gluing together the 3-trees $G_0$ and $G_1$ at a 3-clique so $G$ is itself a 3-tree. ∎
 
-**Theorem 1:** A triangulation $G$ is ball 1-Helly if and only if it is a planar 3-tree.
+**Theorem 1:** Every ball 1-Helly triangulation $G$ is a planar 3-tree.
 
 *Proof:* By Characterization 3 in the previous section every ball 1-Helly graph is dismantlable so, by Lemma A, every ball 1-Helly triangulation is a planar 3-tree.
-
+<!--
 Every 3-tree is dismantlable so, using Characterization 3, we need only show that every *planar* 3-tree is clique 1-Helly. We can prove this by induction on $n:=\|V(G)\|$.  The base case $n=3$ is trivial.  Consider a degree-3 vertex $v$ of $G$.  Then $v$ and its neighbours $v_1,v_2,v_3$ form a clique $K$ and  $G'=G-\lbrace v\rbrace$ is a planar 3-tree.  By induction $G'$ is clique 1-Helly.  
 
-Now, consider a set $K_1,\ldots,K_n$ of pairwise intersecting cliques in $G$.  If none of these cliques is $K$, then these are also cliques in $G'$ so $\bigcap_{i=1}^n K_n\neq\emptyset$ and we are done.  On the other hand, if one of these cliques, say $K_n=K$, then consider the *parent clique* $K'$ of $K$, which is the only clique aside from $K$ that contains $v_1,v_2,v_3$.  Now observe that, since $v\notin K_i$ for any $i\in\lbrace 1,\ldots,n-1\rbrace$, $K'\cap K_i\supseteq K\cap K_i$ for each $i\in\lbrace 1,\ldots,n-1\rbrace$.  Therefore $K_1,\ldots,K_{n-1},K'$ is pairwise intersecting and, since $K'$ is a clique in $G'$, $\emptyset\neq \bigcap_{i=1}^{n-1}K_i\cap K'=\bigcap_{i=1}^n K_i$.   ∎
+Now, consider a set $K_1,\ldots,K_n$ of pairwise intersecting cliques in $G$.  If none of these cliques is $K$, then these are also cliques in $G'$ so $\bigcap_{i=1}^n K_n\neq\emptyset$ and we are done.  On the other hand, if one of these cliques, say $K_n=K$, then consider the *parent clique* $K'$ of $K$, which is the only clique aside from $K$ that contains $v_1,v_2,v_3$.  Now observe that, since $v\notin K_i$ for any $i\in\lbrace 1,\ldots,n-1\rbrace$, $K'\cap K_i\supseteq K\cap K_i$ for each $i\in\lbrace 1,\ldots,n-1\rbrace$.  Therefore $K_1,\ldots,K_{n-1},K'$ is pairwise intersecting and, since $K'$ is a clique in $G'$, $\emptyset\neq \bigcap_{i=1}^{n-1}K_i\cap K'=\bigcap_{i=1}^n K_i$. -->   ∎
 
+The interesting thing about Theorem 1 is that not every planar 3-tree is ball 1-Helly.  
 
 # Extension to Planar Ball 2-Helly Triangulations
 
@@ -97,9 +98,9 @@ For $n>1$, we claim that $G$ has a dominated vertex $z$.  To see this, consider 
 Therefore, $yz\in E(G)$ and $yv\in E(G)$ for every neighbour $v$ of $z$, i.e, $y$ dominates $z$.  By Observation 0', the graph $G-\lbrace z\rbrace$ is 2-Helly and therefore, by induction it has a dismantling $v_1,\ldots,v_{n-1}$ so $v_1,\ldots,v_{n-1},z$ is a dismantling of $G$.  ∎
 
 
-**Theorem 2:** Every ball 2-Helly triangulation $G$ is ball 1-Helly.
+**Theorem 2:** Every ball 2-Helly triangulation $G$ is a planar 3-tree.
 
-*Proof:* By Lemma B, $G$ is dismantlable.  Therefore, by Lemma A, $G$ is a planar 3-tree.  Therefore, by Theorem 1, $G$ is ball 1-Helly.  ∎
+*Proof:* By Lemma B, $G$ is dismantlable.  Therefore, by Lemma A, $G$ is a planar 3-tree.  ∎
 
 
 

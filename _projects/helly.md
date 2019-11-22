@@ -91,7 +91,7 @@ $\bigcap_{i=1}^n b_i$ contains $y$.  ∎
 **Lemma B:** Every ball 2-Helly graph $G$ is dismantlable.
 
 *Proof:* The proof is by induction on $n:=\|V(G)\|$.  The case $n=1$ is trivial.
-For $n>1$, we claim that $G$ has a dominated vertex $z$.  To see this, consider any vertex $x\in V(G)$, let $z$ be a vertex that maximizes $r=d_G(v,z)$ and let $y$ the second-to-last vertex on a shortest path $P$ from $v$ to $z$.  We claim that $y$ dominates $z$.  To see why, let $v\neq y$ be any neighbour of $z$.  Then $r-1\le d_G(x,v)\le r$.  
+For $n>1$, we claim that $G$ has a dominated vertex $z$.  To see this, consider any vertex $x\in V(G)$, let $z$ be a vertex that maximizes $r=d_G(x,z)$ and let $y$ the second-to-last vertex on a shortest path $P$ from $v$ to $z$.  We claim that $y$ dominates $z$.  To see why, let $v\neq y$ be any neighbour of $z$.  Then $r-1\le d_G(x,v)\le r$.  
 
 1. If $d_G(x,v)= r$ then consider the last vertex $y'$ on $P$ such that $d_G(x,y')+d_G(y',v)=r$.  Notice that the path along $P$ from $y'$ to $z$, the edge $zv$ and the shortest path from $y'$ to $v$ is an isometric cycle in $G$.  If $y'\neq y$ then this cycle has length at least 4, in which case $G$ is not 2-Helly.  If $y'=y$ then $yv$ is an edge of $G$.
 2. If $d_G(x,v)= r-1$ then we can argue similarly.  Let $y'$ be the last vertex on $P$ such that $d_G(x,y')+d_G(y',v)=r-1$.  In this case, $y'$ is definitely not equal to $y$.  Therefore, the cycle that made up of the portion of $P$ from $y'$ to $z$ plus the edge $zv$ plus a shortest path from $y'$ to $v$ has length at least 4.  Furthermore, $y'z\not\in E(G)$ so, to avoid an isometric cycle of length at least 4 it must be the case that $yv\in E(G)$.  

@@ -72,6 +72,10 @@ Now, consider a set $K_1,\ldots,K_n$ of pairwise intersecting cliques in $G$.  I
 
 The interesting thing about Theorem 1 is that not every planar 3-tree is ball 1-Helly.  
 
+**Conjecture F:** There are only finitely-many 1-Helly triangulations.  
+
+*Proof Idea:* Planar 3-trees (also called stellated-triangulations are simple and have a tree-decomposition where the underlying tree is a 3-ary tree.  I suspect that if this underlying tree has height more than 3, then the underlying tree is not 1-Helly.   ∎
+
 # Extension to Planar Ball 2-Helly Triangulations
 
 We can extend Theorem 1 to Ball 2-Helly Triangulations.

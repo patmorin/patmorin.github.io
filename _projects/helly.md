@@ -70,15 +70,18 @@ Every 3-tree is dismantlable so, using Characterization 3, we need only show tha
 
 Now, consider a set $K_1,\ldots,K_n$ of pairwise intersecting cliques in $G$.  If none of these cliques is $K$, then these are also cliques in $G'$ so $\bigcap_{i=1}^n K_n\neq\emptyset$ and we are done.  On the other hand, if one of these cliques, say $K_n=K$, then consider the *parent clique* $K'$ of $K$, which is the only clique aside from $K$ that contains $v_1,v_2,v_3$.  Now observe that, since $v\notin K_i$ for any $i\in\lbrace 1,\ldots,n-1\rbrace$, $K'\cap K_i\supseteq K\cap K_i$ for each $i\in\lbrace 1,\ldots,n-1\rbrace$.  Therefore $K_1,\ldots,K_{n-1},K'$ is pairwise intersecting and, since $K'$ is a clique in $G'$, $\emptyset\neq \bigcap_{i=1}^{n-1}K_i\cap K'=\bigcap_{i=1}^n K_i$. -->
 
-The interesting thing about Theorem 1 is that not every planar 3-tree is ball 1-Helly.  
+The interesting thing about Theorem 1 is that not every planar 3-tree is ball 1-Helly.  In fact, the 3-tree with cliques $K_0=\lbrace1,2,3,4\rbrace$,
+$K_1=\lbrace 1,2,4,a\rbrace$, $K_2=\lbrace 1,3,4,b\rbrace$, $K_3=\lbrace 2,3,4,c\rbrace$, $K_4=\lbrace 2,3,c,x\rbrace$ is no 2-Helly.  The unit balls centered at $a$, $b$, and $x$ are pairwise intersecting but empty common intersection.  It should be possible to completely characterize the 1-Helly planar 3-trees.
 
-**Conjecture F:** There are only finitely-many 1-Helly triangulations.  
 
-*Proof Idea:* Planar 3-trees (also called stellated-triangulations are simple and have a tree-decomposition where the underlying tree is a 3-ary tree.  I suspect that if this underlying tree has height more than 3, then the underlying tree is not 1-Helly.   ∎
+
+<!-- **Conjecture F:** There are only finitely-many 1-Helly triangulations.  
+
+*Proof Idea:* Planar 3-trees (also called stellated-triangulations are simple and have a tree-decomposition where the underlying tree is a 3-ary tree.  I suspect that if this underlying tree has height more than 3, then the underlying tree is not 1-Helly.   ∎ -->
 
 # Extension to Planar Ball 2-Helly Triangulations
 
-We can extend Theorem 1 to Ball 2-Helly Triangulations.
+Here is an attempt to extend Theorem 1 to Ball 2-Helly Triangulations.
 
 The following pair of observations is used in the proof of [Theorem 2.2 of Bandelt and Prisner](https://doi.org/10.1016/0095-8956(91)90004-4).
 
@@ -97,7 +100,7 @@ $\bigcap_{i=1}^n b_i$ contains $y$.  ∎
 *Proof:* The proof is by induction on $n:=\|V(G)\|$.  The case $n=1$ is trivial.
 For $n>1$, we claim that $G$ has a dominated vertex $z$.  To see this, consider any vertex $x\in V(G)$, let $z$ be a vertex that maximizes $r=d_G(x,z)$ and let $y$ the second-to-last vertex on a shortest path $P$ from $x$ to $z$.  We claim that $y$ dominates $z$.  To see why, let $v\neq y$ be any neighbour of $z$.  Then $r-1\le d_G(x,v)\le r$.  
 
-Consider the last vertex $y'$ on $P$ such that $d_G(x,y')+d_G(y',v)\le r$.  Notice that the path along $P$ from $y'$ to $z$, the edge $zv$ and the shortest path from $y'$ to $v$ is an isometric cycle in $G$.  If $y'\neq y$ then this cycle has length at least 4, in which case $G$ is not 2-Helly. Therefore $y'=y$ and $yv$ is an edge of $G$.
+Consider the last vertex $y'$ on $P$ such that $d_G(x,y')+d_G(y',v)\le r$.  Notice that the path along $P$ from $y'$ to $z$, the edge $zv$ and the shortest path from $y'$ to $v$ is an isometric cycle in $G$  **Not True; consider a 4-cycle plus a dominant vertex**.  If $y'\neq y$ then this cycle has length at least 4, in which case $G$ is not 2-Helly. Therefore $y'=y$ and $yv$ is an edge of $G$.
 
 Therefore, $yz\in E(G)$ and $yv\in E(G)$ for every neighbour $v$ of $z$, i.e, $y$ dominates $z$.  By Observation 0', the graph $G-\lbrace z\rbrace$ is 2-Helly and therefore, by induction it has a dismantling $v_1,\ldots,v_{n-1}$ so $v_1,\ldots,v_{n-1},z$ is a dismantling of $G$.  ∎
 

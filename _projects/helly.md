@@ -14,7 +14,13 @@ A graph $G$ is *ball $d$-Helly* if the family
 \\[
     \mathcal{B}_G = \lbrace B_G(v,r): v\in V(G), r\in\N \rbrace
 \\]
-is $d$-Helly.
+of balls in $G$ is $d$-Helly.
+
+A graph $G$ is *neighbourhood $d$-Helly* if the family
+\\[
+    \mathcal{N}_G = \lbrace B_G(v,1): v\in V(G) \rbrace
+\\]
+of unit balls in $G$ is $d$-Helly.
 
 A *maximal clique* in a graph $G$ is a subset $C\subseteq V(G)$ such that $G[C]$ is a clique but $G[C\cup\lbrace w\rbrace]$ is not a clique for every $w\in V(G)\setminus C$.  Then $G$ is *clique $d$-Helly* if the family
 \\[
@@ -79,9 +85,8 @@ $K_1=\lbrace 1,2,4,a\rbrace$, $K_2=\lbrace 1,3,4,b\rbrace$, $K_3=\lbrace 2,3,4,c
 
 *Proof Idea:* Planar 3-trees (also called stellated-triangulations are simple and have a tree-decomposition where the underlying tree is a 3-ary tree.  I suspect that if this underlying tree has height more than 3, then the underlying tree is not 1-Helly.   ∎ -->
 
-# Extension to Planar Ball 2-Helly Triangulations
+# Some Lemmata about Ball $d$-Helly Graphs
 
-Here is an attempt to extend Theorem 1 to Ball 2-Helly Triangulations.
 
 The following pair of observations is used in the proof of [Theorem 2.2 of Bandelt and Prisner](https://doi.org/10.1016/0095-8956(91)90004-4).
 
@@ -95,7 +100,61 @@ The following pair of observations is used in the proof of [Theorem 2.2 of Bande
 Observation 0, $\bigcap_{i=1}^n b_i$ contains $v$ and we are done. If $\bigcap_{i=1}^n b_i'$ contains $x$ then each of $b_1',\ldots,b_n'$ must have radius at least 1 since none of $b_1',\ldots,b_n'$ is centered at $x$. Therefore each of $b_1',\ldots,b_n'$ has radius at least one and contains $x$.  Therefore each of $b_1',\ldots,b_n'$ also contains $y$.  By Observation 0,
 $\bigcap_{i=1}^n b_i$ contains $y$.  ∎
 
-**Lemma B:** Every ball 2-Helly graph $G$ is dismantlable.
+**Observation 1:** Let $H$ be a graph is neighbourhood $d$-Helly but not neighbourhood $(d-1)$-Helly and let $G$ and be obtained by adding two apex vertices $v_1$ and $v_2$ to $H$.  Then $G$ is neighbourhood $(d+1)$-Helly but not neighbourhood $d$-Helly.
+
+*Proof:*  First we show that $G$ is not neighbourhood $d$-Helly.  Since $H$ is not neighbourhood $(d-1)$-Helly, there exists a $d$-wise intersecting set of unit balls  $\lbrace B_H(v_i,1): i\in\lbrace 1,\ldots,n\rbrace\rbrace$ such that $\bigcap_{i=1}^n B_H(v_i,1)=\emptyset$.   We use the shorthands $b_{H,i}:=B_H(v_i,1)$ and $b_{G,i}=B_G(v_i,1)$.
+
+Observe that, for any two vertices $x,y\in V(H)$, $d_H(x,y)=d_G(x,y)$. Therefore, $b_{G,i}\cap V(H) = b_{H,i}$ for each $i\in\lbrace 1,\ldots,d+2\rbrace$.  Therefore, $\bigcap_{i=1}^n b_{G,i} \subseteq V(G)\setminus V(H)$.  Now consider the two balls $b_1=B_G(v_1,1)$ and $b_2=B_G(v_2,1)$ and observe that $b_1\cap b_2=V(H)$.  Let $A:=\lbrace b_{G,1},\ldots,b_{G,n}, b_1,b_2\rbrace$.
+
+So
+\\[
+  \bigcap_{b\in A} b  = \left(\bigcap_{i=1}^n b_{G,i}\right) \cap (b_1\cap b_2)
+                      \subseteq (V(G)\setminus V(H))\cap V(H) =\emptyset \enspace .
+\\]
+We claim that $A$ is $(d+1)$-wise intersecting.  Indeed, consider any $(d+1)$-element subset $X\subseteq A$. If $X$ contains neither $b_1$ nor $b_2$, then there is nothing to prove since $b_{G,i}\supseteq b_{H_i}$ and $b_{H,1},\ldots,b_{H,n}$ is $(d+1)$-wise intersecting. Otherwise $X=Y\cup Z$ where $Y\subseteq\lbrace b_1,b_2\rbrace$ and $Z\subseteq\lbrace b_{G,1},\ldots,b_{G,n}\rbrace$ is $(d+1)$-wise intersecting.  Therefore,
+\\[
+  \bigcap_{b\in A} b = \left(\bigcap_{b\in Y}^n b\right) \cap \left(\bigcap_{b\in Z} b\right)
+  = V(H)\cap \left(\bigcap_{b_{G,i}\in Z} b_{G,i}\right)
+  \supseteq
+   V(H)\cap \left(\bigcap_{b_{G,i}\in Z} b_{H,i}\right)
+  = \bigcap_{b_{G,i}\in Z} b_{H,i} \neq \emptyset \enspace .
+\\]
+So $A$ is $(d+1)$-wise intersecting and $\cap A=\emptyset$, so $G$ is not $d$-Helly.
+
+
+Next we show that $G$ is $(d+1)$-Helly.  Let $B\subseteq \mathcal{N}\_G$ be a $(d+2)$-wise intersecting set of unit balls in $G$.  Then $B\setminus\lbrace b_1,b_2\rbrace$ is also $(d+2)$-wise intersecting so $\bigcap_{b\in B\setminus\lbrace b_1,b_2\rbrace} b$ is non-empty and contains at least one vertex of $H$.  Therefore
+\\[ \cap B= \bigcap_{b\in B\setminus\lbrace b_1,b_2\rbrace} b\cap (b_1\cap b_2)=\bigcap_{b\in B\setminus\lbrace b_1,b_2\rbrace} b\cap V(H)
+\\]
+is non-empty.   ∎
+
+
+
+# Structure of Ball 2-Helly Graphs
+
+**Lemma Z1:** Let $G$ be a ball 2-Helly graph, let $C$ be a cycle in $G$ of length $2k$, $k\ge 2$, let $vw,\bar{w}\bar{v}\in E(C)$ be antipodal edges of $C$ (so that $d_C(v,\bar{v})=d_C(w,\bar{w})=k$).  Then there exists $x\in V(G)$ such that $d_G(x,v),d_G(x,w)\le 1$ and $d_G(x,\bar{v}),d_G(x,\bar{w})\le k-1$.
+
+**Proof:**  Consider the balls $B_C(v,1)$, $B_C(w,1)$, $B_C(\bar{v},k-1)$, $B_C(\bar{w},k-1)$.  These four balls in $C$ are $3$-wise intersecting and each ball is a subset of the corresponding ball in $G$, so there is some vertex $x\in V(G)$ in each of them.   ∎
+
+**Lemma Z2:** Let $G$ be a ball 2-Helly graph, let $C$ be a cycle in $G$ of length $2k+1$, $k\ge 2$, let $\bar{w}{v}\in E(C)$ be an edge of $C$, let $z\in V(C)$ be antipodal to $\bar{w}\bar{v}$ (so that $d_C(z,\bar{v})=d_C(z,\bar{w})=k$), and let $v,w\in V(C)$ be the neighbours of $z$.  Then there exists $x\in V(G)$ such that $d_G(x,z),d_G(x,v),d_G(x,w)\le 2$ and $d_G(x,\bar{v}),d_G(x,\bar{w})\le k-1$.
+
+**Proof:**  Consider the five balls $B_C(z,2)$, $B_C(v,2)$, $B_C(w,2)$, $B_C(\bar{v},k-1)$, $B_C(\bar{w},k-1)$.  These four balls in $C$ are $3$-wise intersecting and each ball is a subset of the corresponding ball in $G$, so there is some vertex $x\in V(G)$ in each of them.   ∎
+
+<!-- **Lemma XX:** Let $G$ be a ball 2-Helly graph and let $u,v,w,z\in V(G)$ be such that $vz,zw\in E(G)$, $d_G(u,v)=d_G(u,w)=k$ and $d_G(u,z)=k+1$.  Then there exists $x\in V(G)$ such that $d_G(u,x)=k-1$ and $x$ is adjacent to both $v$ and $w$.
+
+**Proof:** Let $y\in V(G)$ be the vertex that maximizes the value $k'$ such that $d_G(u,y)=k'$ and $d_G(y,v)=d_G(y,w)=k-k'$.  Let $r=k-k'$, let $P_{yv}=a_0,\ldots,a_r$ be a shortest path from $y$ to $v$,
+let $P_{yw}=b_0,\ldots,b_r$ be a shortest path from $y$ to $w$, and let $C$ be the cycle formed by $P_{yv}$, $P_{yw}$, and $P_{vw}=v,z,w$.  Then $C$ has length $2(r+1)$.  If $r=1$, then the 2-Helly property applied to $B_G(u,k'+1)$, $B_G(v,1)$, $B_G(w,1)$, and $B_G(z,1)$ implies that some vertex $x$ is adjacent to every vertex in $V(C)$, including $v$ and $w$.
+
+Otherwise, Lemma Z1 implies that some vertex $q$ with $d_G(u,q)=k'+1$, $d_G()
+
+
+
+$y$ Let $C$ be the cycle obtained by taking the union of shortest paths $P_{yv}$, $P_{yw}$ from $y$ to $v$, and $y$ to $w$, respectively along with the path $vzy$.  Then $C$ is a cycle of length $2(k-k'+1)$.   -->
+
+
+
+
+
+<!-- **Lemma B:** Every ball 2-Helly graph $G$ is dismantlable.
 
 *Proof:* The proof is by induction on $n:=\|V(G)\|$.  The case $n=1$ is trivial.
 For $n>1$, we claim that $G$ has a dominated vertex $z$.  To see this, consider any vertex $x\in V(G)$, let $z$ be a vertex that maximizes $r=d_G(x,z)$ and let $y$ the second-to-last vertex on a shortest path $P$ from $x$ to $z$.  We claim that $y$ dominates $z$.  To see why, let $v\neq y$ be any neighbour of $z$.  Then $r-1\le d_G(x,v)\le r$.  
@@ -107,7 +166,7 @@ Therefore, $yz\in E(G)$ and $yv\in E(G)$ for every neighbour $v$ of $z$, i.e, $y
 
 **Theorem 2:** Every ball 2-Helly triangulation $G$ is a planar 3-tree.
 
-*Proof:* By Lemma B, $G$ is dismantlable.  Therefore, by Lemma A, $G$ is a planar 3-tree.  ∎
+*Proof:* By Lemma B, $G$ is dismantlable.  Therefore, by Lemma A, $G$ is a planar 3-tree.  ∎ -->
 
 
 

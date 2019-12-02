@@ -119,7 +119,7 @@ We claim that $A$ is $(d+1)$-wise intersecting.  Indeed, consider any $(d+1)$-el
    V(H)\cap \left(\bigcap_{b_{G,i}\in Z} b_{H,i}\right)
   = \bigcap_{b_{G,i}\in Z} b_{H,i} \neq \emptyset \enspace .
 \\]
-So $A$ is $(d+1)$-wise intersecting and $\cap A=\emptyset$, so $G$ is not $d$-Helly.
+So $A$ is $(d+1)$-wise intersecting and $\cap A=\emptyset$, so $G$ is not neighbourhood $d$-Helly.
 
 
 Next we show that $G$ is $(d+1)$-Helly.  Let $B\subseteq \mathcal{N}\_G$ be a $(d+2)$-wise intersecting set of unit balls in $G$.  Then $B\setminus\lbrace b_1,b_2\rbrace$ is also $(d+2)$-wise intersecting so $\bigcap_{b\in B\setminus\lbrace b_1,b_2\rbrace} b$ is non-empty and contains at least one vertex of $H$.  Therefore

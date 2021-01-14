@@ -143,6 +143,14 @@ The following Conjecture is due to David Wood and would generalize our work on $
 
 <p>Another possibility to consider is anagram-free colouring. David and a student showed that every tree $T$ has an anagram-free colouring using at most $4\pw(T)$ colours.  Can we extend this to show that every outerplanar graph $G$ has an anagram-free colouring using $O(\pw(G))$ colours?  Probably not, because even $P\boxtimes K_2$ does not have bounded anagraph-free chromatic number (<a href="https://arxiv.org/pdf/1802.01646.pdf">Carmi, Dujmović, Morin</a>).</p>
 
+<h2 id="the-structure-of-trees-and-t-trees">The structure of trees and $t$-trees</h2>
+
+<p>Is it true that every $n$-vertex tree $T$ is a subgraph of $H\boxtimes P$ where $\pw(H)\in O(\log n/\log\log n)$ and $P$ is a path?</p>
+
+<p>Is it true that every $n$-vertex $t$-tree $G$ is a subgraph of $H\boxtimes P$ where $\pw(H)\in O(\log n/\log^{(t+1)} n)$?</p>
+
+<p>These two questions are motivated by our <a href="https://arxiv.org/abs/2007.06455">work vertex-ranking</a>.</p>
+
 <h1 id="layered-partitions-versus-layered-decompositions">Layered Partitions versus Layered Decompositions</h1>
 
 <p>A graph $G$ has <a href="https://arxiv.org/pdf/1306.1595.pdf"><em>layered treewidth</em></a> at most $w$ if there exists a layering $\mathcal{L}$ of $G$ and a tree decomposition $(B_x:x\in V(T))$ of $G$ such that $\max\lbrace|L\cap B_x|\rbrace\le w$.  Layered treewidth was introduced before layered $H$-partitions and was used to solve many of the same problems but with worse bounds.  It’s worth knowing whether or not the property of bounded layered treewidth is really different from the property of being a subgraph of $H\boxtimes P$ for some graph $H$ is bounded treewidth.</p>

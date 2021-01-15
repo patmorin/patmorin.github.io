@@ -1,5 +1,5 @@
 ---
-layout: problem
+layout: solved
 title:  "Layered Pathwidth and Non-Repetitive Chromatic Number"
 date:   2017-07-14
 permalink: lpw-vs-nrcn.html
@@ -7,7 +7,9 @@ categories: openproblem
 ---
 $\DeclareMathOperator{\lpw}{lpw}\DeclareMathOperator{\ltw}{ltw}\DeclareMathOperator{\pw}{pw}$
 
-This is a problem given to me by Vida Dujmović, that might be suitable to work on with our student Celine Yelle.
+This problem is nearly irrelevant by now, since [Dujmović et al.](https://arxiv.org/abs/1904.05269) showed that graphs with product structure have constant non-repetitive chromatic number.
+
+This is a problem given to me by Vida Dujmović.
 
 For a graph $G$, let $\lpw(G)$, $\ltw(G)$, and $\pi(G)$ denote the layered pathwidth, layered treewidth, and non-repetitive chromatic number of $G$, respectively.
 

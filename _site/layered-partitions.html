@@ -151,6 +151,14 @@ The following Conjecture is due to David Wood and would generalize our work on $
 
 <p>These two questions are motivated by our <a href="https://arxiv.org/abs/2007.06455">work vertex-ranking</a>.</p>
 
+<p><strong>Update:</strong> The answer is no.  If $T$ is a complete binary tree of height $h$ and $T$ is a subgraph of $H\boxtimes P$, then $H$ contains a subdivision of a complete binary tree of height $\Omega(h)$.  It’s a boring packing argument that projects $T$ onto $H$ and starts with: “Consider the $2^c$ depth $c$ nodes of $T$.  They project onto at least $2^c/c$ distinct nodes of $H$ and if $2^c/c \ge 3$, then at least one of those nodes is different from the projection of the root of $T$ onto $H$.”  So $H$ contains at least:</p>
+<ol>
+  <li>the projection of the root of $T$</li>
+  <li>2 paths of length at most c from the root to two distinct nodes.</li>
+</ol>
+
+<p>And now continue like that while working out boring details….</p>
+
 <h1 id="layered-partitions-versus-layered-decompositions">Layered Partitions versus Layered Decompositions</h1>
 
 <p>A graph $G$ has <a href="https://arxiv.org/pdf/1306.1595.pdf"><em>layered treewidth</em></a> at most $w$ if there exists a layering $\mathcal{L}$ of $G$ and a tree decomposition $(B_x:x\in V(T))$ of $G$ such that $\max\lbrace|L\cap B_x|\rbrace\le w$.  Layered treewidth was introduced before layered $H$-partitions and was used to solve many of the same problems but with worse bounds.  It’s worth knowing whether or not the property of bounded layered treewidth is really different from the property of being a subgraph of $H\boxtimes P$ for some graph $H$ is bounded treewidth.</p>

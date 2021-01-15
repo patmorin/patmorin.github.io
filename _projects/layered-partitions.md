@@ -71,6 +71,13 @@ Is it true that every $n$-vertex $t$-tree $G$ is a subgraph of $H\boxtimes P$ wh
 
 These two questions are motivated by our [work vertex-ranking](https://arxiv.org/abs/2007.06455).
 
+**Update:** The answer is no.  If $T$ is a complete binary tree of height $h$ and $T$ is a subgraph of $H\boxtimes P$, then $H$ contains a subdivision of a complete binary tree of height $\Omega(h)$.  It's a boring packing argument that projects $T$ onto $H$ and starts with: "Consider the $2^c$ depth $c$ nodes of $T$.  They project onto at least $2^c/c$ distinct nodes of $H$ and if $2^c/c \ge 3$, then at least one of those nodes is different from the projection of the root of $T$ onto $H$."  So $H$ contains at least:
+1. the projection of the root of $T$
+2. 2 paths of length at most c from the root to two distinct nodes.
+
+And now continue like that while working out boring details....
+
+
 
 # Layered Partitions versus Layered Decompositions
 

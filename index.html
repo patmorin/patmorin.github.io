@@ -15,9 +15,19 @@ layout: default
   {% for c in site.collections %}
     {{ c.name }}
   {% endfor %}
+
   <h1>Open Problems</h1>
   <ul class="post-list">
     {% for page in site.problems %}
+      <li>
+          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h1>Old Stuff</h1>
+  <ul class="post-list">
+    {% for page in site.solved %}
       <li>
           <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
       </li>

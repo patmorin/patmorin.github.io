@@ -1,5 +1,5 @@
 ---
-layout: problem
+layout: solved
 title:  "Layered Pathwidth versus Stack Number"
 date:   2018-07-24
 permalink: lpw-vs-pn.html

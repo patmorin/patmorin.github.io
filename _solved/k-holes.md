@@ -1,9 +1,12 @@
 ---
-layout: project
+layout: solved
 title:  "$k$-Holes in Random Point Sets"
 categories:
 ---
 A *$k$-hole* in a point set $S$ is a simple $k$-gon $K$ whose vertices are in $S$ and such that no point of $S$ is in the interior of $K$.  A $k$-hole is *convex* if the polygon $K$ is convex.
+
+**Update:*** Most of this is outdated by a paper of [Aichhozer et al](https://arxiv.org/abs/1409.0081)
+
 
 At the 2018 Workshop on Probability and Combinatorics Vida asked about how many $k$-holes there are in a random $n$-point set.  This was motivated by recent work by Aicholzer et al ([A](https://www.sciencedirect.com/science/article/pii/S0925772113001727), [B](https://www.sciencedirect.com/science/article/pii/S0925772114001321)) on $k$-gons and $k$-holes in point sets.
 

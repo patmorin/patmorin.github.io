@@ -55,6 +55,26 @@ A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise c
 
 We can't hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-outerplanar.  The idea would be to identify a set of *exceptional vertices* that we can remove to get a planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.  
 
+## The structure of sparse hereditary graph families
+
+<!-- A graph class $\mathcal{G}$ is *subgraph-hereditary* if, for every $G\in\mathcal{G}$ and every subgraph $G'$ of $G$, $\mathcal{G}$ contains a graph isomorphic to $G'$.  A graph class $\mathcal{G}$ is *small* if, for every $n\in \N$, $G$ contains at most $2^O(n\log n)$ $n$-vertex graphs. -->
+
+<div class="conjecture">
+  Let $\mathcal{G}$ be a family of graphs that is closed under taking subgraphs and such that, for each $n\in\N$ there the number of labelled $n$-vertex members of $\mathcal{G}$ is $n!2^{O(n)}$.  Then, for every $n$-vertex graph $G\in\mathcal{G}$, there is a graph $H$ of bounded treewidth and a path $P$ such that $G$ is isomorphic to a subgraph of $H\boxtimes P$.
+</div>
+
+The planar product structure theorem is evidence for this conjecture, since planarity is preserved when taking subgraphs and there are only $n!2^{O(n)}$ $n$-vertex planar graphs.
+
+**Note:** Labelled graphs may not be the right thing to count here. Perhaps unlabelled graphs would be more appropriate.
+
+This is closely related to the [implicit graph conjecture](https://en.wikipedia.org/wiki/Implicit_graph#The_implicit_graph_conjecture).  The main difference is that we consider a family of graphs that is closed under taking subgraphs, not just induced subgraphs.  This, combined with upper bound on the number of $n$-vertex graphs implies that $n$-vertex graphs in the family have $O(n)$ edges.  Of course, this is a necessary condition for $G$ to be a subgraph of $H\boxtimes P$ since any $n$-vertex subgraph of $H\boxtimes P$ has only $O(n)$ edges.
+
+A first step in proving this conjecture would be to establish a relationship between strongly sublinear separators and such a graph family $\mathcal{G}$.  A fairly straightforward divide-and-conquer counting argument shows that a graph family $\mathcal{G}$ having strongly sublinear *edge* separators contains only $n!2^{O(n)}$ graphs of size $n$.
+
+More importantly, suppose that some graph $G$ has a bipartite subgraph $(A,B,E)$ with $\|A\|=R$, $\|B\|=r$ and such that $A$ contains no twins.  Then, for any $x\in\lbrace 1,\ldots,R\rbrace$,  $G$ contains $\binom{R}{x}$ distinct subgraphs of size $x+r$.  For $R\gg r$ this is a contradiction since $\binom{R}{x} > (r+x)!2^{O(r+x)}$.  (It's certainly a contradiction for $R> r^{1+\epsilon}$.)  So this means that $G$ does not have twin-free "concentrators"
+
+
+
 ## The structure of outerplanar graphs
 
 We can prove a baby product structure theorem for outerplanar graphs.  For a rooted ordered tree $T$, let $T^+$ be the graph obtained from $T$ by adding, for each node $v$ of $T$ a path that contains the children of $v$ in order.  Then, for every outerplanar graph $G$, there exists a tree $T$ such that $G$ is a subgraph of $T^+\boxtimes K_2$.  So $G$ is contained in the strong product of a graph tree-like thing and a single edge.  
@@ -103,3 +123,5 @@ The same problem can be considered in the setting of pathwidth.  In this setting
 ## When are partitions and decompositions the same?
 
 The examples of graphs that have small layered treewidth/pathwidth but do not have product structure theorems all have large expansion.  That is, there are balls of radius $r$ that contain $c^r$ vertices, for some $c>1$.  Is this necessarily the case?  Does every graph family with bounded layered treewidth/pathwidth and polynomial expansion have a treewidth/pathwidth product structure theorem?  The original product structure theorem paper settles the treewidth version of this question for minor-closed graph families (Theorem 32).  Our paper on minor-closed families with bounded layered pathwidth settles this question for minor-closed graph families.
+
+# Applications

@@ -7,7 +7,7 @@ categories: openproblem
 ---
 There is an [old conjecture](https://faculty.math.illinois.edu/~west/openp/planforest.html) that every $n$-vertex planar graph contains an induced forest on at least $n/2$ vertices.  
 
-The best lower bound is due to [Borodin](https://core.ac.uk/reader/82158380), who shows that every planar graph has an [acyclic 5-colouring], so each cycle in the graph receives at least three colours.  This means that the two largest colour classes have size at least $2n/5$ and induce a forest (a graph with no cycles).  Borodin's proof is a long argument by minimum counterexample that has considerable case analysis.
+The best lower bound is due to [Borodin](https://core.ac.uk/reader/82158380), who shows that every planar graph has an *acyclic 5-colouring*, so each cycle in the graph receives at least three colours.  This means that the two largest colour classes have size at least $2n/5$ and induce a forest (a graph with no cycles).  Borodin's proof is a long argument by minimum counterexample that has considerable case analysis.
 
 
 ## Attack by tripod decomposition
@@ -31,7 +31,11 @@ Note that the preceding lemma implies that $G$ if $4$-colourable since each of $
 
 By discarding the feet of a tripod $Y$, the preceding lemma implies that $Y$ contains an induced forest of size at least $(\|Y\|-3)/2$ that is not adjacent to the cycle in $G$ that defines the tripod $Y$.  This means that, for a tripod partition $\mathcal{P}$ of $G$, $V(G)$ has a partition into three sets $(A,B,X)$ such that $G[A]$ and $G[B]$ are each forests and $\|X\|\le 3\|\mathcal{P}\|$.  Thus, $G$ contains an induced forest of size at least $n/2 - 3\|\mathcal{P}\|/2$.  By working directly with small cases, we might be able to do better.
 
-Maybe we can strengthen the preceding lemma so that, for a tripod $Y$, we obtain a partition $(A,B)$ such that $(A,B)$ partitions each inner face of $G[Y]$ into two paths.  I think this is only a matter of a bit more case analysis on $G_{12}$.  If we can manage this, then we have some control over how the tripod interacts with the cycle that defines it.
+Maybe we can strengthen the preceding lemma so that, for a tripod $Y$, we obtain a partition $(A,B)$ such that $(A,B)$ partitions each inner face of $G[Y]$ into two paths.  I think this is only a matter of a bit more case analysis on $G_{12}$.  [I think I've mostly figured this out by studying which of the two tracks contain the same-coloured vertices&mdash;we only need to change the color there if there is an inter-track edge, which seals off the other colour.]
+
+Now we have some control over how the tripod $Y$ interacts with the cycle $F$ that surrounds it.  At least for the internal faces of $G[Y]$, we can make it so that one leg of a new tripod $Y$ is attached to a blue vertex (say in $B$) and the other two legs are attached to red vertices (in $A$).  Hopefully, then, if $\|Y\|\ge 3$, this means we can fiddle with the 3-colouring of $C$ and the the choice of colours for vertices in $L_1$ so that we can win something.
+
+There are, of course, still small cases to deal with.  For example, when $C$ contains only one vertex $v$ in its interior.  If $C$ is a 3-cycle, then this is easy because we can add $v$ to the forest with only one vertex in $C$.  For $\|C\|\ge 4$, there is the possibility that $v$ can't go into either tree. To deal with this, we would have to make sure that small cycles containing only a single vertex consist of a monochromatic path and a
 
 
 

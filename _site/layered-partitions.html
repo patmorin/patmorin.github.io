@@ -131,9 +131,9 @@ The following Conjecture is due to David Wood and would generalize our work on $
 
 <h2 id="the-structure-of-k-quasiplanar-graphs">The structure of $k$-quasiplanar graphs</h2>
 
-<p>A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise crossing edges.  An old conjecture states that, for every $k$, there exists a constant $c_k$ such that every $n$-vertex $k$-quasiplanar graph has at most $c_k n$ edges.   This is known to be true for $k\in\lbrace 3, 4\rbrace$.  (See <a href="https://arxiv.org/pdf/1106.0958.pdf">Suk</a> for $k=4 case and <a href="https://www.sciencedirect.com/science/article/pii/S0097316506001397">Ackerman and Tardos</a> for a nice proof of the $k=3$ case.)</p>
+<p>A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise crossing edges.  An old conjecture states that, for every $k$, there exists a constant $c_k$ such that every $n$-vertex $k$-quasiplanar graph has at most $c_k n$ edges.   This is known to be true for $k\in\lbrace 3, 4\rbrace$.  (See <a href="https://arxiv.org/pdf/1106.0958.pdf">Suk</a> for $k=4$ case and <a href="https://www.sciencedirect.com/science/article/pii/S0097316506001397">Ackerman and Tardos</a> for a nice proof of the $k=3$ case.)</p>
 
-<p>We can’t hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-outerplanar.  The idea would be to identify a set of <em>exceptional vertices</em> that we can remove to get a planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.</p>
+<p>We can’t hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-outerplanar.  The idea would be to identify a set of <em>exceptional vertices</em> that we can remove to get an $f(k)$-planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.</p>
 
 <h2 id="the-structure-of-sparse-hereditary-graph-families">The structure of sparse hereditary graph families</h2>
 
@@ -157,9 +157,22 @@ The following Conjecture is due to David Wood and would generalize our work on $
 
 <p>We can prove a baby product structure theorem for outerplanar graphs.  For a rooted ordered tree $T$, let $T^+$ be the graph obtained from $T$ by adding, for each node $v$ of $T$ a path that contains the children of $v$ in order.  Then, for every outerplanar graph $G$, there exists a tree $T$ such that $G$ is a subgraph of $T^+\boxtimes K_2$.  So $G$ is contained in the strong product of a graph tree-like thing and a single edge.</p>
 
+<p><strong>Update (Feb 2021):</strong> I don’t think the preceding paragraph is correct.</p>
+
 <p>I don’t know of any applications of this result, but there must be some that generalize results for trees to outerplanar graphs.  A good first problem to consider is nonrepetitive colouring of outerplanar graphs.  The best bound is $12=4\times 3$ where the $3$ comes from non-repetitively colouring each BFS layer (a set of disjoint paths) and $4$ comes from a nonrepetitive palindrome-free colouring of the BFS layers themselves.</p>
 
 <p>Another possibility to consider is anagram-free colouring. David and a student showed that every tree $T$ has an anagram-free colouring using at most $4\pw(T)$ colours.  Can we extend this to show that every outerplanar graph $G$ has an anagram-free colouring using $O(\pw(G))$ colours?  Probably not, because even $P\boxtimes K_2$ does not have bounded anagraph-free chromatic number (<a href="https://arxiv.org/pdf/1802.01646.pdf">Carmi, Dujmović, Morin</a>).</p>
+
+<!-- ## The structure of simple $t$-trees
+
+The preceding section mentions the result that every outerplanar graph is a subgraph of $T^+\boxtimes K_2$ where $T^+$ is "almost a tree".  This raises the following conjecture that I have spent no time thinking about:
+
+**Conjecture:** Every simple $t$-tree $G$ is a subgraph of $H\boxtimes Q$ where $Q$ has constant size and $H$ is "almost a $(t-1)$-tree".
+
+If I had to guess, I would say that the right definition of "almost a $(t-1)$-tree" is the following:  Start with a tree $T$ and, for each node $v$, add any set of edges to the children of $v$ so that you obtain a simple $(t-1)$-tree.
+
+
+Of course, that conjecture is deliberately vague.   -->
 
 <h2 id="the-structure-of-trees-and-t-trees">The structure of trees and $t$-trees</h2>
 

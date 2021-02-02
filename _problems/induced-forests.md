@@ -39,6 +39,8 @@ Now we have some control over how the tripod $Y$ interacts with the cycle $F$ th
 - a foot $v_0$ adjacent to $P_0$ and not adjacent to $P_1$ (so $v_0$ is adjacent to a single vertex of $A$); and
 - a foot $v_1$ adjacent to $P_1$ (and possibly adjacent to $P_0$ and/or $P_B$)
 
+![Finding a large induced forest](images/induced-trees-x.jpg)
+
 Now apply the lemma above with $v_B\in A$ and $v_0,v_1\in B$ (Note that the tie-breaking rules eliminate some cases in the proof of the lemma.)  This lets us keep everything except $v_1$, which may be adjacent to two or more vertices of $P_B$ and adjacent to two or more vertices of $P_A$.  In this case, I'm not sure what to do with $v_1$ other than put it in some excluded set $X$.  
 
 Unfortunately, the only obvious upper bound on the size of $X$ is $(3n-6)/4$. Maybe we could be a bit more clever and get $\|X\|\le n/2$, but we won't do better than that becaue of the following example:  Take a square grid $G_0$ and put a degree-4 vertex inside each face.   Then approximately half the vertices are degree-4 and we could imagine that the algorithm ran for a while and put all of the vertices of $G_0$ into $A$ and $B$ in which a way that each face of $G_0$ has two vertices from each of $A$ and $B$.  Then all the remaining degree-4 vertices have to go in the exceptional set $X$.  In this case we only get two spanning trees containing a total of$ \approx n/2$ vertices.  (The same example works if we start with a hexagonal grid.)   This case might be worth studying. Maybe there's a good explanation for why the algorithm wouldn't produce sets $A$ and $B$ this way.  To do better than Borodin's bound, we need $\|X\|<n/5$.

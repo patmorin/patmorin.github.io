@@ -66,13 +66,13 @@ The nice thing about this is that we can slice out a pathwidth-3 *separator* $S$
 
 (Note: The $\Delta$ here is only required to rule out trivial anagrams caused by paths of length 2.)
 
-Finally, the subgraph $P^+$ consisting of the edges of $P$ and the triples of cut edges has constant degree.  We can use this fact to transfer our edge colouring of $P^+$ to a vertex colouring that is anagram-free, solving the open problem stated above:
+<!-- Finally, the subgraph $P^+$ consisting of the edges of $P$ and the triples of cut edges has constant degree.  We can use this fact to transfer our edge colouring of $P^+$ to a vertex colouring that is anagram-free, solving the open problem stated above:
 
 <div class="theorem">
    Outerplanar graphs of path $k$ have anagram-free chromatic number $O(k)$.
 </div>
 
-This strengthens Wilson and Wood's result from trees to outerplanar graphs and puts us right on the edge of the class of graphs that have anagram-free chromatic number bounded by their pathwidth.  My guess is that appropriate versions of the preceding ideas should carry through to 2-trees.
+This strengthens Wilson and Wood's result from trees to outerplanar graphs and puts us right on the edge of the class of graphs that have anagram-free chromatic number bounded by their pathwidth.  My guess is that appropriate versions of the preceding ideas should carry through to 2-trees. -->
 
 
 

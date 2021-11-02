@@ -27,11 +27,28 @@ The product structure theorem generalizes to Euler genus-$g$ graphs. In this gen
 
 ## The Structure of Disk Graphs of Bounded Ply
 
+A *disk graph* is a graph whose vertices are closed disks in $\R^2$ and that contains an edge $uv$ if and only if $u\cap v\neq\emptyset$.  The *ply* of a disk graph is the maximum number of disks/vertices of $G$ that contain a single point. A *unit disk graph* is a disk graph whose vertices/disks all have the same radius.
+
 <div class="conjecture">
   There exists a function $f:\N\to\N$ such that, for any unit disk graph $G$ of ply at most $k$, $G$ is a subgraph of $K_{f(k)}\boxtimes P\boxtimes P$.
 </div>
 
-The preceding conjecture is probably easy and so is its generalization to $d$ dimensions.  Here's
+The preceding conjecture is probably easy and so is its generalization to $d$ dimensions.  If we drop the unit assumption, things get harrier.  The following conjecture has come up, by I don't think it's true:
+
+<div class="conjecture">
+  There exists a function $f:\N\to\N$ such that, for any disk graph $G$ of ply at most $k$, $G$ is a subgraph of $H\boxtimes P + K_{f(k)}$ for some graph $H$ of treewidth at most $f(k)$.
+</div>
+
+I believe the following graph provides a counterexample.  Let $Q$ to be a touching unit disk representation of a $n\times n$ grid.  Add a set $A$ of $r\in \omega(1)$ disks to $Q$ that are pairwise disjoint but such that each disk intersects $r\in\omega(1)$ disks of $Q$.  (We can easily do this for some $r\in\Omega(\sqrt{n})$.)  The resulting disk graph $G$ has ply at most $3$ so, if the conjecture is true then $G$ is a subgraph of $H\boxtimes P\boxtimes K_{f(3)}$ where $\tw(H)\le f(3)$.  Furthermore, for each $a\in A$, $Q[N_G(a)]\subseteq G[N_G[a]]$ contains an $\Omega(r)\times \Omega(r)$ grid, so $\tw(G[N_G[a]]) \in \Omega(r)$.  
+
+Consider the mapping $\psi:V(G)\to H\boxtimes P+K_{f(k)}$.  The diameter of $G[N_G[a]]$ is at most $2$.  Therefore, if $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P$ then $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P_3$ where $P_3$ is a subpath of $P$ containing at most $3$ vertices.  Therefore
+\\[
+  \Omega(r)\le \tw(G[N_G[a]])\le 3\cdot \tw(H)
+\\]
+so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw(H)\le f(3)\in O(1)$.  Therefore $\Psi$ must map some vertex of $N_G[a]]$ to a vertex of $K_{f(3)}$.  But this is true for each $a\in A$, so it must be the case that $f(3)=|V(K_{f(3)})|\ge |A|=r\in\omega(1)$, a contradiction.
+
+The preceding argument actually shows something considerably stronger: For any integer $a$ and any graph $R$ of bounded local treewidth there exists an $n$ such that $G\not\subseteq H\boxtimes R + K_a$.  This includes the interesting case $R=P\boxtimes P\boxtimes\cdots\boxtimes P$ where the number of factors in the product is a constant.
+
 
 ## The Structure of $k$-nearest neighbour graphs in $\R^d$
 Here's one from David Wood:

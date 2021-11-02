@@ -47,7 +47,20 @@ Consider some mapping $\psi:V(G)\to V(H\boxtimes P+K_{f(3)})$ which shows that $
 \\]
 so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw(H)\le f(3)\in O(1)$.  Therefore $\Psi$ must map some vertex of $N_G[a]]$ to a vertex of $K_{f(3)}$.  But this is true for each $a\in A$, so it must be the case that $f(3)=|V(K_{f(3)})|\ge |A|=r\in\omega(1)$, a contradiction. ∎
 
-The preceding argument actually shows something considerably stronger: For any integer $r$ and any graph $R$ of bounded local treewidth there exists an $n$ such that $G\not\subseteq H\boxtimes R + K_r$, where $G$ is the $n\times n + r$ vertex graph described above.  This includes the interesting case $R=P\boxtimes P\boxtimes\cdots\boxtimes P$ where the number of factors in the product is a constant.
+The preceding argument actually shows something considerably stronger: For any integer $r$ and any graph $R$ of bounded local treewidth there exists an $n$ such that $G\not\subseteq H\boxtimes R + K_r$, where $G$ is the $n\times n + r$ vertex graph described above.  This includes the interesting case $R=P\boxtimes P\boxtimes\cdots\boxtimes P$ where the number of factors in the product is a constant.  (The key observation is that $\psi$ must take $N_G[a]\cup\{a\}$ onto a subgraph of $H\boxtimes R + K_r$ of diameter at most $2$.)
+
+One might think of fixing the conjecture by restricting it to bounded-degree disk graphs.  That might work for disk graphs, but it probably won't work for ball intersection graphs in $\R^3$.  In $\R^3$ we can replace each vertex $a\in A$ with a complete binary $T_a$.  This gives a graph of maximum degee $5$ and ply $2$ and $\psi$ has to map $N_G[T_a]$ onto a subgraph of diameter $O(\log r)$.  By taking $r\in \Omega(\sqrt{n})$, the first proof finishes with $f(2)\ge \sqrt{n}/\log n$.  The version for $H\boxtimes R+K_r$ finishes with $f(g)\ge \sqrt{n}/g(\log n)$ where $g$ is the treewidth bounding function.  So it certainly disproves the conjecture in the case where $R$ is supposed to have polynomial local treewidth.
+
+
+
+This is still too much
+
+
+, which gives a graph of maximum-degree $6$.  
+
+
+
+  , but I don't think one will get much traction there either.  In particular, I don't
 
 
 ## The Structure of $k$-nearest neighbour graphs in $\R^d$

@@ -117,7 +117,7 @@
 <p>The preceding conjecture is probably easy and so is its generalization to $d$ dimensions.  If we drop the unit assumption, things get harrier.  The following conjecture has come up, by I don’t think it’s true:</p>
 
 <div class="conjecture">
-  There exists a function $f:\N\to\N$ such that, for any disk graph $G$ of ply at most $k$, $G$ is a subgraph of $H\boxtimes P + K_{f(k)}$ for some graph $H$ of treewidth at most $f(k)$.
+  [Disproved] There exists a function $f:\N\to\N$ such that, for any disk graph $G$ of ply at most $k$, $G$ is a subgraph of $H\boxtimes P + K_{f(k)}$ for some graph $H$ of treewidth at most $f(k)$.
 </div>
 
 <p>I believe the following graph provides a counterexample.  Let $Q$ to be a touching unit disk representation of a $n\times n$ grid.  Add a set $A$ of $r\in \omega(1)$ disks to $Q$ that are pairwise disjoint but such that each disk intersects $r\in\omega(1)$ disks of $Q$.  (We can easily do this for some $r\in\Omega(\sqrt{n})$.)  The resulting disk graph $G$ has ply at most $3$ so, if the conjecture is true then $G$ is a subgraph of $H\boxtimes P\boxtimes K_{f(3)}$ where $\tw(H)\le f(3)$.  Furthermore, for each $a\in A$, $Q[N_G(a)]\subseteq G[N_G[a]]$ contains an $\Omega(r)\times \Omega(r)$ grid, so $\tw(G[N_G[a]]) \in \Omega(r)$.</p>

@@ -39,9 +39,9 @@ The preceding conjecture is probably easy and so is its generalization to $d$ di
   [Disproved] There exists a function $f:\N\to\N$ such that, for any disk graph $G$ of ply at most $k$, $G$ is a subgraph of $H\boxtimes P + K_{f(k)}$ for some graph $H$ of treewidth at most $f(k)$.
 </div>
 
-I believe the following graph provides a counterexample.  Let $Q$ to be a touching unit disk representation of a $n\times n$ grid.  Add a set $A$ of $r\in \omega(1)$ disks to $Q$ that are pairwise disjoint but such that each disk intersects $r\in\omega(1)$ disks of $Q$.  (We can easily do this for some $r\in\Omega(\sqrt{n})$.)  The resulting disk graph $G$ has ply at most $3$ so, if the conjecture is true then $G$ is a subgraph of $H\boxtimes P\boxtimes K_{f(3)}$ where $\tw(H)\le f(3)$.  Furthermore, for each $a\in A$, $Q[N_G(a)]\subseteq G[N_G[a]]$ contains an $\Omega(r)\times \Omega(r)$ grid, so $\tw(G[N_G[a]]) \in \Omega(r)$.  
+The following graph provides a counterexample.  Let $Q$ to be a touching unit disk representation of a $n\times n$ grid.  Add a set $A$ of $r\in \omega(1)$ disks to $Q$ that are pairwise disjoint but such that each disk intersects $r\in\omega(1)$ disks of $Q$.  (We can easily do this for some $r\in\Omega(\sqrt{n})$.)  The resulting disk graph $G$ has ply at most $3$ so, if the conjecture is true, then $G$ is a subgraph of $H\boxtimes P\boxtimes K_{f(3)}$ where $\tw(H)\le f(3)$.  Furthermore, for each $a\in A$, $Q[N_G(a)]\subseteq G[N_G[a]]$ contains an $\Omega(r)\times \Omega(r)$ grid, so $\tw(G[N_G[a]]) \in \Omega(r)$.  
 
-Consider the mapping $\psi:V(G)\to H\boxtimes P+K_{f(k)}$.  The diameter of $G[N_G[a]]$ is at most $2$.  Therefore, if $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P$ then $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P_3$ where $P_3$ is a subpath of $P$ containing at most $3$ vertices.  Therefore
+Consider some mapping $\psi:V(G)\to V(H\boxtimes P+K_{f(3)})$ which shows $G\subseteq H\boxtimes P\boxtimes K_{f(3)}$.  The diameter of $G[N_G[a]]$ is at most $2$.  Therefore, if $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P$ then $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P_3$ where $P_3$ is a subpath of $P$ containing at most $3$ vertices.  Therefore
 \\[
   \Omega(r)\le \tw(G[N_G[a]])\le 3\cdot \tw(H)
 \\]

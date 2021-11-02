@@ -51,6 +51,7 @@ The preceding argument actually shows something considerably stronger: Let $G_n$
 
 One might think of fixing the conjecture by restricting it to bounded-degree disk graphs.  That might work for disk graphs, but it won't work for ball intersection graphs in $\R^3$.  In $\R^3$ we can replace each vertex $a\in A$ with a complete binary $T_a$.  This gives a graph of maximum degree $5$ and ply $2$ and $\psi$ has to map $N_G[T_a]$ onto a subgraph of diameter $O(\log r)$.  By taking $r\in \Omega(\sqrt{n})$, the first proof finishes with $f(2)\in\Omega(\sqrt{n}/\log n)$.  The version for $H\boxtimes R+K_r$ finishes with $f(2)\ge \sqrt{n}/g(O(\log n))$ where $g$ is the treewidth bounding function.  So it certainly disproves the conjecture in the case where $R$ is supposed to have polynomial local treewidth.  In particular, it doesn't for work $R=P\boxtimes\cdots\boxtimes P$.
 
+
 ## The Structure of $k$-nearest neighbour graphs in $\R^d$
 Here's one from David Wood:
 

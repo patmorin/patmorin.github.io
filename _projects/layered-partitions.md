@@ -35,6 +35,8 @@ A *disk graph* is a graph whose vertices are closed disks in $\R^2$ and that con
 
 The preceding conjecture is probably easy and so is its generalization to $d$ dimensions.  If we drop the unit assumption, things get harrier.  The following conjecture has come up, but I don't think it's true:
 
+**Update:** The $\R^d$ version of this conjecture is proven in the paper by [Dvořák et al](https://arxiv.org/pdf/2001.08860.pdf) in Theorem 27.  The same paper, in Open Problem 29, asks a question closely related this conjecture:
+
 <div class="conjecture">
   [Disproved] There exists a function $f:\N\to\N$ such that, for any disk graph $G$ of ply at most $k$, $G$ is a subgraph of $H\boxtimes P + K_{f(k)}$ for some graph $H$ of treewidth at most $f(k)$.
 </div>
@@ -48,6 +50,8 @@ If the conjecture is true, then there exists a homomorphism $\psi:G\to H\boxtime
 so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw(H)\le f(3)\in O(1)$.  Therefore $\Psi$ must map some vertex of $N_G[a]$ to a vertex of $K_{f(3)}$.  But this is true for each $a\in A$, so it must be the case that $f(3)=|V(K_{f(3)})|\ge |A|=r\in\omega(1)$, also a contradiction. ∎
 
 The preceding argument actually shows something considerably stronger.  Let $G_n$ denote the $n\times n + r$ vertex graph described above.  For any integer $b$ and any bounded-degree graph $R$, there exists an $n$ such that $G_n\not\subseteq H\boxtimes R + K_b$.  This includes the interesting case $R=P\boxtimes \cdots\boxtimes P$ where the number of factors in the product is a constant.  The key observation is that $\psi$ must take $N_G[a]$ onto a subgraph of $H\boxtimes R + K_b$ of diameter at most $2$. The bounded degree of $R$ ensures that this subgraph either includes a vertex of $K_b$ or has bounded treewidth. (In particular, the treewidth is bounded by $\tw(H)\cdot(\Delta^2+\Delta+1)$.)
+
+Open Problem 29 in [this paper](https://arxiv.org/pdf/2001.08860.pdf) asks if every constant ply ball intersection graph in $\R^d$ can be expressed as clique-sums on graphs of the form $H\boxtimes R+K_b$.  I think the graph $G$ described above shows that the answer is no, but I first have to convince myself that clique-sums don't help to decompose $G$.
 
 One might think of fixing the conjecture by restricting it to bounded-degree disk graphs.  That might work for disk graphs, but it won't work for ball intersection graphs in $\R^3$.  In $\R^3$ we can replace each vertex $a\in A$ with a complete binary tree $T_a$.  This gives a graph of maximum degree $5$ and ply $2$ and $\psi$ has to map $N_G[T_a]$ onto a subgraph of diameter $O(\log r)$.  By taking $r\in \Omega(\sqrt{n})$, the proof for $H\boxtimes P+K_{f(s)}$ finishes with $f(2)\in\Omega(\sqrt{n}/\log n)$.  The version for $H\boxtimes R+K_r$ finishes with $f(2)\ge \sqrt{n}/g(O(\log n))$ where $g$ is the *growth function* of $R$ (so $g(x)$ is the size of the largest ball of radius $x$ in $R$).  This disproves the conjecture when $g(x)\le 2^{o(x)}$.  In particular, it disproves the conjecture when $R$ has polynomial growth, which by the result of [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y), is equivalent to $R\subseteq P\boxtimes\cdots\boxtimes P$.
 

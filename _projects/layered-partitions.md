@@ -47,7 +47,7 @@ Consider some mapping $\psi:V(G)\to V(H\boxtimes P+K_{f(3)})$ which shows that $
 \\]
 so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw(H)\le f(3)\in O(1)$.  Therefore $\Psi$ must map some vertex of $N_G[a]]$ to a vertex of $K_{f(3)}$.  But this is true for each $a\in A$, so it must be the case that $f(3)=|V(K_{f(3)})|\ge |A|=r\in\omega(1)$, a contradiction. ∎
 
-The preceding argument actually shows something considerably stronger: For any integer $r$ and any graph $R$ of bounded local treewidth there exists an $n$ such that $G\not\subseteq H\boxtimes R + K_r$.  This includes the interesting case $R=P\boxtimes P\boxtimes\cdots\boxtimes P$ where the number of factors in the product is a constant.
+The preceding argument actually shows something considerably stronger: For any integer $r$ and any graph $R$ of bounded local treewidth there exists an $n$ such that $G\not\subseteq H\boxtimes R + K_r$, where $G$ is the $n\times n + r$ vertex graph described above.  This includes the interesting case $R=P\boxtimes P\boxtimes\cdots\boxtimes P$ where the number of factors in the product is a constant.
 
 
 ## The Structure of $k$-nearest neighbour graphs in $\R^d$

@@ -86,6 +86,8 @@ For a drawing $\Gamma(G)$ of a graph $G$, let $\cr(\Gamma(G))$ denote the number
   There exists $f:\N\to\N$ such that, for any $c$-good graph $G$, there exists a graph $H$ with $\tw(H)\le f(c)$ and a path $P$ such that $G$ is isomorphic to a subgraph of $H\boxtimes P$.
 </div>
 
+We could also weaken this conjecture to drawings with the following property: Each crossing $(e_1,e_2,p)$ can be charged to one of $e_1$ or $e_2$ in such a way that each edge of $G$ is assigned at most $k$ crossings.
+
 ## The structure of sparse hereditary graph families
 
 <!-- A graph class $\mathcal{G}$ is *subgraph-hereditary* if, for every $G\in\mathcal{G}$ and every subgraph $G'$ of $G$, $\mathcal{G}$ contains a graph isomorphic to $G'$.  A graph class $\mathcal{G}$ is *small* if, for every $n\in \N$, $G$ contains at most $2^O(n\log n)$ $n$-vertex graphs. -->

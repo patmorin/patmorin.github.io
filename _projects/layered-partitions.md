@@ -41,11 +41,11 @@ The preceding conjecture is probably easy and so is its generalization to $d$ di
 
 The following graph provides a counterexample.  Let $Q$ to be a touching unit disk representation of a $n\times n$ grid.  Add a set $A$ of $r\in \omega(1)$ disks to $Q$ that are pairwise disjoint but such that each disk intersects $r\in\omega(1)$ disks of $Q$.  (We can easily do this for some $r\in\Omega(\sqrt{n})$.)  The resulting disk graph $G$ has ply at most $3$ so, if the conjecture is true, then $G$ is a subgraph of $H\boxtimes P\boxtimes K_{f(3)}$ where $\tw(H)\le f(3)$.  Furthermore, for each $a\in A$, $Q[N_G(a)]\subseteq G[N_G[a]]$ contains an $\Omega(r)\times \Omega(r)$ grid, so $\tw(G[N_G[a]]) \in \Omega(r)$.  
 
-Consider some mapping $\psi:V(G)\to V(H\boxtimes P+K_{f(3)})$ which shows $G\subseteq H\boxtimes P\boxtimes K_{f(3)}$.  The diameter of $G[N_G[a]]$ is at most $2$.  Therefore, if $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P$ then $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P_3$ where $P_3$ is a subpath of $P$ containing at most $3$ vertices.  Therefore
+Consider some mapping $\psi:V(G)\to V(H\boxtimes P+K_{f(3)})$ which shows that $G\subseteq H\boxtimes P\boxtimes K_{f(3)}$.  The diameter of $G[N_G[a]]$ is at most $2$.  Therefore, if $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P$ then $\psi$ maps all vertices of $N_G[a]$ to $H\boxtimes P_3$ where $P_3$ is a subpath of $P$ containing at most $3$ vertices.  Therefore
 \\[
   \Omega(r)\le \tw(G[N_G[a]])\le 3\cdot \tw(H)
 \\]
-so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw(H)\le f(3)\in O(1)$.  Therefore $\Psi$ must map some vertex of $N_G[a]]$ to a vertex of $K_{f(3)}$.  But this is true for each $a\in A$, so it must be the case that $f(3)=|V(K_{f(3)})|\ge |A|=r\in\omega(1)$, a contradiction.
+so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw(H)\le f(3)\in O(1)$.  Therefore $\Psi$ must map some vertex of $N_G[a]]$ to a vertex of $K_{f(3)}$.  But this is true for each $a\in A$, so it must be the case that $f(3)=|V(K_{f(3)})|\ge |A|=r\in\omega(1)$, a contradiction. ∎
 
 The preceding argument actually shows something considerably stronger: For any integer $r$ and any graph $R$ of bounded local treewidth there exists an $n$ such that $G\not\subseteq H\boxtimes R + K_r$.  This includes the interesting case $R=P\boxtimes P\boxtimes\cdots\boxtimes P$ where the number of factors in the product is a constant.
 

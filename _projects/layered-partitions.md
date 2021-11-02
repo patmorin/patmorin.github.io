@@ -25,14 +25,13 @@ The product structure theorem generalizes to Euler genus-$g$ graphs. In this gen
   There exists a constant $C$ such that every $k$-planar graph has a layered $H$-partition of layered width $f(k)$ where $H$ has treewidth at most $C$.
 </div>
 
-
-<!-- ## The Structure of $k$-Shortcut graphs
-
-The following Conjecture is due to David Wood and would generalize our work on $k$-planar graphs.
+## The Structure of Disk Graphs of Bounded Ply
 
 <div class="conjecture">
-  Let $G$ a graph with a layered $H$-partition of layered width $1$ in which $H$ has treewidth $c$ and let $G'\supseteq G$ be the supergraph of $G$ in which $vw\in E(G')$ if and only if $G$ contains a path of length at most $k$ whose internal vertices have degree at most $d$.  Then $G'$ has a layered $H'$-partition in which $H'$-partition of layered width $1$ in which $H'$ has treewidth at most $f(c,k,d)$.
-</div> -->
+  There exists a function $f:\N\to\N$ such that, for any unit disk graph $G$ of ply at most $k$, $G$ is a subgraph of $K_{f(k)}\boxtimes P\boxtimes P$.
+</div>
+
+The preceding conjecture is probably easy and so is its generalization to $d$ dimensions.  Here's
 
 ## The Structure of $k$-nearest neighbour graphs in $\R^d$
 Here's one from David Wood:
@@ -54,6 +53,15 @@ I think the case $d=1$ is not too hard: the $k$-nearest neighbour graph of a $1$
 A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise crossing edges.  An old conjecture states that, for every $k$, there exists a constant $c_k$ such that every $n$-vertex $k$-quasiplanar graph has at most $c_k n$ edges.   This is known to be true for $k\in\lbrace 3, 4\rbrace$.  (See [Suk](https://arxiv.org/pdf/1106.0958.pdf) for $k=4$ case and [Ackerman and Tardos](https://www.sciencedirect.com/science/article/pii/S0097316506001397) for a nice proof of the $k=3$ case.)
 
 We can't hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-outerplanar.  The idea would be to identify a set of *exceptional vertices* that we can remove to get an $f(k)$-planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.  
+
+## The structure of graphs with (hereditary) linear crossing numbers
+
+$\DeclareMathOperator{\cr}{cr}$
+For a drawing $\Gamma(G)$ of a graph $G$, let $\cr(\Gamma(G))$ denote the number of crossings in the drawing $\Gamma$.  (The number of triples $(e_1,e_2,p)\in E(G)\times E(G)\times\R^2$ such that the drawing of $e_1$ and $e_2$ each contain the point $p$.)  Call a graph drawing $G$ *$c$-good* if, for every $S\subseteq V(G)$, $\cr(\Gamma(G[S]))\le c\cdot|S|$.  Say that $G$ is *$c$-good* if $G$ there exists a $c$-good drawing of $G$.
+
+<div class="conjecture">
+  There exists $f:\N\to\N$ such that, for any $c$-good graph $G$, there exists a graph $H$ with $\tw(H)\le f(c)$ and a path $P$ such that $G$ is isomorphic to a subgraph of $H\boxtimes P$.
+</div>
 
 ## The structure of sparse hereditary graph families
 

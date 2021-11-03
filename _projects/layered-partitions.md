@@ -69,13 +69,19 @@ The conjecture is true for $d=1$ (easy) and $d=2$ (in our paper on the structure
    Let $G$ be the $k$-nearest-neighbour graph of an $n$-point set in $\R^d$.  Then $G$ is a subgraph of $K\boxtimes P\boxtimes P\boxtimes\cdots\boxtimes P$ where $K$ is a clique of size at most $f(d,k)$, $P$ is a path, and the number of occurrences of $P$ in the product is $d$.
 </div>
 
-I think the case $d=1$ is not too hard: the $k$-nearest neighbour graph of a $1$-d point set has pathwidth $O(k)$ and maximum degree $O(k)$. I think that means its a subgraph of $K_{O(k^2)}\boxtimes P$.  The case $d=2$ is still open.
+I think the case $d=1$ is not too hard: If the points are $x_1<x_2<\cdots<x_n$, then consider the graph that contains the edges $x_{i+r}x_i$ for each $r\in\lbrace-k,\ldots,k\rbrace$ and each $i\in\lbrace 1,\ldots,n\rbrace$.  This graph contains the $k$-nearest neighbour graph and has bandwidth $O(k)$.  Having bandwidth $O(k)$ is equivalent to being a subgraph of $K_{O(k)}\boxtimes P$.  (David Wood pointed out the connection between $K_x\boxtimes P$ and bandwidth.)  The case $d=2$ is still open.
+
 
 ## The structure of $k$-quasiplanar graphs
 
 A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise crossing edges.  An old conjecture states that, for every $k$, there exists a constant $c_k$ such that every $n$-vertex $k$-quasiplanar graph has at most $c_k n$ edges.   This is known to be true for $k\in\lbrace 3, 4\rbrace$.  (See [Suk](https://arxiv.org/pdf/1106.0958.pdf) for $k=4$ case and [Ackerman and Tardos](https://www.sciencedirect.com/science/article/pii/S0097316506001397) for a nice proof of the $k=3$ case.)
 
-We can't hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-outerplanar.  The idea would be to identify a set of *exceptional vertices* that we can remove to get an $f(k)$-planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.  
+We can't hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-quasiplanar.  The idea would be to identify a set of *exceptional vertices* that we can remove to get an $f(k)$-planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.  
+
+**Update (from David Wood):** 3-quasiplanar graphs include all thickness 2 graphs, which include 1-subdivisions of all complete graphs. So 3-quasiplanar graphs have unbounded queue-number and unbounded nonrepetitive chromatic number. In the language of Nesetril and Ossona de Mendez, they are somewhere dense. This is part of the reason why the conjecture that k-quasiplanar graphs have bounded average degree is so hard.
+
+In light of the preceding update, this seems like a fruitless pursuit.
+
 
 ## The structure of graphs with (hereditary) linear crossing numbers
 
@@ -86,7 +92,7 @@ For a drawing $\Gamma(G)$ of a graph $G$, let $\cr(\Gamma(G))$ denote the number
   There exists $f:\N\to\N$ such that, for any $c$-good graph $G$, there exists a graph $H$ with $\tw(H)\le f(c)$ and a path $P$ such that $G$ is isomorphic to a subgraph of $H\boxtimes P$.
 </div>
 
-We could also weaken this conjecture to drawings with the following property: Each crossing $(e_1,e_2,p)$ can be charged to one of $e_1$ or $e_2$ in such a way that each edge of $G$ is assigned at most $k$ crossings.
+We could also weaken this conjecture to drawings with the following property: Each crossing $(e_1,e_2,p)$ can be charged to one of $e_1$ or $e_2$ in such a way that each edge of $G$ is assigned at most $k$ crossings.  Update: David Wood points out that the ability to direct crossings in this way already has a a name: [$k$-gap planarity](https://www.sciencedirect.com/science/article/abs/pii/S0304397518303670), and is equivalent to the statement ``every subgraph of the crossing graph has degree at most $2k$.'' So this version is equivalent (up to a factor of 2) to the definition of $k$-good.  This is all explained in Footnote 6 in [this paper](https://arxiv.org/pdf/2009.12989.pdf).
 
 ## The structure of sparse hereditary graph families
 
@@ -102,9 +108,11 @@ The planar product structure theorem is evidence for this conjecture, since plan
 
 This is closely related to the [implicit graph conjecture](https://en.wikipedia.org/wiki/Implicit_graph#The_implicit_graph_conjecture).  The main difference is that we consider a family of graphs that is closed under taking subgraphs, not just induced subgraphs.  This, combined with upper bound on the number of $n$-vertex graphs implies that $n$-vertex graphs in the family have $O(n)$ edges.  Of course, this is a necessary condition for $G$ to be a subgraph of $H\boxtimes P$ since any $n$-vertex subgraph of $H\boxtimes P$ has only $O(n)$ edges.
 
-A first step in proving this conjecture would be to establish a relationship between strongly sublinear separators and such a graph family $\mathcal{G}$.  A fairly straightforward divide-and-conquer counting argument shows that a graph family $\mathcal{G}$ having strongly sublinear *edge* separators contains only $n!2^{O(n)}$ graphs of size $n$.
+**Update:** David Wood points out that the class of apex graphs is closed under taking subgraphs, has the right number of $n$-vertex members, and has no product structure theorem, so it's a counterexample.  
 
-More importantly, suppose that some graph $G$ has a bipartite subgraph $(A,B,E)$ with $\|A\|=R$, $\|B\|=r$ and such that $A$ contains no twins.  Then, for any $x\in\lbrace 1,\ldots,R\rbrace$,  $G$ contains $\binom{R}{x}$ distinct subgraphs of size $x+r$.  For $R\gg r$ this is a contradiction since $\binom{R}{x} > (r+x)!2^{O(r+x)}$.  (It's certainly a contradiction for $R> r^{1+\epsilon}$.)  So this means that $G$ does not have twin-free "concentrators"
+<!-- A first step in proving this conjecture would be to establish a relationship between strongly sublinear separators and such a graph family $\mathcal{G}$.  A fairly straightforward divide-and-conquer counting argument shows that a graph family $\mathcal{G}$ having strongly sublinear *edge* separators contains only $n!2^{O(n)}$ graphs of size $n$.
+
+More importantly, suppose that some graph $G$ has a bipartite subgraph $(A,B,E)$ with $\|A\|=R$, $\|B\|=r$ and such that $A$ contains no twins.  Then, for any $x\in\lbrace 1,\ldots,R\rbrace$,  $G$ contains $\binom{R}{x}$ distinct subgraphs of size $x+r$.  For $R\gg r$ this is a contradiction since $\binom{R}{x} > (r+x)!2^{O(r+x)}$.  (It's certainly a contradiction for $R> r^{1+\epsilon}$.)  So this means that $G$ does not have twin-free "concentrators" -->
 
 
 

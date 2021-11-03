@@ -9,7 +9,7 @@ $\DeclareMathOperator{\lw}{lw}\DeclareMathOperator{\tw}{tw}\DeclareMathOperator{
 
 It is easy to check that $G$ has a layered partition $(\mathcal{L},\mathcal{P})$ with $\lw(\mathcal{L},\mathcal{P})\le w$ if and only if $G$ is isomorphic to a subgraph of $H\boxtimes P\boxtimes K_w$, where $H:=G/\mathcal{P}$, $P$ is a path, and $K_w$ is a clique on $w$ vertices.  The [*Planar Product Structure Theorem*](https://arxiv.org/abs/1904.04791) states that, for every planar graph $G$, there exists a planar graph $H$, $\tw(H)\le 8$, and a path $P$ such that $G\subseteq H\boxtimes P$.  A second version of the theorem states that for every planar graph $G$ there exists a planar graph $H$, $\tw(H)\le 3$, and a path $P$ such that $G\subseteq H\boxtimes P\boxtimes K_3$.
 
-We say that a graph family $\mathcal{G}$ has *(treewidth/pathwidth) product structure* if every member of $\mathcal{G}$ is isomorphic to a strong product of a bounded treewidth/pathwidth graph and path.
+We say that a graph family $\mathcal{G}$ has *(treewidth/pathwidth) product structure* if every member of $\mathcal{G}$ is isomorphic to a subgraph of a strong product of a bounded treewidth/pathwidth graph and a path.
 
 The planar product structure theorem has several generalizations and applications and there are a lot of open problems left and more applications to be found.
 
@@ -35,7 +35,7 @@ A *disk graph* is a graph whose vertices are closed disks in $\R^2$ and that con
 
 The preceding conjecture is probably easy and so is its generalization to $d$ dimensions.  
 
-**Update:** The $\R^d$ version of the preceding conjecture is proven in the paper by [Dvořák et al](https://arxiv.org/pdf/2001.08860.pdf) in Theorem 27.  The same paper, in Open Problem 29, asks a question closely related this conjecture:
+**Update:** The $\R^d$ version of the preceding conjecture is proven in the paper by [Dvořák et al](https://arxiv.org/pdf/2001.08860.pdf) in Theorem 27.  The same paper, in Open Problem 29, asks a question closely related to the following conjecture:
 
 <div class="conjecture">
   [Disproved] There exists a function $f:\N\to\N$ such that, for any disk graph $G$ of ply at most $k$, $G$ is a subgraph of $H\boxtimes P + K_{f(k)}$ for some graph $H$ of treewidth at most $f(k)$.
@@ -63,24 +63,29 @@ Here's one from David Wood:
    Let $G$ be the $k$-nearest-neighbour graph of an $n$-point set in $\R^d$.  Then $G$ is a subgraph of $H\boxtimes P\boxtimes P\boxtimes\cdots\boxtimes P$ where $H=H(G)$ is a graph of treewidth at most $f(d,k)$, $P$ is a path, and the number of occurrences of $P$ in the product is $d-1$.
 </div>
 
-The conjecture is true for $d=1$ (easy) and $d=2$ (in our paper on the structure of $k$-planar graphs).  Here's a stronger version that has more of a "universal graphs" flavour:
+The conjecture is true for $d=1$ (easy) and $d=2$ (in our paper on the structure of $k$-planar graphs).  Note that any complete binary tree is a $k$-nearest neighbour graph of a point set in $\R^2$, so the result of [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y) on graphs with polynomial growth doesn't apply.
+
+Here's a stronger version that has more of a "universal graphs" flavour:
 
 <div class="conjecture">
    Let $G$ be the $k$-nearest-neighbour graph of an $n$-point set in $\R^d$.  Then $G$ is a subgraph of $K\boxtimes P\boxtimes P\boxtimes\cdots\boxtimes P$ where $K$ is a clique of size at most $f(d,k)$, $P$ is a path, and the number of occurrences of $P$ in the product is $d$.
 </div>
 
-I think the case $d=1$ is not too hard: If the points are $x_1<x_2<\cdots<x_n$, then consider the graph that contains the edges $x_{i+r}x_i$ for each $r\in\lbrace-k,\ldots,k\rbrace$ and each $i\in\lbrace 1,\ldots,n\rbrace$.  This graph contains the $k$-nearest neighbour graph and has bandwidth $O(k)$.  Having bandwidth $O(k)$ is equivalent to being a subgraph of $K_{O(k)}\boxtimes P$.  (David Wood pointed out the connection between $K_x\boxtimes P$ and bandwidth.)  The case $d=2$ is still open.
+In addition to being a consequence of the [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y) result, the case $d=1$ is easy: If the points are $x_1<x_2<\cdots<x_n$, then consider the graph that contains the edges $x_{i+r}x_i$ for each $r\in\lbrace-k,\ldots,k\rbrace$ and each $i\in\lbrace 1,\ldots,n\rbrace$.  This graph contains the $k$-nearest neighbour graph and has bandwidth $O(k)$.  Having bandwidth $O(k)$ is equivalent to being a subgraph of $K_{O(k)}\boxtimes P$.  (David Wood pointed out the connection between $K_x\boxtimes P$ and bandwidth.)  
+
+The second conjecture is still open for all $d\ge 2$.  The argument for $d=1$ has a Yao graph flavour to it, which suggests we may be able to show that for every $k$-nearest neighbour graph $G$ of points in $\R^d$,  $G\subseteq K_{f(k,d)}\boxtimes P^{f(k,d)}$.
+
 
 
 ## The structure of $k$-quasiplanar graphs
 
-A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise crossing edges.  An old conjecture states that, for every $k$, there exists a constant $c_k$ such that every $n$-vertex $k$-quasiplanar graph has at most $c_k n$ edges.   This is known to be true for $k\in\lbrace 3, 4\rbrace$.  (See [Suk](https://arxiv.org/pdf/1106.0958.pdf) for $k=4$ case and [Ackerman and Tardos](https://www.sciencedirect.com/science/article/pii/S0097316506001397) for a nice proof of the $k=3$ case.)
+A topological graph is $k$-quasiplanar if it contains no $k$-tuple of pairwise crossing edges.  An old conjecture states that, for every $k$, there exists a constant $c_k$ such that every $n$-vertex $k$-quasiplanar graph has at most $c_k n$ edges.   This is known to be true for $k\in\lbrace 3, 4\rbrace$.  (See [Suk](https://arxiv.org/pdf/1106.0958.pdf) for the $k=4$ case and [Ackerman and Tardos](https://www.sciencedirect.com/science/article/pii/S0097316506001397) for a nice proof of the $k=3$ case.)
 
 We can't hope to have a product structure theorem even for $3$-quasiplanar graphs because a grid plus an apex vertex has diameter 2, treewidth $\Omega(\sqrt{n})$ and is 3-quasiplanar.  Still, I would like to know if some of the applications like queue-number and non-repetitive colouring still work for 3-quasiplanar.  The idea would be to identify a set of *exceptional vertices* that we can remove to get an $f(k)$-planar graph, solve the problem on the planar graph and then deal with these exceptional vertices separately.  
 
 **Update (from David Wood):** 3-quasiplanar graphs include all thickness 2 graphs, which include 1-subdivisions of all complete graphs. So 3-quasiplanar graphs have unbounded queue-number and unbounded nonrepetitive chromatic number. In the language of Nesetril and Ossona de Mendez, they are somewhere dense. This is part of the reason why the conjecture that k-quasiplanar graphs have bounded average degree is so hard.
 
-In light of the preceding update, this seems like a fruitless pursuit.
+In light of the preceding update, this seems like a fruitless pursuit.  Also, the [disk intersection graph G described here](#the-structure-of-disk-graphs-of-bounded-ply) is $3$-quasiplanar. (It probably has unbounded queue number.)
 
 
 ## The structure of graphs with (hereditary) linear crossing numbers
@@ -92,7 +97,7 @@ For a drawing $\Gamma(G)$ of a graph $G$, let $\cr(\Gamma(G))$ denote the number
   There exists $f:\N\to\N$ such that, for any $c$-good graph $G$, there exists a graph $H$ with $\tw(H)\le f(c)$ and a path $P$ such that $G$ is isomorphic to a subgraph of $H\boxtimes P$.
 </div>
 
-We could also weaken this conjecture to drawings with the following property: Each crossing $(e_1,e_2,p)$ can be charged to one of $e_1$ or $e_2$ in such a way that each edge of $G$ is assigned at most $k$ crossings.  Update: David Wood points out that the ability to direct crossings in this way already has a a name: [$k$-gap planarity](https://www.sciencedirect.com/science/article/abs/pii/S0304397518303670), and is equivalent to the statement ``every subgraph of the crossing graph has degree at most $2k$.'' So this version is equivalent (up to a factor of 2) to the definition of $k$-good.  This is all explained in Footnote 6 in [this paper](https://arxiv.org/pdf/2009.12989.pdf).
+I thought we could weaken this conjecture to drawings with the following property: Each crossing $(e_1,e_2,p)$ can be charged to one of $e_1$ or $e_2$ in such a way that each edge of $G$ is assigned at most $k$ crossings.  However, David Wood points out that the ability to direct crossings in this way already has a name: [$k$-gap planarity](https://www.sciencedirect.com/science/article/abs/pii/S0304397518303670), and is equivalent to the statement ``every subgraph of the crossing graph has degree at most $2k$.'' So this version is equivalent (up to a factor of 2) to the definition of $k$-good.  This is all explained in Footnote 6 in [this paper](https://arxiv.org/pdf/2009.12989.pdf).
 
 ## The structure of sparse hereditary graph families
 
@@ -108,7 +113,7 @@ The planar product structure theorem is evidence for this conjecture, since plan
 
 This is closely related to the [implicit graph conjecture](https://en.wikipedia.org/wiki/Implicit_graph#The_implicit_graph_conjecture).  The main difference is that we consider a family of graphs that is closed under taking subgraphs, not just induced subgraphs.  This, combined with upper bound on the number of $n$-vertex graphs implies that $n$-vertex graphs in the family have $O(n)$ edges.  Of course, this is a necessary condition for $G$ to be a subgraph of $H\boxtimes P$ since any $n$-vertex subgraph of $H\boxtimes P$ has only $O(n)$ edges.
 
-**Update:** David Wood points out that the class of apex graphs is closed under taking subgraphs, has the right number of $n$-vertex members, and has no product structure theorem, so it's a counterexample.  
+**Update:** David Wood points out that the class of apex graphs is closed under taking subgraphs, has the right number of $n$-vertex members.  It also has no product structure theorem because it contains diameter-$2$ treewidth-$\Omega(\sqrt{n})$ graphs, so it's a counterexample.  
 
 <!-- A first step in proving this conjecture would be to establish a relationship between strongly sublinear separators and such a graph family $\mathcal{G}$.  A fairly straightforward divide-and-conquer counting argument shows that a graph family $\mathcal{G}$ having strongly sublinear *edge* separators contains only $n!2^{O(n)}$ graphs of size $n$.
 
@@ -155,7 +160,9 @@ And now continue like that while working out boring details....
 
 # Layered Partitions versus Layered Decompositions
 
-A graph $G$ has [*layered treewidth*](https://arxiv.org/pdf/1306.1595.pdf) at most $w$ if there exists a layering $\mathcal{L}$ of $G$ and a tree decomposition $(B_x:x\in V(T))$ of $G$ such that $\max\lbrace\|L\cap B_x\|\rbrace\le w$.  Layered treewidth was introduced before layered $H$-partitions and was used to solve many of the same problems but with worse bounds.  It's worth knowing whether or not the property of bounded layered treewidth is really different from the property of being a subgraph of $H\boxtimes P$ for some graph $H$ is bounded treewidth.
+**Update:** We explored this topic and wrote [a paper](https://arxiv.org/abs/2105.01230) about it.
+
+<!-- A graph $G$ has [*layered treewidth*](https://arxiv.org/pdf/1306.1595.pdf) at most $w$ if there exists a layering $\mathcal{L}$ of $G$ and a tree decomposition $(B_x:x\in V(T))$ of $G$ such that $\max\lbrace\|L\cap B_x\|\rbrace\le w$.  Layered treewidth was introduced before layered $H$-partitions and was used to solve many of the same problems but with worse bounds.  It's worth knowing whether or not the property of bounded layered treewidth is really different from the property of being a subgraph of $H\boxtimes P$ for some graph $H$ is bounded treewidth.
 
 This is a topic I want to explore with Mehrnoosh. David, Jit, Vida, and I have been thinking about it for a while.
 
@@ -176,6 +183,6 @@ The same problem can be considered in the setting of pathwidth.  In this setting
 
 ## When are partitions and decompositions the same?
 
-The examples of graphs that have small layered treewidth/pathwidth but do not have product structure theorems all have large expansion.  That is, there are balls of radius $r$ that contain $c^r$ vertices, for some $c>1$.  Is this necessarily the case?  Does every graph family with bounded layered treewidth/pathwidth and polynomial expansion have a treewidth/pathwidth product structure theorem?  The original product structure theorem paper settles the treewidth version of this question for minor-closed graph families (Theorem 32).  Our paper on minor-closed families with bounded layered pathwidth settles this question for minor-closed graph families.
+The examples of graphs that have small layered treewidth/pathwidth but do not have product structure theorems all have large expansion.  That is, there are balls of radius $r$ that contain $c^r$ vertices, for some $c>1$.  Is this necessarily the case?  Does every graph family with bounded layered treewidth/pathwidth and polynomial expansion have a treewidth/pathwidth product structure theorem?  The original product structure theorem paper settles the treewidth version of this question for minor-closed graph families (Theorem 32).  Our paper on minor-closed families with bounded layered pathwidth settles this question for minor-closed graph families. -->
 
 # Applications

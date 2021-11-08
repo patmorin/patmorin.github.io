@@ -65,15 +65,17 @@ Here's one from David Wood:
 
 The conjecture is true for $d=1$ (easy) and $d=2$ (in our paper on the structure of $k$-planar graphs).  Note that any complete binary tree is a $k$-nearest neighbour graph of a point set in $\R^2$, so the result of [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y) on graphs with polynomial growth doesn't apply.
 
-Here's a stronger version that has more of a "universal graphs" flavour:
+~~Here's a stronger version that has more of a "universal graphs" flavour:~~
 
 <div class="conjecture">
    Let $G$ be the $k$-nearest-neighbour graph of an $n$-point set in $\R^d$.  Then $G$ is a subgraph of $K\boxtimes P\boxtimes P\boxtimes\cdots\boxtimes P$ where $K$ is a clique of size at most $f(d,k)$, $P$ is a path, and the number of occurrences of $P$ in the product is $d$.
 </div>
 
-In addition to being a consequence of the [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y) result, the case $d=1$ is easy: If the points are $x_1<x_2<\cdots<x_n$, then consider the graph that contains the edges $x_{i+r}x_i$ for each $r\in\lbrace-k,\ldots,k\rbrace$ and each $i\in\lbrace 1,\ldots,n\rbrace$.  This graph contains the $k$-nearest neighbour graph and has bandwidth $O(k)$.  Having bandwidth $O(k)$ is equivalent to being a subgraph of $K_{O(k)}\boxtimes P$.  (David Wood pointed out the connection between $K_x\boxtimes P$ and bandwidth.)  
+~~In addition to being a consequence of the [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y) result, the case $d=1$ is easy: If the points are $x_1<x_2<\cdots<x_n$, then consider the graph that contains the edges $x_{i+r}x_i$ for each $r\in\lbrace-k,\ldots,k\rbrace$ and each $i\in\lbrace 1,\ldots,n\rbrace$.  This graph contains the $k$-nearest neighbour graph and has bandwidth $O(k)$.  Having bandwidth $O(k)$ is equivalent to being a subgraph of $K_{O(k)}\boxtimes P$.  (David Wood pointed out the connection between $K_x\boxtimes P$ and bandwidth.)~~
 
-The second conjecture is still open for all $d\ge 2$.  The argument for $d=1$ has a Yao graph flavour to it, which suggests we may be able to show that for every $k$-nearest neighbour graph $G$ of points in $\R^d$,  $G\subseteq K_{f(k,d)}\boxtimes P^{f(k,d)}$.
+~~The second conjecture is still open for all $d\ge 2$.  The argument for $d=1$ has a Yao graph flavour to it, which suggests we may be able to show that for every $k$-nearest neighbour graph $G$ of points in $\R^d$,  $G\subseteq K_{f(k,d)}\boxtimes P^{f(k,d)}$.~~  
+
+The second conjecture is not true, even when $d=2$ and $k=1$. $K\subseteq P^{\|K\|}$, so $K\boxtimes P^{d}\subseteq P^{d+\|K\|}$.  The complete binary tree of height $h$ is a $1$-nearest neighbour graph of points in $\R^2$.  The growth rate of $K\boxtimes P^d$ is $r^{O(d)}$, but the growth rate of a complete binary tree is $2^{\Theta(r)}$.  The Krauthgamer and Lee result really does characterize subgraphs of $P^d$ (and hence $K\boxtimes P^d$) in terms of polynomial growth rate.  The main distinction is that some classes of dimension $\sigma$ (e.g., minor-closed) are subgraphs of $P^{O(\sigma)}$ while the general result only shows that they are subgraphs of $P^{O(\sigma\log\sigma)}$.
 
 
 

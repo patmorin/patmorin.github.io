@@ -92,6 +92,12 @@
 
 <p>We say that a graph family $\mathcal{G}$ has <em>(treewidth/pathwidth) product structure</em> if every member of $\mathcal{G}$ is isomorphic to a subgraph of a strong product of a bounded treewidth/pathwidth graph and a path.</p>
 
+<p>Any graph with product structure has an <em>$I$-shaped separator</em> of order $O(\sqrt{n})$. This is a separator of the form
+\[
+    S\subseteq (V(H)\times \lbrace x, y\rbrace) \cup (K \times P_{x,y})
+\]
+where $x$ and $y$ are two vertices of $P$, $K$ is a bag in width-$t$ tree-decomposition of $H$ and $P_{x,y}$ is the path from $x$ to $y$ in $P$.  (This can be proven by starting at the <em>median</em> row $m$ of $G$.  The vertices $x$ and $y$ are the closest vertices $x &lt; m &lt; y$ that define rows of size at most $\sqrt{n}$.  The bag $K$ is just a balanced separator of the weighted treewidth-$t$ graph where the weight of a vertex $v$ is $|\lbrace(v,z)\in V(G):z\in V(P_{x,y})\rbrace |$. )</p>
+
 <p>The planar product structure theorem has several generalizations and applications and there are a lot of open problems left and more applications to be found.</p>
 
 <h1 id="other-product-structure-theorems">Other Product Structure Theorems</h1>
@@ -135,6 +141,25 @@ so $\tw(H)\in \Omega(r)\subseteq \omega(1)$, which is a contradiction since $\tw
 <p>Open Problem 29 in <a href="https://arxiv.org/pdf/2001.08860.pdf">this paper</a> asks if every constant ply ball intersection graph in $\R^d$ can be expressed as clique-sums on graphs of the form $H\boxtimes R+K_b$.  I think the graph $G$ described above shows that the answer is no, but I first have to convince myself that clique-sums don’t help to decompose $G$.</p>
 
 <p>One might think of fixing the conjecture by restricting it to bounded-degree disk graphs.  That might work for disk graphs, but it won’t work for ball intersection graphs in $\R^3$.  In $\R^3$ we can replace each vertex $a\in A$ with a complete binary tree $T_a$.  This gives a graph of maximum degree $5$ and ply $2$ and $\psi$ has to map $N_G[T_a]$ onto a subgraph of diameter $O(\log r)$.  By taking $r\in \Omega(\sqrt{n})$, the proof for $H\boxtimes P+K_{f(s)}$ finishes with $f(2)\in\Omega(\sqrt{n}/\log n)$.  The version for $H\boxtimes R+K_r$ finishes with $f(2)\ge \sqrt{n}/g(O(\log n))$ where $g$ is the <em>growth function</em> of $R$ (so $g(x)$ is the size of the largest ball of radius $x$ in $R$).  This disproves the conjecture when $g(x)\le 2^{o(x)}$.  In particular, it disproves the conjecture when $R$ has polynomial growth, which by the result of <a href="https://doi.org/10.1007/s00493-007-2183-y">Krauthgamer and Lee</a>, is equivalent to $R\subseteq P\boxtimes\cdots\boxtimes P$.</p>
+
+<h2 id="another-try-at-characterizing-bound-ply-disk-intersection-graphs">Another Try at Characterizing Bound-Ply Disk Intersection Graphs</h2>
+
+<p>Consider a graph $G\subseteq G_0,\ldots,G_c$ that can be constructed in the following way:</p>
+
+<ol>
+  <li>For each $i\in\lbrace 0,\ldots,c\rbrace$ Begin with graphs $G_i:=H_i\boxtimes P$ for some graph $H_i$ of treewidth at most $t$ and some path $P$.</li>
+  <li>For each $0\le i &lt; j\le c$ add edges from $G_j$ to $G_i$ that satisfy the following constraints:
+    <ol>
+      <li>For each $0 \le i &lt; j\le c$, there exists a separation $(A,B)$ of $G_i$ having order $|A\cap B|\in O(\sqrt{|G_i|})$ such that $|N_G(A\setminus B)\cap V(G_j)|\le \max\lbrace c, 2|G_j|/3 \rbrace$ and $|N_G(B\setminus A)\cap V(G_j)|\le \max\lbrace c, 2|G_j|/3 \rbrace$ . (And maybe something similar for subgraphs of $G_i$.)</li>
+    </ol>
+  </li>
+</ol>
+
+<div class="conjecture">
+  Any disk intersection graph of ply at most $p$ is a subgraph of a graph $G$ that has the form described in the previous paragraph (where $c$ and $t$ are bounded by a function of $p$).
+</div>
+
+<p>If the ratio between the largest disk and smallest disk is bounded by $\sigma$ then the preceding conjecture probably holds with $c=O(\log\sigma)$.  To see this, partition the disks into $c=O(\log\sigma)$ sets $D_0,\ldots,D_c$ where the radii of disks in $D_i$ differ by a factor of at most $2$.  Let $G_i$ be the intersection graph of $D_i$. Then, by the result on unit disk graphs discussed above, $G_i\subseteq K\boxtimes P\boxtimes P$ for some clique $K$ of size $O(c)$.  For any graph $v\in V(G_j)$, $N_G(v)\cap V(G_i)$ is contained in a square subgrid of $G_i$.  Now, showing the necessary separation property involves showing that an $n$-vertex subgraph of $P\boxtimes P$ whose vertices are covered by squares of ply $O(c)$ has an $O(\sqrt{n})$ separator of the covering squares.  We can do this with $I$-shaped separator.  In fact, this separator will even guarantee that $|N_G(A)\cap V(G_j)| \le 2|G_j|/3 + O(\sqrt{|G_i|})$.</p>
 
 <h2 id="the-structure-of-k-nearest-neighbour-graphs-in-rd">The Structure of $k$-nearest neighbour graphs in $\R^d$</h2>
 <p>Here’s one from David Wood:</p>

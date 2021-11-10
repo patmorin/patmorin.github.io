@@ -98,6 +98,8 @@ The conjecture is true for $d=1$ (easy) and $d=2$ (in our paper on the structure
 
 The second conjecture is not true, even when $d=2$ and $k=1$. $K\subseteq P^{\|K\|}$, so $K\boxtimes P^{d}\subseteq P^{d+\|K\|}$.  The complete binary tree of height $h$ is a $1$-nearest neighbour graph of points in $\R^2$.  The growth rate of $K\boxtimes P^d$ is $r^{O(d)}$, but the growth rate of a complete binary tree is $2^{\Theta(r)}$.  The Krauthgamer and Lee result really does characterize subgraphs of $P^d$ (and hence $K\boxtimes P^d$) in terms of polynomial growth rate.  The main distinction is that some classes of dimension $\sigma$ (e.g., minor-closed) are subgraphs of $P^{O(\sigma)}$ while the general result only shows that they are subgraphs of $P^{O(\sigma\log\sigma)}$.
 
+[Stream of consciousness...]  So a graph is a subgraph of $H\boxtimes P^d$ if it consists of many copies of a bounded treewidth part, $H$, that are interconnected in a bounded growth network, $P^d$.
+
 
 
 ## The structure of $k$-quasiplanar graphs

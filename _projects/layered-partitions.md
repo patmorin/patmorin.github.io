@@ -61,6 +61,24 @@ Open Problem 29 in [this paper](https://arxiv.org/pdf/2001.08860.pdf) asks if ev
 
 One might think of fixing the conjecture by restricting it to bounded-degree disk graphs.  That might work for disk graphs, but it won't work for ball intersection graphs in $\R^3$.  In $\R^3$ we can replace each vertex $a\in A$ with a complete binary tree $T_a$.  This gives a graph of maximum degree $5$ and ply $2$ and $\psi$ has to map $N_G[T_a]$ onto a subgraph of diameter $O(\log r)$.  By taking $r\in \Omega(\sqrt{n})$, the proof for $H\boxtimes P+K_{f(s)}$ finishes with $f(2)\in\Omega(\sqrt{n}/\log n)$.  The version for $H\boxtimes R+K_r$ finishes with $f(2)\ge \sqrt{n}/g(O(\log n))$ where $g$ is the *growth function* of $R$ (so $g(x)$ is the size of the largest ball of radius $x$ in $R$).  This disproves the conjecture when $g(x)\le 2^{o(x)}$.  In particular, it disproves the conjecture when $R$ has polynomial growth, which by the result of [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y), is equivalent to $R\subseteq P\boxtimes\cdots\boxtimes P$.
 
+## Well-Spaced Sets of Disks
+
+We say that a set $D$ of disks is *well-spaced* if no disk in $D$ contains the center of any other disk in $D$.
+
+**Lemma D:** For any set $D$ of well-spaced set of disks and any point $p\in R^2$, there are at most $6$ points disks in $D$ that contain $p$.
+
+*Proof:* Let $c_1,\ldots,c_k$ be the centers of these disks in $D$ that contain $p$.  A standard argument (used, for example to bound the maximum degree in a Euclidean minimum spanning tree) shows that $\angle c_i p c_j\ge \pi/3$ for each $i\neq j$.  Therefore $k \le 2\pi/(\pi/3)=6$. □
+
+**Conjecture:** Let $G$ be the intersection graph of a set $D$ of well-spaced disks.  Then $G\subseteq H\boxtimes P$ for some bounded treewidth graph $H$ and some path $P$.
+
+My gut says that this conjecture has a proof similar to the proof for $k$-planar graphs. The main objects we're interested in are vertical paths in the BFS tree of $G$. Each such path corresponds to a polygonal curve through the centers of the corresponding disks.  This curve may intersect other disks not on the path, so a leg of the tripod becomes the set of all disks intersected by one of these paths.  This is similar to what happens with k-planar graphs, where a tripod leg starts with a vertical path in the BFS tree of the planar graph obtained by adding a dummy vertex at each crossing.  When a leg contains such a dummy vertex we add the four endpoints of corresponding pair of crossing edges to the leg.  (This may put a vertex in more than one leg, but we resolve this by storing the vertex at the first leg where this happens.)
+
+As it turns out, the graph drawing we get by drawing each vertex the center of its corresponding disk and drawing the edges with straight lines is not $k$-plane for any fixed $k$.  The figure below illustrates why this is so.  In this figure, the edge $EC$ is crossed by a large number of edges $AF$, $AB$, $AG$.  The disks $F$, $B$ and $G$ have radius $\epsilon$ for some tiny $\epsilon > 0$.
+
+![image](images/non-k-plane.jpg)
+
+In the $k$-planar setting, we use the Pillipczuk-Siebertz $k$-reachability lemma is to upper bound the treewidth of the graph $H$ we obtain by contracting legs.  This uses $k$-planarity, so we'll need to do something different, that uses the geometry.  There is certainly a lot of structure in the crossings that occur in this drawing.  In particular, I believe that the number of *independent* edges that cross a particular edge $uv$ is $O(1)$, so the set of edges that cross $uv$ has an $O(1)$-sized vertex cover.  (I also suspect that no pair of highly-crossed edges crosses each other.)
+
 
 ## Another Try at Characterizing Bound-Ply Disk Intersection Graphs
 

@@ -61,6 +61,22 @@ Open Problem 29 in [this paper](https://arxiv.org/pdf/2001.08860.pdf) asks if ev
 
 One might think of fixing the conjecture by restricting it to bounded-degree disk graphs.  That might work for disk graphs, but it won't work for ball intersection graphs in $\R^3$.  In $\R^3$ we can replace each vertex $a\in A$ with a complete binary tree $T_a$.  This gives a graph of maximum degree $5$ and ply $2$ and $\psi$ has to map $N_G[T_a]$ onto a subgraph of diameter $O(\log r)$.  By taking $r\in \Omega(\sqrt{n})$, the proof for $H\boxtimes P+K_{f(s)}$ finishes with $f(2)\in\Omega(\sqrt{n}/\log n)$.  The version for $H\boxtimes R+K_r$ finishes with $f(2)\ge \sqrt{n}/g(O(\log n))$ where $g$ is the *growth function* of $R$ (so $g(x)$ is the size of the largest ball of radius $x$ in $R$).  This disproves the conjecture when $g(x)\le 2^{o(x)}$.  In particular, it disproves the conjecture when $R$ has polynomial growth, which by the result of [Krauthgamer and Lee](https://doi.org/10.1007/s00493-007-2183-y), is equivalent to $R\subseteq P\boxtimes\cdots\boxtimes P$.
 
+## Another Try at Characterizing Bound-Ply Disk Intersection Graphs
+
+Consider a graph $G\subseteq G_0,\ldots,G_c$ that can be constructed in the following way:
+
+1. For each $i\in\lbrace 0,\ldots,c\rbrace$ Begin with graphs $G_i:=H_i\boxtimes P$ for some graph $H_i$ of treewidth at most $t$ and some path $P$.
+2. For each $0\le i < j\le c$ add edges from $G_j$ to $G_i$ that satisfy the following constraints:
+    1. For each $0 \le i < j\le c$, there exists a separation $(A,B)$ of $G_i$ having order $\|A\cap B\|\in O(\sqrt{\|G_i\|})$ such that $\|N_G(A\setminus B)\cap V(G_j)\|\le \max\lbrace c, 2\|G_j\|/3 \rbrace$ and $\|N_G(B\setminus A)\cap V(G_j)\|\le \max\lbrace c, 2\|G_j\|/3 \rbrace$ . (And maybe something similar for subgraphs of $G_i$.)
+
+<div class="conjecture">
+  Any disk intersection graph of ply at most $p$ is a subgraph of a graph $G$ that has the form described in the previous paragraph (where $c$ and $t$ are bounded by a function of $p$).
+</div>
+
+If the ratio between the largest disk and smallest disk is bounded by $\sigma$ then the preceding conjecture probably holds with $c=O(\log\sigma)$.  To see this, partition the disks into $c=O(\log\sigma)$ sets $D_0,\ldots,D_c$ where the radii of disks in $D_i$ differ by a factor of at most $2$.  Let $G_i$ be the intersection graph of $D_i$. Then, by the result on unit disk graphs discussed above, $G_i\subseteq K\boxtimes P\boxtimes P$ for some clique $K$ of size $O(c)$.  For any graph $v\in V(G_j)$, $N_G(v)\cap V(G_i)$ is contained in a square subgrid of $G_i$.  Now, showing the necessary separation property involves showing that an $n$-vertex subgraph of $P\boxtimes P$ whose vertices are covered by squares of ply $O(c)$ has an $O(\sqrt{n})$ separator of the covering squares.  We can do this with $I$-shaped separator.  In fact, this separator will even guarantee that $\|N_G(A)\cap V(G_j)\| \le 2\|G_j\|/3 + O(\sqrt{\|G_i\|})$.
+
+Of course, this partitioning of disks based on radii will, in general result in too many parts.  The next section looks at an alternative that might be the right thing to use for the graphs $G_1,\ldots,G_c$.
+
 ## Well-Spaced Sets of Disks
 
 We say that a set $D$ of disks is *well-spaced* if no disk in $D$ contains the center of any other disk in $D$.
@@ -77,22 +93,9 @@ As it turns out, the graph drawing we get by drawing each vertex the center of i
 
 ![image](images/non-k-plane.jpg)
 
-In the $k$-planar setting, we use the Pillipczuk-Siebertz $k$-reachability lemma is to upper bound the treewidth of the graph $H$ we obtain by contracting legs.  This uses $k$-planarity, so we'll need to do something different, that uses the geometry.  There is certainly a lot of structure in the crossings that occur in this drawing.  In particular, I believe that the number of *independent* edges that cross a particular edge $uv$ is $O(1)$, so the set of edges that cross $uv$ has an $O(1)$-sized vertex cover.  (I also suspect that no pair of highly-crossed edges crosses each other.)
+In the $k$-planar setting, we use the Pillipczuk-Siebertz $k$-reachability lemma to upper bound the treewidth of the graph $H$ we obtain by contracting legs.  This uses $k$-planarity, so we'll need to do something different, that uses the geometry.  There is certainly a lot of structure in the crossings that occur in this drawing.  In particular, I believe that the number of *independent* edges that cross a particular edge $uv$ is $O(1)$, so the set of edges that cross $uv$ has an $O(1)$-sized vertex cover.  (I also suspect that no pair of highly-crossed edges crosses each other.)
 
 
-## Another Try at Characterizing Bound-Ply Disk Intersection Graphs
-
-Consider a graph $G\subseteq G_0,\ldots,G_c$ that can be constructed in the following way:
-
-1. For each $i\in\lbrace 0,\ldots,c\rbrace$ Begin with graphs $G_i:=H_i\boxtimes P$ for some graph $H_i$ of treewidth at most $t$ and some path $P$.
-2. For each $0\le i < j\le c$ add edges from $G_j$ to $G_i$ that satisfy the following constraints:
-    1. For each $0 \le i < j\le c$, there exists a separation $(A,B)$ of $G_i$ having order $\|A\cap B\|\in O(\sqrt{\|G_i\|})$ such that $\|N_G(A\setminus B)\cap V(G_j)\|\le \max\lbrace c, 2\|G_j\|/3 \rbrace$ and $\|N_G(B\setminus A)\cap V(G_j)\|\le \max\lbrace c, 2\|G_j\|/3 \rbrace$ . (And maybe something similar for subgraphs of $G_i$.)
-
-<div class="conjecture">
-  Any disk intersection graph of ply at most $p$ is a subgraph of a graph $G$ that has the form described in the previous paragraph (where $c$ and $t$ are bounded by a function of $p$).
-</div>
-
-If the ratio between the largest disk and smallest disk is bounded by $\sigma$ then the preceding conjecture probably holds with $c=O(\log\sigma)$.  To see this, partition the disks into $c=O(\log\sigma)$ sets $D_0,\ldots,D_c$ where the radii of disks in $D_i$ differ by a factor of at most $2$.  Let $G_i$ be the intersection graph of $D_i$. Then, by the result on unit disk graphs discussed above, $G_i\subseteq K\boxtimes P\boxtimes P$ for some clique $K$ of size $O(c)$.  For any graph $v\in V(G_j)$, $N_G(v)\cap V(G_i)$ is contained in a square subgrid of $G_i$.  Now, showing the necessary separation property involves showing that an $n$-vertex subgraph of $P\boxtimes P$ whose vertices are covered by squares of ply $O(c)$ has an $O(\sqrt{n})$ separator of the covering squares.  We can do this with $I$-shaped separator.  In fact, this separator will even guarantee that $\|N_G(A)\cap V(G_j)\| \le 2\|G_j\|/3 + O(\sqrt{\|G_i\|})$.
 
 
 ## The Structure of $k$-nearest neighbour graphs in $\R^d$

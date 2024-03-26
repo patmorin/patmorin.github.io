@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: student
 title:  "Saeed Odak"
 date:   2024-03-26
 permalink: odak.html

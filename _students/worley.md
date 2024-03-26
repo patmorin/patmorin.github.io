@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: student
 title:  "David Worley"
 date:   2024-03-26
 permalink: worley.html

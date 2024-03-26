@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: student
 title:  "Hussein Houdrouge"
 date:   2024-03-26
 permalink: houdrouge.html
